@@ -1,0 +1,172 @@
+.app_body .main, body {
+  display: grid;
+}
+
+.app_body .main .resolution--radio-label, .app_body .main .resolution--radio, .app_body .main .color--elem, .app_body .header {
+  display: flex;
+}
+
+.app_body .main .resolution, .app_body .main .color, .app_body .main .tools {
+  width: 228px;
+  height: 246px;
+  color: rgba(0, 0, 0, 0.541327);
+  margin-left: 29px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border: 1px solid #e6e6e6;
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+}
+
+* {
+  box-sizing: content-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  justify-items: center;
+}
+
+.app_body {
+  width: 1440px;
+  max-width: 100%;
+  min-width: 600px;
+  height: 900px;
+  border: 1px solid #e6e6e6;
+}
+.app_body .header {
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 48px;
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+}
+.app_body .header--burger_menu {
+  margin: 0.9rem;
+  position: relative;
+  padding-left: 1.25rem;
+}
+.app_body .header--burger_menu:hover {
+  cursor: pointer;
+}
+.app_body .header--burger_menu:before {
+  content: "";
+  position: absolute;
+  top: 0.25em;
+  left: 0;
+  width: 1em;
+  height: 0.125em;
+  border-top: 0.375em double #000;
+  border-bottom: 0.125em solid #000;
+}
+.app_body .header--h1 {
+  margin: 0.9rem;
+  flex-grow: 1;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.4375rem;
+}
+.app_body .header--three_point {
+  margin: 0.9rem;
+  font-size: 1.3rem;
+  writing-mode: vertical-rl;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+.app_body .header--three_point:hover {
+  cursor: pointer;
+}
+.app_body .main {
+  grid-row: 1/2;
+  grid-template: 50% 50%/20% 60% 20%;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.app_body .main .tools {
+  font-family: "Roboto", sans-serif;
+}
+.app_body .main .tools--elem {
+  padding: 15px 18px 10px;
+}
+.app_body .main .tools--elem-img {
+  margin-right: 20px;
+}
+.app_body .main .color {
+  grid-row: 2/3;
+  font-family: "Roboto", sans-serif;
+}
+.app_body .main .color--elem {
+  padding: 15px 18px 10px;
+}
+.app_body .main .color--elem-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #000000;
+  margin-right: 20px;
+}
+.app_body .main .color--elem-circle.current {
+  background-color: #C4C4C4;
+}
+.app_body .main .color--elem-circle.prev {
+  background-color: #41F795;
+}
+.app_body .main .color--elem-circle.red {
+  background-color: #F74141;
+}
+.app_body .main .color--elem-circle.blue {
+  background-color: #41B6F7;
+}
+.app_body .main #canvas {
+  border: 1px solid black;
+  grid-column: 2/3;
+  grid-row: 1/3;
+  justify-self: center;
+  align-self: center;
+}
+.app_body .main .resolution {
+  grid-column: 3/4;
+  grid-row: 1/2;
+  font-family: "Roboto", sans-serif;
+}
+.app_body .main .resolution--title {
+  padding-left: 15px;
+}
+.app_body .main .resolution--radio {
+  padding: 15px 0 10px;
+  justify-content: center;
+}
+.app_body .main .resolution--radio-input {
+  display: none;
+}
+.app_body .main .resolution--radio-input:checked + .resolution--radio-label {
+  background-color: rgba(210, 210, 210, 0.5);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+}
+.app_body .main .resolution--radio-label {
+  justify-content: flex-start;
+  border: 1px solid #e6e6e6;
+  width: 80%;
+  padding: 5px;
+}
+.app_body .main .resolution--radio-label img {
+  margin: 0 1.2em 0 0.3em;
+}
+.app_body .main .resolution--radio-label:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+}
+.app_body .main .resolution--radio-label:active {
+  cursor: pointer;
+  -webkit-box-shadow: 0 7px 7px 3px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 7px 7px 3px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.12);
+}
+
+/*# sourceMappingURL=style.css.map */
