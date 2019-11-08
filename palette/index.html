@@ -6,6 +6,37 @@
     <title>Palette</title>
 </head>
 <body>
+<div class="app_body">
+    <header class="header">
+        <div class="header--burger_menu"></div>
+        <h1 class="header--h1">CodeJam - Pallete</h1>
+        <div class="header--three_point">...</div>
+    </header>
+    <main class="main">
+        <aside class="tools">
+            <div class="resolution--radio">
+                <input type="radio" id="4x4" name="tools" value="4x4" class="resolution--radio-input">
+                <label for="4x4" class="resolution--radio-label"><img src="./assets/img/fill_bucket.svg" alt="fill bucket">Fill bucket</label>
+            </div>
+
+            <div class="resolution--radio">
+                <input type="radio" id="32x32" name="tools" value="32x32" class="resolution--radio-input">
+                <label for="32x32" class="resolution--radio-label"><img src="./assets/img/choose_color.svg" alt="choose color">Choose color</label>
+            </div>
+
+            <div class="resolution--radio">
+                <input type="radio" id="256x256" name="tools" value="256x256" class="resolution--radio-input"
+                       checked>
+                <label for="256x256" class="resolution--radio-label"><img src="./assets/img/pencil.svg" alt="pencil">Pencil</label>
+            </div>
+        </aside>
+        <aside class="color">
+
+
+        </aside>
+        <canvas id="canvas">Update you browser!</canvas>
+    </main>
+</div>
 <script src="./script.js"></script>
 </body>
 </html>
