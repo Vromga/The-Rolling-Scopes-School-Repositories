@@ -1,40 +1,55 @@
-console.log('work');
 const canvas = document.getElementById('canvas');
-const context = canvas.getContext('2d');
-let canvasWH = 512;
+const ctx = canvas.getContext('2d');
+let click = document.querySelector('.color');
+let currentColor = '#00ff00';
+const tools = {
+    fillBucket: false,
+    chooseColor: false,
+    pencil: false
+};
 
-canvas.setAttribute('width', `${canvasWH}`);
-canvas.setAttribute('height', `${canvasWH}`);
 
-const mouse = {x: 0, y: 0};
-let draw = false;
+function takeColor() {
+    return document.querySelector('#current').value;
+}
 
-canvas.addEventListener("mousedown", function (e) {
+function setPrevColor() {
+    let temp = takeColor();
+    let prevColor = document.getElementById('prev');
+    prevColor.style.backgroundColor = temp;
+    prevColor.setAttribute('data', `${temp}`);
+}
 
-    mouse.x = e.pageX - this.offsetLeft;
-    mouse.y = e.pageY - this.offsetTop;
-    draw = true;
-    context.beginPath();
-    context.moveTo(mouse.x, mouse.y);
-});
-canvas.addEventListener("mousemove", function (e) {
-
-    if (draw === true) {
-
-        mouse.x = e.pageX - this.offsetLeft;
-        mouse.y = e.pageY - this.offsetTop;
-        context.lineTo(mouse.x, mouse.y);
-        context.stroke();
+click.onclick = function (event) {
+    console.dir(event.target);
+    let current = document.querySelector('#current');
+    if (event.target.innerText === 'blue') {
+        setPrevColor();
+        current.value = `#0000FF`;
+    } else if (event.target.innerText === 'red') {
+        setPrevColor();
+        current.value = `#FF0000`;
+    } else if (event.target.innerText === 'Prev color') {
+        current.value = event.target.previousElementSibling.getAttribute('data');
+    } else if (event.target.innerText === 'Current color' || event.target.type === 'color'){
+        setPrevColor();
     }
-});
-canvas.addEventListener("mouseup", function (e) {
+};
 
-    mouse.x = e.pageX - this.offsetLeft;
-    mouse.y = e.pageY - this.offsetTop;
-    context.lineTo(mouse.x, mouse.y);
-    context.stroke();
-    context.closePath();
-    draw = false;
-});
+canvas.width = 512;
+canvas.height = 512;
+const matrix = 128;
+
+
+canvas.onmousedown = function (event) {
+    console.dir(event);
+    let x = Math.floor(event.offsetX / matrix);
+    let y = Math.floor(event.offsetY / matrix);
+    ctx.fillStyle = `${takeColor()}`;
+    ctx.fill();
+    ctx.fillRect(x * matrix, y * matrix, matrix, matrix);
+};
+
+
 
 
