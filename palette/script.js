@@ -5,7 +5,7 @@ let currentColor = '#00ff00';
 const tools = {
     fillBucket: false,
     chooseColor: false,
-    pencil: false
+    pencil: true
 };
 
 
@@ -31,7 +31,7 @@ click.onclick = function (event) {
         current.value = `#FF0000`;
     } else if (event.target.innerText === 'Prev color') {
         current.value = event.target.previousElementSibling.getAttribute('data');
-    } else if (event.target.innerText === 'Current color' || event.target.type === 'color'){
+    } else if (event.target.innerText === 'Current color' || event.target.type === 'color') {
         setPrevColor();
     }
 };
@@ -40,14 +40,24 @@ canvas.width = 512;
 canvas.height = 512;
 const matrix = 128;
 
-
 canvas.onmousedown = function (event) {
-    console.dir(event);
-    let x = Math.floor(event.offsetX / matrix);
-    let y = Math.floor(event.offsetY / matrix);
-    ctx.fillStyle = `${takeColor()}`;
-    ctx.fill();
-    ctx.fillRect(x * matrix, y * matrix, matrix, matrix);
+    if (tools.pencil === true) {
+        let x = Math.floor(event.offsetX / matrix);
+        let y = Math.floor(event.offsetY / matrix);
+        ctx.fillStyle = `${takeColor()}`;
+        ctx.fill();
+        ctx.fillRect(x * matrix, y * matrix, matrix, matrix);
+        canvas.onmousemove = function (event) {
+            let x = Math.floor(event.offsetX / matrix);
+            let y = Math.floor(event.offsetY / matrix);
+            ctx.fillStyle = `${takeColor()}`;
+            ctx.fill();
+            ctx.fillRect(x * matrix, y * matrix, matrix, matrix);
+        };
+        canvas.onmouseup = function () {
+            canvas.onmousemove = null;
+        };
+    }
 };
 
 
