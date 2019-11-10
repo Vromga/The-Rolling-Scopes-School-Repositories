@@ -2,15 +2,38 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const colorGet = document.querySelector('.color');
 const selectTool = document.querySelector('.tools');
+
 const tools = {
     fillBucket: false,
     chooseColor: false,
     pencil: true
 };
 
+
 canvas.width = 512;
 canvas.height = 512;
 const matrix = 128;
+
+function saveApp() {
+    localStorage.setItem('canvasImage', canvas.toDataURL());
+    console.log('Saved...');
+}
+
+function restoreCanvas() {
+    let dataURL = localStorage.getItem('canvasImage');
+    let img = new Image;
+    img.src = dataURL;
+    img.onload = function () {
+        ctx.drawImage(img, 0, 0);
+    };
+}
+
+function clearCanvas() {
+    ctx.fillStyle = `#ffffff`;
+    ctx.fill();
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
 
 function takeColor() {
     return document.querySelector('#current').value;
@@ -116,6 +139,17 @@ document.addEventListener('keydown', (event) => {
         case 'KeyC':
             selectTool.children[1].click();
             break;
+
+        case 'KeyS':
+            saveApp();
+            break;
+
+        case 'KeyR':
+            clearCanvas();
+            break;
+
+        case 'KeyL':
+            restoreCanvas();
     }
 });
 
