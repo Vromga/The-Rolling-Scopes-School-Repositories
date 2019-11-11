@@ -8,15 +8,23 @@ const tools = {
     chooseColor: false,
     pencil: true
 };
-
+addRemoveClass();
 
 canvas.width = 512;
 canvas.height = 512;
-const matrix = 128;
+let matrix = 128;
+
+function colorSave() {
+    const colorObj = {};
+    colorObj.current = document.querySelector('#current').value;
+    colorObj.prev = document.querySelector('#prev').style.backgroundColor;
+    return JSON.stringify(colorObj);
+}
 
 function saveApp() {
     localStorage.setItem('canvasImage', canvas.toDataURL());
     localStorage.setItem('tools', JSON.stringify(tools));
+    localStorage.setItem('color', colorSave());
     console.log('Saved...');
 }
 
@@ -35,6 +43,11 @@ function restoreCanvas() {
     tools.fillBucket = toolsJSON.fillBucket;
     tools.chooseColor = toolsJSON.chooseColor;
     tools.pencil = toolsJSON.pencil;
+    addRemoveClass();
+
+    let colorJSON = JSON.parse(localStorage.getItem('color'));
+    document.querySelector('#current').value = colorJSON.current;
+    document.querySelector('#prev').style.backgroundColor = colorJSON.prev;
 }
 
 function clearCanvas() {
@@ -43,6 +56,21 @@ function clearCanvas() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
+function addRemoveClass() {
+    let button = document.querySelectorAll('.tools--buttons-elem');
+    [...button].forEach(elem => {
+        elem.classList.remove('active');
+    });
+    if(tools.fillBucket === true){
+        button[0].classList.add('active');
+    }
+    if(tools.chooseColor === true){
+        button[1].classList.add('active');
+    }
+    if(tools.pencil === true){
+        button[2].classList.add('active');
+    }
+}
 
 function takeColor() {
     return document.querySelector('#current').value;
@@ -97,6 +125,7 @@ selectTool.onclick = function (event) {
     } else if (event.target.innerText === 'Pencil') {
         tools.pencil = true;
     }
+    addRemoveClass();
 };
 
 canvas.onmousedown = function (event) {
