@@ -16,6 +16,7 @@ const matrix = 128;
 
 function saveApp() {
     localStorage.setItem('canvasImage', canvas.toDataURL());
+    localStorage.setItem('tools', JSON.stringify(tools));
     console.log('Saved...');
 }
 
@@ -26,6 +27,14 @@ function restoreCanvas() {
     img.onload = function () {
         ctx.drawImage(img, 0, 0);
     };
+
+    let toolsJSON = JSON.parse(localStorage.getItem('tools'));
+    tools.fillBucket = false;
+    tools.chooseColor = false;
+    tools.pencil = false;
+    tools.fillBucket = toolsJSON.fillBucket;
+    tools.chooseColor = toolsJSON.chooseColor;
+    tools.pencil = toolsJSON.pencil;
 }
 
 function clearCanvas() {
