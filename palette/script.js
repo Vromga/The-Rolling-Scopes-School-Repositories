@@ -128,20 +128,50 @@ selectTool.onclick = (event) => {
   }
   addRemoveClass();
 };
+const cordPixel = {
+  x0: 0,
+  y0: 0,
+  x1: 0,
+  y1: 0,
+};
+function setPixel(x, y) {
+  ctx.beginPath();
+  ctx.fillStyle = `${takeColor()}`;
+  ctx.fill();
+  ctx.fillRect(x * matrix, y * matrix, matrix, matrix);
+  cordPixel.x0 = cordPixel.x1;
+  cordPixel.y0 = cordPixel.y1;
+}
+function bline(x0, y0, x1, y1) {
+  const dx = Math.abs(x1 - x0);
+  const sx = x0 < x1 ? 1 : -1;
+  const dy = Math.abs(y1 - y0);
+  const sy = y0 < y1 ? 1 : -1;
+  let err = (dx > dy ? dx : -dy) / 2;
+  while (true) {
+    setPixel(x0, y0);
+    if (x0 === x1 && y0 === y1) break;
+    const e2 = err;
+    if (e2 > -dx) {
+      err -= dy;
+      x0 += sx;
+    }
+    if (e2 < dy) {
+      err += dx;
+      y0 += sy;
+    }
+  }
+}
 
 canvas.onmousedown = (event) => {
   if (tools.pencil === true) {
-    const x = Math.floor(event.offsetX / matrix);
-    const y = Math.floor(event.offsetY / matrix);
-    ctx.fillStyle = `${takeColor()}`;
-    ctx.fill();
-    ctx.fillRect(x * matrix, y * matrix, matrix, matrix);
+    cordPixel.x0 = Math.floor(event.offsetX / matrix);
+    cordPixel.y0 = Math.floor(event.offsetY / matrix);
+
     canvas.onmousemove = function painMove(event) {
-      const xMove = Math.floor(event.offsetX / matrix);
-      const yMove = Math.floor(event.offsetY / matrix);
-      ctx.fillStyle = `${takeColor()}`;
-      ctx.fill();
-      ctx.fillRect(xMove * matrix, yMove * matrix, matrix, matrix);
+      cordPixel.x1 = Math.floor(event.offsetX / matrix);
+      cordPixel.y1 = Math.floor(event.offsetY / matrix);
+      bline(cordPixel.x0, cordPixel.y0, cordPixel.x1, cordPixel.y1);
     };
     canvas.onmouseleave = () => {
       canvas.onmousemove = null;

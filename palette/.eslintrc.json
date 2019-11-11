@@ -16,6 +16,8 @@
     "rules": {
         "no-switch-case-fall-through": "off",
         "no-shadow": "off",
-        "no-bitwise": "off"
+        "no-bitwise": "off",
+        "no-param-reassign": 0,
+        "no-constant-condition": 0
     }
 }
