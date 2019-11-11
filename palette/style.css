@@ -6,7 +6,7 @@
   display: flex;
 }
 
-.app_body .color, .app_body .main .tools--buttons-elem, .app_body .main .tools {
+.app_body .hot_key, .app_body .color, .app_body .main .tools--buttons-elem, .app_body .main .tools {
   width: 228px;
   height: 246px;
   color: rgba(0, 0, 0, 0.541327);
@@ -158,6 +158,21 @@ body {
   height: 20px;
   border: 1px solid black;
   margin-right: 10px;
+}
+.app_body .hot_key {
+  font-family: "Roboto", sans-serif;
+  padding: 15px;
+  margin: 0;
+}
+.app_body .hot_key h2 {
+  font-size: 1.5rem;
+}
+.app_body .hot_key--text {
+  margin: 0;
+  padding: 2px;
+}
+.app_body .resolution {
+  font-family: "Roboto", sans-serif;
 }
 
 #red {
