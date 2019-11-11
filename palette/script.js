@@ -2,7 +2,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const colorGet = document.querySelector('.color');
 const selectTool = document.querySelector('.tools');
-
+const resolution = document.querySelector('#resolution');
 const tools = {
   fillBucket: false,
   chooseColor: false,
@@ -29,7 +29,10 @@ addRemoveClass();
 
 canvas.width = 512;
 canvas.height = 512;
-const matrix = 128;
+let matrix = 128;
+resolution.addEventListener('change', (event) => {
+  matrix = event.target.value;
+});
 
 function colorSave() {
   const colorObj = {};
