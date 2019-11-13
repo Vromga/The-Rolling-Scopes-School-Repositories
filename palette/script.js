@@ -8,6 +8,7 @@ const tools = {
   chooseColor: false,
   pencil: true,
 };
+let isDraw = false;
 
 function addRemoveClass() {
   const button = document.querySelectorAll('.tools--buttons-elem');
@@ -137,6 +138,7 @@ const cordPixel = {
   x1: 0,
   y1: 0,
 };
+
 function setPixel(x, y) {
   ctx.beginPath();
   ctx.fillStyle = `${takeColor()}`;
@@ -145,7 +147,8 @@ function setPixel(x, y) {
   cordPixel.x0 = cordPixel.x1;
   cordPixel.y0 = cordPixel.y1;
 }
-function bline(x0, y0, x1, y1) {
+
+function algoritmBresenham(x0, y0, x1, y1) {
   const dx = Math.abs(x1 - x0);
   const sx = x0 < x1 ? 1 : -1;
   const dy = Math.abs(y1 - y0);
@@ -166,23 +169,12 @@ function bline(x0, y0, x1, y1) {
   }
 }
 
-canvas.onmousedown = (event) => {
-  if (tools.pencil === true) {
+document.addEventListener('mousedown', (event) => {
+  if (tools.pencil === true && event.target.id === 'canvas') {
+    isDraw = true;
     cordPixel.x0 = Math.floor(event.offsetX / matrix);
     cordPixel.y0 = Math.floor(event.offsetY / matrix);
-
-    canvas.onmousemove = function painMove(event) {
-      cordPixel.x1 = Math.floor(event.offsetX / matrix);
-      cordPixel.y1 = Math.floor(event.offsetY / matrix);
-      bline(cordPixel.x0, cordPixel.y0, cordPixel.x1, cordPixel.y1);
-    };
-    canvas.onmouseleave = () => {
-      canvas.onmousemove = null;
-    };
-    canvas.onmouseup = () => {
-      canvas.onmousemove = null;
-    };
-  } else if (tools.chooseColor === true) {
+  } else if (tools.chooseColor === true && event.target.id === 'canvas') {
     const x = event.offsetX;
     const y = event.offsetY;
     const current = document.querySelector('#current');
@@ -190,12 +182,26 @@ canvas.onmousedown = (event) => {
     setPrevColor();
     const objColor = getColorAtPixel(colorPick, x, y);
     current.value = `#${(`000000${rgbToHex(objColor.r, objColor.g, objColor.b)}`).slice(-6)}`;
-  } else if (tools.fillBucket === true) {
+  } else if (tools.fillBucket === true && event.target.id === 'canvas') {
     ctx.fillStyle = `${takeColor()}`;
     ctx.fill();
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
-};
+});
+document.addEventListener('mousemove', (event) => {
+  if (isDraw === true) {
+    cordPixel.x1 = Math.floor(event.offsetX / matrix);
+    cordPixel.y1 = Math.floor(event.offsetY / matrix);
+    algoritmBresenham(cordPixel.x0, cordPixel.y0, cordPixel.x1, cordPixel.y1);
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  if (tools.pencil === true) {
+    isDraw = false;
+  }
+});
+
 
 document.addEventListener(
   'keydown', (event) => {
