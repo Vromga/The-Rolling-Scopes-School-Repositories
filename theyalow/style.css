@@ -689,6 +689,7 @@ body {
     .gadget--h2{
         grid-column: 1/2;
         margin: 15px;
+        font-size: 36px;
     }
 
     .gadget--img{
@@ -699,6 +700,5 @@ body {
     .privilege{
         display: none;
     }
-
 }
 
