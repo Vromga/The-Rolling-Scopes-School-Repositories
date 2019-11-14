@@ -5,14 +5,17 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "eslint": "eslint script.js"
+    "eslint": "eslint assets/src/index.js",
+    "build": "webpack"
   },
   "author": "Mikita Maiseichyk",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2"
+    "eslint-plugin-import": "^2.18.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   },
   "dependencies": {
     "eslint-plugin-json": "^2.0.1"
