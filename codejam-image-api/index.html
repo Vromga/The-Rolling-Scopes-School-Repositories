@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <title>Palette</title>
+</head>
+<body>
+<div class="app_body">
+    <header class="header">
+        <div class="header--burger_menu"></div>
+        <h1 class="header--h1">CodeJam - Palette</h1>
+        <div class="header--three_point">...</div>
+    </header>
+    <main class="main">
+        <aside class="tools">
+            <div class="tools--buttons">
+                <button class="tools--buttons-elem">
+                    <img src="./assets/img/fill_bucket.svg" alt="Fill bucket">Fill bucket
+                </button>
+            </div>
+
+            <div class="tools--buttons">
+                <button class="tools--buttons-elem">
+                    <img src="./assets/img/choose_color.svg" alt="choose color">Choose color
+                </button>
+            </div>
+
+            <div class="tools--buttons">
+                <button class="tools--buttons-elem">
+                    <img src="./assets/img/pencil.svg" alt="pencil">Pencil
+                </button>
+            </div>
+        </aside>
+        <aside class="color">
+            <div class="chose_color">
+                <div class="chose_color--elem colorGet">
+                    <input type="color" name="color" id="current" value="#00FF00">
+                    <label for="current">Current color</label>
+                </div>
+                <div class="chose_color--elem colorGet">
+                    <div class="chose_color--elem-circle" id="prev" style="background-color: #000000"></div>
+                    <div class="chose_color--elem-text">Prev color</div>
+                </div>
+                <div class="chose_color--elem colorGet">
+                    <div class="chose_color--elem-circle" id="blue" style="background-color: #0000FF"></div>
+                    <div class="chose_color--elem-text">blue</div>
+                </div>
+                <div class="chose_color--elem colorGet">
+                    <div class="chose_color--elem-circle" id="red" style="background-color: #FF0000"></div>
+                    <div class="chose_color--elem-text">red</div>
+                </div>
+            </div>
+        </aside>
+        <canvas id="canvas">Update you browser!</canvas>
+        <aside class="hot_key">
+            <h2>Keyboard controls</h2>
+            <p class="hot_key--text">Key B - Fill bucket</p>
+            <p class="hot_key--text">Key C - Choose color</p>
+            <p class="hot_key--text">Key P - Pencil</p>
+            <p class="hot_key--text">Key S - Save app</p>
+            <p class="hot_key--text">Key L - Load app</p>
+            <p class="hot_key--text">Key R - Reset canvas</p>
+        </aside>
+        <aside class="resolution">
+            <label for="resolution"> Choose resolution<br>canvas in pixel<br></label>
+            <select name="resolution" id="resolution">
+                <option value="128">4x4</option>
+                <option value="64">8x8</option>
+                <option value="32">16x16</option>
+                <option value="16">32x32</option>
+                <option value="8">64x64</option>
+                <option value="4">128x128</option>
+            </select>
+
+        </aside>
+    </main>
+</div>
+<script src="./script.js"></script>
+</body>
+</html>
