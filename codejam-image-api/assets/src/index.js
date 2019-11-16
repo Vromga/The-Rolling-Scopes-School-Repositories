@@ -11,6 +11,8 @@ const tools = {
   pencil: true,
 };
 let isDraw = false;
+let isInput = false;
+searchInput.blur();
 let image;
 
 function addRemoveClass() {
@@ -255,16 +257,22 @@ document.addEventListener('mouseup', () => {
 });
 
 document.addEventListener('click', (e) => {
+  if (e.target.id === 'text') {
+    isInput = true;
+  } else {
+    isInput = false;
+  }
   if (e.target.innerText === 'load') {
     clearCanvas();
+
     image = getLinkToImage('town,London');
     loadImage(image);
   }
 });
 
 
-document.addEventListener(
-  'keydown', (event) => {
+document.addEventListener('keydown', (event) => {
+  if (isInput === false) {
     switch (event.code) {
       case 'KeyB':
         selectTool.children[0].click();
@@ -293,5 +301,5 @@ document.addEventListener(
       default:
         break;
     }
-  },
-);
+  }
+});
