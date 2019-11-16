@@ -32,14 +32,12 @@ function addRemoveClass() {
 }
 
 addRemoveClass();
-canvas.style.width = '512px';
-canvas.style.height = '512px';
-canvas.width = canvas.offsetWidth;
-canvas.height = canvas.offsetHeight;
-let matrix = 128;
-resolution.addEventListener('change', (event) => {
-  matrix = event.target.value;
-});
+const realSizeCanvas = 512;
+let virtualPixelCanvas = 4;
+canvas.style.width = `${realSizeCanvas}px`;
+canvas.style.height = `${realSizeCanvas}px`;
+canvas.width = realSizeCanvas / virtualPixelCanvas;
+canvas.height = realSizeCanvas / virtualPixelCanvas;
 
 function colorSave() {
   const colorObj = {};
@@ -76,7 +74,7 @@ function restoreCanvas() {
   document.querySelector('#prev').style.backgroundColor = colorJSON.prev;
 }
 
-function searcWord() {
+function searchWord() {
    return searchInput.value.split(' ').join(',');
 }
 
@@ -161,7 +159,6 @@ function loadImage(img) {
   };
 }
 
-
 colorGet.onclick = (event) => {
   const current = document.querySelector('#current');
   if (event.target.innerText === 'blue') {
@@ -201,7 +198,7 @@ function setPixel(x, y) {
   ctx.beginPath();
   ctx.fillStyle = `${takeColor()}`;
   ctx.fill();
-  ctx.fillRect(x * matrix, y * matrix, matrix, matrix);
+  ctx.fillRect(x , y, 1, 1);
   cordPixel.x0 = cordPixel.x1;
   cordPixel.y0 = cordPixel.y1;
 }
@@ -230,8 +227,8 @@ function algoritmBresenham(x0, y0, x1, y1) {
 document.addEventListener('mousedown', (event) => {
   if (tools.pencil === true && event.target.id === 'canvas') {
     isDraw = true;
-    cordPixel.x0 = Math.floor(event.offsetX / matrix);
-    cordPixel.y0 = Math.floor(event.offsetY / matrix);
+    cordPixel.x0 = Math.floor(event.offsetX / (512 / 128));
+    cordPixel.y0 = Math.floor(event.offsetY / (512 / 128));
   } else if (tools.chooseColor === true && event.target.id === 'canvas') {
     const x = event.offsetX;
     const y = event.offsetY;
@@ -248,8 +245,9 @@ document.addEventListener('mousedown', (event) => {
 });
 document.addEventListener('mousemove', (event) => {
   if (isDraw === true) {
-    cordPixel.x1 = Math.floor(event.offsetX / matrix);
-    cordPixel.y1 = Math.floor(event.offsetY / matrix);
+    cordPixel.x1 = Math.floor(event.offsetX/(512/128));
+    console.log(cordPixel.x1);
+    cordPixel.y1 = Math.floor(event.offsetY/(512/128));
     algoritmBresenham(cordPixel.x0, cordPixel.y0, cordPixel.x1, cordPixel.y1);
   }
 });
@@ -264,7 +262,7 @@ document.addEventListener('click', (e) => {
   isInput = e.target.id === 'text';
   if (e.target.innerText === 'load') {
     clearCanvas();
-    let searchQuery = searcWord();
+    let searchQuery = searchWord();
     image = getLinkToImage(searchQuery);
     loadImage(image);
   }
