@@ -76,6 +76,10 @@ function restoreCanvas() {
   document.querySelector('#prev').style.backgroundColor = colorJSON.prev;
 }
 
+function searcWord() {
+   return searchInput.value.split(' ').join(',');
+}
+
 function clearCanvas() {
   ctx.fillStyle = '#ffffff';
   ctx.fill();
@@ -257,15 +261,11 @@ document.addEventListener('mouseup', () => {
 });
 
 document.addEventListener('click', (e) => {
-  if (e.target.id === 'text') {
-    isInput = true;
-  } else {
-    isInput = false;
-  }
+  isInput = e.target.id === 'text';
   if (e.target.innerText === 'load') {
     clearCanvas();
-
-    image = getLinkToImage('town,London');
+    let searchQuery = searcWord();
+    image = getLinkToImage(searchQuery);
     loadImage(image);
   }
 });
