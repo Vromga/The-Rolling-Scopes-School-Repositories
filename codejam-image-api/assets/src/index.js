@@ -1,15 +1,17 @@
-const canvas = document.getElementById('canvas');
+const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext('2d');
 const colorGet = document.querySelector('.color');
 const selectTool = document.querySelector('.tools');
 const resolution = document.querySelector('#resolution');
-const clientID = `6eead276a92ca5c7033f38dccfea6eb3aa045a61c5789af291ecd46ceda74be5`;
+const searchInput = document.querySelector('#text');
+const clientID = '6eead276a92ca5c7033f38dccfea6eb3aa045a61c5789af291ecd46ceda74be5';
 const tools = {
   fillBucket: false,
   chooseColor: false,
   pencil: true,
 };
 let isDraw = false;
+let image;
 
 function addRemoveClass() {
   const button = document.querySelectorAll('.tools--buttons-elem');
@@ -105,16 +107,52 @@ function rgbToHex(r, g, b) {
   return ((r << 16) | (g << 8) | b).toString(16);
 }
 
+
 function getLinkToImage(search) {
-  let img = new Image();
+  const img = new Image();
   const url = `https://api.unsplash.com/photos/random?query=${search}&client_id=${clientID}`;
   fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        img.src = data.urls.small;
-        img.crossOrigin = "Anonymous";
-      });
+    .then((res) => res.json())
+    .then((data) => {
+      img.src = data.urls.small;
+      img.crossOrigin = 'Anonymous';
+    });
   return img;
+}
+
+function loadImage(img) {
+  img.onload = function f() {
+    let ratio;
+    let width;
+    let height;
+    let x;
+    let y;
+
+    function checkSizeImage() {
+      if (img.width > img.height) {
+        ratio = img.width / img.height;
+        width = canvas.width;
+        height = width / ratio;
+      } else {
+        ratio = img.height / img.width;
+        height = canvas.height;
+        width = height / ratio;
+      }
+    }
+
+    function alignCenter() {
+      x = canvas.width / 2 - width / 2;
+      y = canvas.height / 2 - height / 2;
+    }
+
+    function drawImg(img, x, y, w, h) {
+      ctx.drawImage(img, x, y, w, h);
+    }
+
+    checkSizeImage();
+    alignCenter();
+    drawImg(img, x, y, width, height);
+  };
 }
 
 
@@ -216,10 +254,11 @@ document.addEventListener('mouseup', () => {
   }
 });
 
-document.addEventListener('click', (e)=>{
-  console.dir(e.target);
-  if(e.target.innerText === 'load'){
-    console.log(getLinkToImage('town,London'));
+document.addEventListener('click', (e) => {
+  if (e.target.innerText === 'load') {
+    clearCanvas();
+    image = getLinkToImage('town,London');
+    loadImage(image);
   }
 });
 
@@ -254,7 +293,5 @@ document.addEventListener(
       default:
         break;
     }
-  }
+  },
 );
-
-
