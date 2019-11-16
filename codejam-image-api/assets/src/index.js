@@ -27,9 +27,10 @@ function addRemoveClass() {
 }
 
 addRemoveClass();
-
-canvas.width = 512;
-canvas.height = 512;
+canvas.style.width = '512px';
+canvas.style.height = '512px';
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
 let matrix = 128;
 resolution.addEventListener('change', (event) => {
   matrix = event.target.value;
