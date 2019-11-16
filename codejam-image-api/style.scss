@@ -207,6 +207,8 @@ body {
   }
   .resolution{
     @include roboto();
+    grid-column: 3/4;
+    grid-row: 2/3;
   }
 }
 
@@ -218,15 +220,41 @@ body {
 #blue {
   background-color: #0000ff;
 }
-
-#canvas {
-  border: 1px solid black;
+.canvas{
   grid-column: 2/3;
   grid-row: 1/3;
   justify-self: center;
   align-self: center;
-  //width: 512px;
-  //height: 512px;
+  @extend %grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: auto;
+  &--load{
+    @include roboto();
+    grid-column: 1/2;
+    margin-right: 20px;
+    margin-bottom: 30px;
+  }
+  &--input{
+    @include roboto();
+    grid-column: 2/3;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    &::placeholder{
+      @include roboto();
+    }
+  }
+  &--grayscale{
+    @include roboto();
+    grid-column: 3/4;
+    margin-bottom: 30px;
+  }
+  &--canvas{
+    grid-column: 1/4;
+  }
+}
+#canvas {
+  border: 1px dashed black;
+  image-rendering: pixelated;
 }
 
 
