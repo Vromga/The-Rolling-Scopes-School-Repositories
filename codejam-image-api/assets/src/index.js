@@ -13,7 +13,6 @@ let isDraw = false;
 let isInput = false;
 let isGrayscale = true;
 searchInput.blur();
-let image;
 
 function addRemoveClassTools() {
   const button = document.querySelectorAll('.tools--buttons-elem');
@@ -146,16 +145,14 @@ function rgbToHex(r, g, b) {
   return ((r << 16) | (g << 8) | b).toString(16);
 }
 
-function getLinkToImage(search) {
-  const img = new Image();
-  const url = `https://api.unsplash.com/photos/random?query=${search}&client_id=${clientID}`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      img.src = data.urls.small;
-      img.crossOrigin = 'Anonymous';
-    });
-  return img;
+async function getLinkToImage(search) {
+    const url = `https://api.unsplash.com/photos/random?query=${search}&client_id=${clientID}`;
+    let response = await fetch(url);
+    let data = await response.json();
+    let img = new Image();
+    img.src = data.urls.regular;
+    img.crossOrigin = 'Anonymous';
+    return img;
 }
 
 function loadImage(img) {
@@ -282,8 +279,7 @@ document.addEventListener('click', (e) => {
   if (e.target.innerText === 'load') {
     clearCanvas();
     const searchQuery = searchWord();
-    image = getLinkToImage(searchQuery);
-    loadImage(image);
+    getLinkToImage(searchQuery).then(value => loadImage(value));
   }
   if (e.target.innerText === '512px') {
     changeSize(1);
@@ -335,6 +331,10 @@ document.addEventListener('click', (e) => {
 
 
 document.addEventListener('keydown', (event) => {
+    if(event.code === 'Enter'){
+        const loadButton = document.querySelector('.canvas--load');
+        loadButton.click();
+    }
   if (isInput === false) {
     switch (event.code) {
       case 'KeyB':
