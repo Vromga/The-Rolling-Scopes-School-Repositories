@@ -2,11 +2,11 @@
   display: grid;
 }
 
-.app_body .color .chose_color--elem, .app_body .main .tools--buttons-elem, .app_body .main .tools--buttons, .app_body .main .tools, .app_body .header {
+.canvas--grayscale, .canvas--load, .app_body .resolution--button, .app_body .resolution, .app_body .color .chose_color--elem, .app_body .main .tools--buttons-elem, .app_body .main .tools--buttons, .app_body .main .tools, .app_body .header {
   display: flex;
 }
 
-.app_body .hot_key, .app_body .color, .app_body .main .tools--buttons-elem, .app_body .main .tools {
+.canvas--grayscale, .canvas--load, .app_body .resolution--button, .app_body .resolution, .app_body .hot_key, .app_body .color, .app_body .main .tools--buttons-elem, .app_body .main .tools {
   width: 228px;
   height: 246px;
   color: rgba(0, 0, 0, 0.541327);
@@ -175,6 +175,35 @@ body {
   font-family: "Roboto", sans-serif;
   grid-column: 3/4;
   grid-row: 2/3;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.app_body .resolution--button {
+  height: 40px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  justify-content: flex-start;
+  width: 80%;
+  margin: 0;
+  font-size: 1.1rem;
+  user-select: none;
+  outline: none;
+}
+.app_body .resolution--button:hover {
+  background-color: rgba(210, 210, 180, 0.5);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+}
+.app_body .resolution--button:active {
+  background-color: rgba(210, 210, 120, 0.8);
+  -webkit-box-shadow: 0 7px 10px rgba(0, 17, 40, 0.24), 0 0 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 7px 10px rgba(0, 17, 40, 0.24), 0 0 8px rgba(0, 0, 0, 0.12);
+}
+.app_body .resolution--button:focus {
+  background-color: rgba(210, 210, 160, 0.6);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
 }
 
 #red {
@@ -195,9 +224,16 @@ body {
 }
 .canvas--load {
   font-family: "Roboto", sans-serif;
+  height: 40px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  justify-content: flex-start;
+  width: 80%;
+  font-size: 1.1rem;
+  user-select: none;
+  outline: none;
   grid-column: 1/2;
-  margin-right: 20px;
-  margin-bottom: 30px;
+  margin: 0 20px 30px 0;
 }
 .canvas--input {
   font-family: "Roboto", sans-serif;
@@ -210,8 +246,16 @@ body {
 }
 .canvas--grayscale {
   font-family: "Roboto", sans-serif;
+  height: 40px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  justify-content: flex-start;
+  width: 80%;
+  font-size: 1.1rem;
+  user-select: none;
+  outline: none;
   grid-column: 3/4;
-  margin-bottom: 30px;
+  margin: 0 0 30px;
 }
 .canvas--canvas {
   grid-column: 1/4;
