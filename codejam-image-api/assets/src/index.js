@@ -11,10 +11,11 @@ const tools = {
 
 let isDraw = false;
 let isInput = false;
+let isGrayscale = true;
 searchInput.blur();
 let image;
 
-function addRemoveClass() {
+function addRemoveClassTools() {
     const button = document.querySelectorAll('.tools--buttons-elem');
     [...button].forEach((elem) => {
         elem.classList.remove('active');
@@ -30,13 +31,16 @@ function addRemoveClass() {
     }
 }
 
-addRemoveClass();
+addRemoveClassTools();
 const realSizeCanvas = 512;
 let virtualPixelCanvas = 4;
 canvas.style.width = `${realSizeCanvas}px`;
 canvas.style.height = `${realSizeCanvas}px`;
 canvas.width = realSizeCanvas / virtualPixelCanvas;
 canvas.height = realSizeCanvas / virtualPixelCanvas;
+ctx.fillStyle = 'rgba(255,255,255,255)';
+ctx.fill();
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 function colorSave() {
     const colorObj = {};
@@ -45,13 +49,33 @@ function colorSave() {
     return JSON.stringify(colorObj);
 }
 
+function grayscale() {
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let data = imageData.data;
+    if(data.every(value => value === 255)){
+        console.log('Изоброжение не загреженно!!!')
+    }
+
+    for (let i = 0; i < data.length; i += 4) {
+        let avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+        data[i] = avg; // red
+        data[i + 1] = avg; // green
+        data[i + 2] = avg; // blue
+    }
+    ctx.putImageData(imageData, 0, 0);
+}
+
+
 function saveApp() {
     localStorage.setItem('canvasImage', canvas.toDataURL());
     localStorage.setItem('tools', JSON.stringify(tools));
     localStorage.setItem('color', colorSave());
+    localStorage.setItem('pixel', JSON.stringify(virtualPixelCanvas));
 }
 
 function restoreCanvas() {
+    let pixel = +JSON.parse(localStorage.getItem('pixel'));
+    changeSize(pixel);
     const dataURL = localStorage.getItem('canvasImage');
     const img = new Image();
     img.src = dataURL;
@@ -66,7 +90,7 @@ function restoreCanvas() {
     tools.fillBucket = toolsJSON.fillBucket;
     tools.chooseColor = toolsJSON.chooseColor;
     tools.pencil = toolsJSON.pencil;
-    addRemoveClass();
+    addRemoveClassTools();
 
     const colorJSON = JSON.parse(localStorage.getItem('color'));
     document.querySelector('#current').value = colorJSON.current;
@@ -78,7 +102,7 @@ function searchWord() {
 }
 
 function clearCanvas() {
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = 'rgba(255,255,255,255)';
     ctx.fill();
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
@@ -180,7 +204,7 @@ function selectTools(event) {
     } else if (event.target.innerText === 'Pencil') {
         tools.pencil = true;
     }
-    addRemoveClass();
+    addRemoveClassTools();
 }
 
 const cordPixel = {
@@ -277,7 +301,7 @@ document.addEventListener('click', (e) => {
         changeSize(8);
     }
 
-    if (e.target.className === 'tools--buttons-elem'){
+    if (e.target.className === 'tools--buttons-elem') {
         selectTools(e);
     }
     const current = document.querySelector('#current');
@@ -291,6 +315,21 @@ document.addEventListener('click', (e) => {
         current.value = e.target.previousElementSibling.getAttribute('data');
     } else if (e.target.innerText === 'Current color' || e.target.type === 'color') {
         setPrevColor();
+    }
+    if (e.target.innerText === 'b/w') {
+        if (isGrayscale) {
+            localStorage.setItem('canvas', canvas.toDataURL());
+            grayscale();
+            isGrayscale = false;
+        } else {
+            let dataURL = localStorage.getItem('canvas');
+            let img = new Image;
+            img.src = dataURL;
+            img.onload = function () {
+                ctx.drawImage(img, 0, 0);
+            };
+            isGrayscale = true;
+        }
     }
 });
 
