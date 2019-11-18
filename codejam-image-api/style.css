@@ -2,7 +2,7 @@
   display: grid;
 }
 
-.canvas--grayscale, .canvas--load, .app_body .resolution--button, .app_body .resolution, .app_body .color .chose_color--elem, .app_body .main .tools--buttons-elem, .app_body .main .tools--buttons, .app_body .main .tools, .app_body .header {
+.div_message, .canvas--grayscale, .canvas--load, .app_body .resolution--button, .app_body .resolution, .app_body .color .chose_color--elem, .app_body .main .tools--buttons-elem, .app_body .main .tools--buttons, .app_body .main .tools, .app_body .header {
   display: flex;
 }
 
@@ -35,7 +35,7 @@ body {
   width: 1440px;
   max-width: 100%;
   min-width: 600px;
-  min-height: 700px;
+  min-height: 750px;
   border: 1px solid #e6e6e6;
 }
 .app_body .header {
@@ -234,6 +234,21 @@ body {
   grid-column: 3/4;
   margin: 0 20px 30px 0;
 }
+.canvas--load:hover {
+  background-color: rgba(210, 210, 180, 0.5);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+}
+.canvas--load:active {
+  background-color: rgba(210, 210, 120, 0.8);
+  -webkit-box-shadow: 0 7px 10px rgba(0, 17, 40, 0.24), 0 0 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 7px 10px rgba(0, 17, 40, 0.24), 0 0 8px rgba(0, 0, 0, 0.12);
+}
+.canvas--load:focus {
+  background-color: rgba(210, 210, 160, 0.6);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+}
 .canvas--input {
   font-family: "Roboto", sans-serif;
   justify-self: center;
@@ -260,13 +275,63 @@ body {
   grid-column: 1/2;
   margin: 0 0 30px;
 }
+.canvas--grayscale:hover {
+  background-color: rgba(210, 210, 180, 0.5);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+}
+.canvas--grayscale:active {
+  background-color: rgba(210, 210, 120, 0.8);
+  -webkit-box-shadow: 0 7px 10px rgba(0, 17, 40, 0.24), 0 0 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 7px 10px rgba(0, 17, 40, 0.24), 0 0 8px rgba(0, 0, 0, 0.12);
+}
+.canvas--grayscale:focus {
+  background-color: rgba(210, 210, 160, 0.6);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+}
 .canvas--canvas {
   grid-column: 1/4;
+  margin-bottom: 10px;
 }
 
 #canvas {
   border: 1px dashed black;
   image-rendering: pixelated;
+}
+
+.stub {
+  height: 40px;
+}
+
+.div_message {
+  width: 100%;
+  height: 30px;
+  border-radius: 10px;
+  grid-column: 2/3;
+  align-self: center;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.alert {
+  border: 1px red solid;
+  background-color: #ffaba3;
+  box-shadow: 0 5px 7px rgba(255, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+  color: #540303;
+}
+
+.message {
+  border: 1px solid #00ff00;
+  background-color: #c7ffc2;
+  color: #0d0b86;
+  box-shadow: 0 5px 7px rgba(0, 255, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+}
+
+.hidden {
+  opacity: 0;
 }
 
 .active {

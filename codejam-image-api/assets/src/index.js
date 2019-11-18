@@ -2,12 +2,40 @@ const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext('2d');
 const selectTool = document.querySelector('.tools');
 const searchInput = document.querySelector('#search');
+const alertMess = document.querySelector('.div_message');
+const resolution = document.querySelectorAll('.resolution--button');
 const clientID = '6eead276a92ca5c7033f38dccfea6eb3aa045a61c5789af291ecd46ceda74be5';
 const tools = {
   fillBucket: false,
   chooseColor: false,
   pencil: true,
 };
+
+function alert(text) {
+  alertMess.textContent = text;
+  alertMess.classList.remove('hidden');
+  alertMess.classList.add('alert');
+  setTimeout(() => {
+    alertMess.classList.remove('alert');
+    alertMess.classList.add('hidden');
+  }, 2000);
+}
+
+function message(text) {
+  alertMess.textContent = text;
+  alertMess.classList.remove('hidden');
+  alertMess.classList.add('message');
+  setTimeout(() => {
+    alertMess.classList.remove('message');
+    alertMess.classList.add('hidden');
+  }, 2000);
+}
+
+function removeResolutionClass() {
+  [...resolution].forEach((elem) => {
+    elem.classList.remove('active');
+  });
+}
 
 let isDraw = false;
 let isInput = false;
@@ -52,7 +80,7 @@ function grayscale() {
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   const { data } = imageData;
   if (data.every((value) => value === 255)) {
-    console.log('Изоброжение не загреженно!!!');
+    alert('Image not uploaded, canvas is empty');
   }
 
   for (let i = 0; i < data.length; i += 4) {
@@ -74,6 +102,16 @@ function saveApp() {
 
 function restoreCanvas() {
   const pixel = +JSON.parse(localStorage.getItem('pixel'));
+  removeResolutionClass();
+  if (pixel === 1) {
+    [...resolution][3].classList.add('active');
+  } else if (pixel === 2) {
+    [...resolution][2].classList.add('active');
+  } else if (pixel === 4) {
+    [...resolution][1].classList.add('active');
+  } else if (pixel === 8) {
+    [...resolution][0].classList.add('active');
+  }
   changeSize(pixel);
   const dataURL = localStorage.getItem('canvasImage');
   const img = new Image();
@@ -106,19 +144,6 @@ function clearCanvas() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-function changeSize(n) {
-  localStorage.setItem('canvas', canvas.toDataURL());
-  clearCanvas();
-  virtualPixelCanvas = n;
-  canvas.width = realSizeCanvas / virtualPixelCanvas;
-  canvas.height = realSizeCanvas / virtualPixelCanvas;
-  const dataURL = localStorage.getItem('canvas');
-  const img = new Image();
-  img.src = dataURL;
-  loadImage(img);
-}
-
-
 function takeColor() {
   return document.querySelector('#current').value;
 }
@@ -146,13 +171,13 @@ function rgbToHex(r, g, b) {
 }
 
 async function getLinkToImage(search) {
-    const url = `https://api.unsplash.com/photos/random?query=${search}&client_id=${clientID}`;
-    let response = await fetch(url);
-    let data = await response.json();
-    let img = new Image();
-    img.src = data.urls.regular;
-    img.crossOrigin = 'Anonymous';
-    return img;
+  const url = `https://api.unsplash.com/photos/random?query=${search}&client_id=${clientID}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  const img = new Image();
+  img.src = data.urls.regular;
+  img.crossOrigin = 'Anonymous';
+  return img;
 }
 
 function loadImage(img) {
@@ -241,6 +266,18 @@ function algoritmBresenham(x0, y0, x1, y1) {
   }
 }
 
+function changeSize(n) {
+  localStorage.setItem('canvas', canvas.toDataURL());
+  clearCanvas();
+  virtualPixelCanvas = n;
+  canvas.width = realSizeCanvas / virtualPixelCanvas;
+  canvas.height = realSizeCanvas / virtualPixelCanvas;
+  const dataURL = localStorage.getItem('canvas');
+  const img = new Image();
+  img.src = dataURL;
+  loadImage(img);
+}
+
 document.addEventListener('mousedown', (event) => {
   if (tools.pencil === true && event.target.id === 'canvas') {
     isDraw = true;
@@ -279,22 +316,34 @@ document.addEventListener('click', (e) => {
   if (e.target.innerText === 'load') {
     clearCanvas();
     const searchQuery = searchWord();
-    getLinkToImage(searchQuery).then(value => loadImage(value));
+    getLinkToImage(searchQuery).then((value) => loadImage(value));
   }
   if (e.target.innerText === '512px') {
+    removeResolutionClass();
+    e.target.classList.add('active');
     changeSize(1);
+    message('selected resolution canvas 512px');
   }
 
   if (e.target.innerText === '256px') {
+    removeResolutionClass();
+    e.target.classList.add('active');
     changeSize(2);
+    message('selected resolution canvas 256px');
   }
 
   if (e.target.innerText === '128px') {
+    removeResolutionClass();
+    e.target.classList.add('active');
     changeSize(4);
+    message('selected resolution canvas 128px');
   }
 
   if (e.target.innerText === '64px') {
+    removeResolutionClass();
+    e.target.classList.add('active');
     changeSize(8);
+    message('selected resolution canvas 64px');
   }
 
   if (e.target.className === 'tools--buttons-elem') {
@@ -321,7 +370,7 @@ document.addEventListener('click', (e) => {
       const dataURL = localStorage.getItem('canvas');
       const img = new Image();
       img.src = dataURL;
-      img.onload = function () {
+      img.onload = function imgDraw() {
         ctx.drawImage(img, 0, 0);
       };
       isGrayscale = true;
@@ -331,34 +380,40 @@ document.addEventListener('click', (e) => {
 
 
 document.addEventListener('keydown', (event) => {
-    if(event.code === 'Enter'){
-        const loadButton = document.querySelector('.canvas--load');
-        loadButton.click();
-    }
+  if (event.code === 'Enter') {
+    const loadButton = document.querySelector('.canvas--load');
+    loadButton.click();
+  }
   if (isInput === false) {
     switch (event.code) {
       case 'KeyB':
         selectTool.children[0].click();
+        message('selected tool fill bucked');
         break;
 
       case 'KeyP':
         selectTool.children[2].click();
+        message('selected tool pencil');
         break;
 
       case 'KeyC':
         selectTool.children[1].click();
+        message('selected tool choose color');
         break;
 
       case 'KeyS':
         saveApp();
+        message('app save');
         break;
 
       case 'KeyR':
         clearCanvas();
+        message('canvas clear');
         break;
 
       case 'KeyL':
         restoreCanvas();
+        message('app load');
         break;
 
       default:

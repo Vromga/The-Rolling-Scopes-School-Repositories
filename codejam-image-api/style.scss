@@ -41,7 +41,7 @@ body {
   width: 1440px;
   max-width: 100%;
   min-width: 600px;
-  min-height: 700px;
+  min-height: 750px;
   border: 1px solid rgba(230, 230, 230, 1);
 
   .header {
@@ -286,6 +286,23 @@ body {
     outline: none;
     grid-column: 3/4;
     margin: 0 20px 30px 0;
+    &:hover {
+      background-color: rgba(210, 210, 180, 0.5);
+      -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+    }
+
+    &:active {
+      background-color: rgba(210, 210, 120, 0.8);
+      -webkit-box-shadow: 0 7px 10px rgba(0, 17, 40, 0.24), 0 0 8px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 7px 10px rgba(0, 17, 40, 0.24), 0 0 8px rgba(0, 0, 0, 0.12);
+    }
+
+    &:focus {
+      background-color: rgba(210, 210, 160, 0.6);
+      -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+    }
   }
 
   &--input {
@@ -317,16 +334,67 @@ body {
     outline: none;
     grid-column: 1/2;
     margin: 0 0 30px;
+    &:hover {
+      background-color: rgba(210, 210, 180, 0.5);
+      -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+    }
+
+    &:active {
+      background-color: rgba(210, 210, 120, 0.8);
+      -webkit-box-shadow: 0 7px 10px rgba(0, 17, 40, 0.24), 0 0 8px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 7px 10px rgba(0, 17, 40, 0.24), 0 0 8px rgba(0, 0, 0, 0.12);
+    }
+
+    &:focus {
+      background-color: rgba(210, 210, 160, 0.6);
+      -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+    }
   }
 
   &--canvas {
     grid-column: 1/4;
+    margin-bottom: 10px;
   }
 }
 
 #canvas {
   border: 1px dashed black;
   image-rendering: pixelated;
+}
+.stub{
+  height: 40px;
+}
+.div_message{
+  width: 100%;
+  height: 30px;
+  border-radius: 10px;
+  grid-column: 2/3;
+  align-self: center;
+  justify-self: center;
+  @extend %flex;
+  justify-content: center;
+  align-items: center;
+  @include roboto();
+}
+
+.alert{
+  border: 1px red solid;
+  background-color: #ffaba3;
+  box-shadow: 0 5px 7px rgba(255, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+  color: #540303;
+}
+
+.message{
+  border: 1px solid #00ff00;
+  background-color: #c7ffc2;
+  color: #0d0b86;
+  box-shadow: 0 5px 7px rgba(0, 255, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
+}
+
+.hidden{
+  opacity: 0;
 }
 
 
