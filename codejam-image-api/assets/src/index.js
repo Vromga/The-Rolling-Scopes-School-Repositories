@@ -1,6 +1,6 @@
 const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext('2d');
-const selectTool = document.querySelector('.tools');
+const selectTool = document.querySelectorAll('.tools--buttons-elem');
 const searchInput = document.querySelector('#search');
 const alertMess = document.querySelector('.div_message');
 const resolution = document.querySelectorAll('.resolution--button');
@@ -10,8 +10,7 @@ const tools = {
   chooseColor: false,
   pencil: true,
 };
-
-function alert(text) {
+function showAlert(text) {
   alertMess.textContent = text;
   alertMess.classList.remove('hidden');
   alertMess.classList.add('alert');
@@ -21,7 +20,7 @@ function alert(text) {
   }, 2000);
 }
 
-function message(text) {
+function showMessage(text) {
   alertMess.textContent = text;
   alertMess.classList.remove('hidden');
   alertMess.classList.add('message');
@@ -80,7 +79,7 @@ function grayscale() {
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   const { data } = imageData;
   if (data.every((value) => value === 255)) {
-    alert('Image not uploaded, canvas is empty');
+    showAlert('Image not uploaded, canvas is empty');
   }
 
   for (let i = 0; i < data.length; i += 4) {
@@ -312,7 +311,7 @@ document.addEventListener('mouseup', () => {
 });
 
 document.addEventListener('click', (e) => {
-  isInput = e.target.id === 'text';
+  isInput = e.target.id === 'search';
   if (e.target.innerText === 'load') {
     clearCanvas();
     const searchQuery = searchWord();
@@ -322,28 +321,28 @@ document.addEventListener('click', (e) => {
     removeResolutionClass();
     e.target.classList.add('active');
     changeSize(1);
-    message('selected resolution canvas 512px');
+    showMessage('selected resolution canvas 512px');
   }
 
   if (e.target.innerText === '256px') {
     removeResolutionClass();
     e.target.classList.add('active');
     changeSize(2);
-    message('selected resolution canvas 256px');
+    showMessage('selected resolution canvas 256px');
   }
 
   if (e.target.innerText === '128px') {
     removeResolutionClass();
     e.target.classList.add('active');
     changeSize(4);
-    message('selected resolution canvas 128px');
+    showMessage('selected resolution canvas 128px');
   }
 
   if (e.target.innerText === '64px') {
     removeResolutionClass();
     e.target.classList.add('active');
     changeSize(8);
-    message('selected resolution canvas 64px');
+    showMessage('selected resolution canvas 64px');
   }
 
   if (e.target.className === 'tools--buttons-elem') {
@@ -387,33 +386,33 @@ document.addEventListener('keydown', (event) => {
   if (isInput === false) {
     switch (event.code) {
       case 'KeyB':
-        selectTool.children[0].click();
-        message('selected tool fill bucked');
+        [...selectTool][0].click();
+        showMessage('selected tool fill bucked');
         break;
 
       case 'KeyP':
-        selectTool.children[2].click();
-        message('selected tool pencil');
+        [...selectTool][2].click();
+        showMessage('selected tool pencil');
         break;
 
       case 'KeyC':
-        selectTool.children[1].click();
-        message('selected tool choose color');
+        [...selectTool][1].click();
+        showMessage('selected tool choose color');
         break;
 
       case 'KeyS':
         saveApp();
-        message('app save');
+        showMessage('app save');
         break;
 
       case 'KeyR':
         clearCanvas();
-        message('canvas clear');
+        showMessage('canvas clear');
         break;
 
       case 'KeyL':
         restoreCanvas();
-        message('app load');
+        showMessage('app load');
         break;
 
       default:
