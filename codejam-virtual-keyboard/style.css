@@ -1,0 +1,113 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+.text {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  width: 900px;
+  font-size: 2rem;
+  height: auto;
+  user-select: none;
+  border: 0;
+  border-bottom: 2px solid silver;
+  color: black;
+}
+
+.body_keyboard {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 900px;
+  height: auto;
+  background: rgba(37, 37, 37, 0.92);
+  padding: 0.5%;
+  display: flex;
+  flex-wrap: wrap;
+  user-select: none;
+  transition: bottom 0.4s;
+}
+.body_keyboard--key {
+  margin: 2px 5px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  border: 0;
+  border-radius: 3px;
+}
+.body_keyboard--key:hover {
+  cursor: pointer;
+  color: white;
+  background: silver;
+}
+
+.hidden {
+  bottom: -100%;
+}
+
+.backspace {
+  width: 110px;
+  font-size: 1rem;
+}
+
+.tab {
+  width: 110px;
+  font-size: 1rem;
+}
+
+.caps {
+  width: 120px;
+  font-size: 1rem;
+}
+
+.enter {
+  width: 100px;
+  font-size: 1rem;
+}
+
+.shift {
+  width: 140px;
+  font-size: 1rem;
+}
+
+.ctrl {
+  width: 80px;
+  font-size: 1rem;
+}
+
+.space {
+  width: 290px;
+  font-size: 1rem;
+}
+
+.func {
+  font-size: 1rem;
+}
+
+.hover {
+  color: white;
+  animation: shadow infinite 0.4s ease-in-out;
+}
+
+@keyframes shadow {
+  from {
+    background-color: silver;
+    border-radius: 3px;
+    transform: scale(1);
+  }
+  to {
+    background-color: gold;
+    border-radius: 8px;
+    transform: scale(1.2);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

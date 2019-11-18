@@ -1,0 +1,121 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+$fz: 1rem;
+
+.text {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  width: 900px;
+  font-size: 2rem;
+  height: auto;
+  user-select: none;
+  border: 0;
+  border-bottom: 2px solid silver;
+  color: black;
+}
+
+.body_keyboard {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 900px;
+  height: auto;
+  background: rgba(37, 37, 37, 0.92);
+  padding: 0.5%;
+  display: flex;
+  flex-wrap: wrap;
+  user-select: none;
+  transition: bottom 0.4s;
+
+
+  &--key {
+    margin: 2px 5px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    border: 0;
+    border-radius: 3px;
+
+    &:hover {
+      cursor: pointer;
+      color: white;
+      background: silver;
+    }
+  }
+}
+
+.hidden {
+  bottom: -100%;
+}
+
+//.hover {
+//  color: white;
+//  background: silver;
+//}
+
+.backspace {
+  width: 110px;
+  font-size: $fz;
+}
+
+.tab {
+  width: 110px;
+  font-size: $fz;
+}
+
+.caps {
+  width: 120px;
+  font-size: $fz;
+}
+
+.enter {
+  width: 100px;
+  font-size: $fz;
+}
+
+.shift {
+  width: 140px;
+  font-size: $fz;
+}
+
+.ctrl {
+  width: 80px;
+  font-size: $fz;
+}
+
+.space {
+  width: 290px;
+  font-size: $fz;
+}
+
+.func {
+  font-size: $fz;
+}
+
+.hover {
+  color: white;
+  animation: shadow infinite .4s ease-in-out;
+}
+
+@keyframes shadow {
+  from {
+    background-color: silver;
+    border-radius: 3px;
+    transform: scale(1);
+  }
+  to {
+    background-color: gold;
+    border-radius: 8px;
+    transform: scale(1.2);
+  }
+}
