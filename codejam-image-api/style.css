@@ -162,11 +162,12 @@ body {
 }
 .app_body .hot_key {
   font-family: "Roboto", sans-serif;
-  padding: 15px;
+  padding: 6px 15px;
   margin: 0;
 }
 .app_body .hot_key h2 {
   font-size: 1.5rem;
+  margin: 8px;
 }
 .app_body .hot_key--text {
   margin: 0;

@@ -1,9 +1,8 @@
 const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext('2d');
-const selectTool = document.querySelectorAll('.tools--buttons-elem');
 const searchInput = document.querySelector('#search');
-const alertMess = document.querySelector('.div_message');
-const resolution = document.querySelectorAll('.resolution--button');
+const messageBlock = document.querySelector('.div_message');
+const resolutionSection = document.querySelectorAll('.resolution--button');
 const clientID = '6eead276a92ca5c7033f38dccfea6eb3aa045a61c5789af291ecd46ceda74be5';
 const tools = {
   fillBucket: false,
@@ -11,27 +10,27 @@ const tools = {
   pencil: true,
 };
 function showAlert(text) {
-  alertMess.textContent = text;
-  alertMess.classList.remove('hidden');
-  alertMess.classList.add('alert');
+  messageBlock.textContent = text;
+  messageBlock.classList.remove('hidden');
+  messageBlock.classList.add('alert');
   setTimeout(() => {
-    alertMess.classList.remove('alert');
-    alertMess.classList.add('hidden');
+    messageBlock.classList.remove('alert');
+    messageBlock.classList.add('hidden');
   }, 2000);
 }
 
 function showMessage(text) {
-  alertMess.textContent = text;
-  alertMess.classList.remove('hidden');
-  alertMess.classList.add('message');
+  messageBlock.textContent = text;
+  messageBlock.classList.remove('hidden');
+  messageBlock.classList.add('message');
   setTimeout(() => {
-    alertMess.classList.remove('message');
-    alertMess.classList.add('hidden');
+    messageBlock.classList.remove('message');
+    messageBlock.classList.add('hidden');
   }, 2000);
 }
 
 function removeResolutionClass() {
-  [...resolution].forEach((elem) => {
+  [...resolutionSection].forEach((elem) => {
     elem.classList.remove('active');
   });
 }
@@ -41,23 +40,23 @@ let isInput = false;
 let isGrayscale = true;
 searchInput.blur();
 
-function addRemoveClassTools() {
-  const button = document.querySelectorAll('.tools--buttons-elem');
-  [...button].forEach((elem) => {
-    elem.classList.remove('active');
-  });
-  if (tools.fillBucket === true) {
-    button[0].classList.add('active');
-  }
-  if (tools.chooseColor === true) {
-    button[1].classList.add('active');
-  }
-  if (tools.pencil === true) {
-    button[2].classList.add('active');
+function resetToolsState() {
+  for (const prop of Object.keys(tools)) {
+    tools[prop] = false;
   }
 }
 
-addRemoveClassTools();
+function toggleActiveClass() {
+  const toolsButtons = document.querySelectorAll('.tools--buttons-elem');
+  toolsButtons.forEach((elem) => {
+    elem.classList.remove('active');
+    tools.fillBucket && elem.classList.contains('fillBucket') && elem.classList.add('active');
+    tools.chooseColor && elem.classList.contains('chooseColor') && elem.classList.add('active');
+    tools.pencil && elem.classList.contains('pencil') && elem.classList.add('active');
+  });
+}
+
+toggleActiveClass();
 const realSizeCanvas = 512;
 let virtualPixelCanvas = 4;
 canvas.style.width = `${realSizeCanvas}px`;
@@ -91,7 +90,6 @@ function grayscale() {
   ctx.putImageData(imageData, 0, 0);
 }
 
-
 function saveApp() {
   localStorage.setItem('canvasImage', canvas.toDataURL());
   localStorage.setItem('tools', JSON.stringify(tools));
@@ -103,13 +101,13 @@ function restoreCanvas() {
   const pixel = +JSON.parse(localStorage.getItem('pixel'));
   removeResolutionClass();
   if (pixel === 1) {
-    [...resolution][3].classList.add('active');
+    [...resolutionSection][3].classList.add('active');
   } else if (pixel === 2) {
-    [...resolution][2].classList.add('active');
+    [...resolutionSection][2].classList.add('active');
   } else if (pixel === 4) {
-    [...resolution][1].classList.add('active');
+    [...resolutionSection][1].classList.add('active');
   } else if (pixel === 8) {
-    [...resolution][0].classList.add('active');
+    [...resolutionSection][0].classList.add('active');
   }
   changeSize(pixel);
   const dataURL = localStorage.getItem('canvasImage');
@@ -120,13 +118,11 @@ function restoreCanvas() {
   };
 
   const toolsJSON = JSON.parse(localStorage.getItem('tools'));
-  tools.fillBucket = false;
-  tools.chooseColor = false;
-  tools.pencil = false;
+  resetToolsState();
   tools.fillBucket = toolsJSON.fillBucket;
   tools.chooseColor = toolsJSON.chooseColor;
   tools.pencil = toolsJSON.pencil;
-  addRemoveClassTools();
+  toggleActiveClass();
 
   const colorJSON = JSON.parse(localStorage.getItem('color'));
   document.querySelector('#current').value = colorJSON.current;
@@ -149,9 +145,10 @@ function takeColor() {
 
 function setPrevColor() {
   const temp = takeColor();
-  const prevColor = document.getElementById('prev');
-  prevColor.style.backgroundColor = temp;
-  prevColor.setAttribute('data', `${temp}`);
+  const prevColor = document.querySelectorAll('.prev');
+  const circlePrevColor = document.querySelector('#prev');
+  circlePrevColor.style.backgroundColor = temp;
+  [...prevColor].map((element) => element.setAttribute('dataColor', `${temp}`));
 }
 
 const getColorAtPixel = (imageData, x, y) => {
@@ -215,17 +212,67 @@ function loadImage(img) {
 }
 
 function selectTools(event) {
-  tools.fillBucket = false;
-  tools.chooseColor = false;
-  tools.pencil = false;
-  if (event.target.innerText === 'Fill bucket') {
+  resetToolsState();
+  if (event.target.classList.contains('fillBucket') || event.code === 'KeyB') {
     tools.fillBucket = true;
-  } else if (event.target.innerText === 'Choose color') {
+    showMessage('selected tool fill bucked');
+  } else if (event.target.classList.contains('chooseColor') || event.code === 'KeyC') {
     tools.chooseColor = true;
-  } else if (event.target.innerText === 'Pencil') {
+    showMessage('selected tool pencil');
+  } else if (event.target.classList.contains('pencil') || event.code === 'KeyP') {
     tools.pencil = true;
+    showMessage('selected tool choose color');
   }
-  addRemoveClassTools();
+  toggleActiveClass();
+}
+
+function selectColor(event) {
+  const current = document.querySelector('#current');
+  if (event.target.getAttribute('data') === 'blue') {
+    setPrevColor();
+    current.value = '#0000FF';
+  } else if (event.target.getAttribute('data') === 'red') {
+    setPrevColor();
+    current.value = '#FF0000';
+  } else if (event.target.getAttribute('data') === 'prev') {
+    current.value = event.target.previousElementSibling.getAttribute('dataColor');
+  } else if (event.target.getAttribute('data') === 'current' || event.target.type === 'color') {
+    setPrevColor();
+  }
+}
+
+function selectResolution(e) {
+  if (e.target.getAttribute('data') === '512') {
+    removeResolutionClass();
+    e.target.classList.add('active');
+    changeSize(1);
+    showMessage('selected resolution canvas 512px');
+  }
+
+  if (e.target.getAttribute('data') === '256') {
+    removeResolutionClass();
+    e.target.classList.add('active');
+    changeSize(2);
+    showMessage('selected resolution canvas 256px');
+  }
+
+  if (e.target.getAttribute('data') === '128') {
+    removeResolutionClass();
+    e.target.classList.add('active');
+    changeSize(4);
+    showMessage('selected resolution canvas 128px');
+  }
+
+  if (e.target.getAttribute('data') === '64') {
+    removeResolutionClass();
+    e.target.classList.add('active');
+    changeSize(8);
+    showMessage('selected resolution canvas 64px');
+  }
+
+  if (e.target.className === 'tools--buttons-elem') {
+    selectTools(e);
+  }
 }
 
 const cordPixel = {
@@ -284,7 +331,7 @@ document.addEventListener('mousedown', (event) => {
     cordPixel.y0 = Math.floor(event.offsetY / (realSizeCanvas / canvas.height));
   } else if (tools.chooseColor === true && event.target.id === 'canvas') {
     const x = Math.floor(event.offsetX / (realSizeCanvas / canvas.width));
-    const y = Math.floor(event.offsetX / (realSizeCanvas / canvas.height));
+    const y = Math.floor(event.offsetY / (realSizeCanvas / canvas.height));
     const current = document.querySelector('#current');
     const colorPick = ctx.getImageData(0, 0, realSizeCanvas, realSizeCanvas);
     setPrevColor();
@@ -303,63 +350,33 @@ document.addEventListener('mousemove', (event) => {
     algoritmBresenham(cordPixel.x0, cordPixel.y0, cordPixel.x1, cordPixel.y1);
   }
 });
-
 document.addEventListener('mouseup', () => {
   if (tools.pencil === true) {
     isDraw = false;
   }
 });
-
 document.addEventListener('click', (e) => {
+  if (tools.pencil === true && e.target.id === 'canvas') {
+    const x = Math.floor(e.offsetX / (realSizeCanvas / canvas.width));
+    const y = Math.floor(e.offsetY / (realSizeCanvas / canvas.height));
+    ctx.fillStyle = `${takeColor()}`;
+    ctx.fill();
+    ctx.fillRect(x, y, 1, 1);
+  }
   isInput = e.target.id === 'search';
+
   if (e.target.innerText === 'load') {
     clearCanvas();
     const searchQuery = searchWord();
     getLinkToImage(searchQuery).then((value) => loadImage(value));
   }
-  if (e.target.innerText === '512px') {
-    removeResolutionClass();
-    e.target.classList.add('active');
-    changeSize(1);
-    showMessage('selected resolution canvas 512px');
-  }
 
-  if (e.target.innerText === '256px') {
-    removeResolutionClass();
-    e.target.classList.add('active');
-    changeSize(2);
-    showMessage('selected resolution canvas 256px');
-  }
+  selectColor(e);
 
-  if (e.target.innerText === '128px') {
-    removeResolutionClass();
-    e.target.classList.add('active');
-    changeSize(4);
-    showMessage('selected resolution canvas 128px');
-  }
+  if (e.target.getAttribute('data') === 'button') selectTools(e);
 
-  if (e.target.innerText === '64px') {
-    removeResolutionClass();
-    e.target.classList.add('active');
-    changeSize(8);
-    showMessage('selected resolution canvas 64px');
-  }
+  selectResolution(e);
 
-  if (e.target.className === 'tools--buttons-elem') {
-    selectTools(e);
-  }
-  const current = document.querySelector('#current');
-  if (e.target.innerText === 'blue') {
-    setPrevColor();
-    current.value = '#0000FF';
-  } else if (e.target.innerText === 'red') {
-    setPrevColor();
-    current.value = '#FF0000';
-  } else if (e.target.innerText === 'Prev color') {
-    current.value = e.target.previousElementSibling.getAttribute('data');
-  } else if (e.target.innerText === 'Current color' || e.target.type === 'color') {
-    setPrevColor();
-  }
   if (e.target.innerText === 'b/w') {
     if (isGrayscale) {
       localStorage.setItem('canvas', canvas.toDataURL());
@@ -376,30 +393,10 @@ document.addEventListener('click', (e) => {
     }
   }
 });
-
-
 document.addEventListener('keydown', (event) => {
-  if (event.code === 'Enter') {
-    const loadButton = document.querySelector('.canvas--load');
-    loadButton.click();
-  }
   if (isInput === false) {
+    selectTools(event);
     switch (event.code) {
-      case 'KeyB':
-        [...selectTool][0].click();
-        showMessage('selected tool fill bucked');
-        break;
-
-      case 'KeyP':
-        [...selectTool][2].click();
-        showMessage('selected tool pencil');
-        break;
-
-      case 'KeyC':
-        [...selectTool][1].click();
-        showMessage('selected tool choose color');
-        break;
-
       case 'KeyS':
         saveApp();
         showMessage('app save');
@@ -418,5 +415,11 @@ document.addEventListener('keydown', (event) => {
       default:
         break;
     }
+  }
+});
+document.addEventListener('keyup', (event) => {
+  if (event.code === 'Enter') {
+    const loadButton = document.querySelector('.canvas--load');
+    loadButton.click();
   }
 });
