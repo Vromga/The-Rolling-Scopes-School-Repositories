@@ -1,34 +1,51 @@
 {
-  "name": "codejam-image-api",
-  "version": "1.0.1",
-  "description": "",
-  "main": "./assets/src/index.js",
+  "name": "webpack-boilerplate",
+  "version": "1.0.0",
+  "description": "WebPack: HTML, CSS, SCSS, JS, Img, Fonts",
+  "main": "",
+  "browserslist": [
+    "> 0.25%, not dead"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --fix assets/src/index.js",
-    "build": "webpack --mode production",
-    "dev": "webpack-dev-server --mode development"
+    "dev": "webpack-dev-server --history-api-fallback --inline --progress --open",
+    "build": "npm run clear -s && webpack --progress",
+    "lint": "eslint src/js/index.js",
+    "clear": "del-cli dist"
   },
-  "author": "Mikita Maiseichyk",
+  "author": "Netizen",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.6.0",
+    "autoprefixer": "^9.6.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-3": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "copy-webpack-plugin": "^5.0.5",
     "css-loader": "^3.2.0",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.10",
+    "del-cli": "^3.0.0",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-loader": "^3.0.2",
     "eslint-plugin-import": "^2.18.2",
-    "path": "^0.12.7",
+    "file-loader": "^4.2.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "image-webpack-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
-  },
-  "dependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
-    "eslint-plugin-json": "^2.0.1"
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
   }
 }
