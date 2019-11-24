@@ -26,8 +26,8 @@ function setDMode() {
 }
 
 const config = {
-  target: "web", 
-  entry: ['babel-polyfill', './src/js/index.js'],
+  target: "web",
+  entry: './src/js/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'
@@ -36,14 +36,14 @@ const config = {
   devtool: setDevTool(),
   module: {
     rules: [{
-        test: /\.html$/,
-        use: [{
-          loader: 'html-loader',
-          options: {
-            minimize: false
-          }
-        }]
-      },
+      test: /\.html$/,
+      use: [{
+        loader: 'html-loader',
+        options: {
+          minimize: false
+        }
+      }]
+    },
       {
         test: /\.js$/,
         use: ['babel-loader'/* , 'eslint-loader' */],
@@ -128,7 +128,7 @@ const config = {
       template: './src/index.html',
       filename: './index.html'
     }),
-      new webpack.DefinePlugin({
+    new webpack.DefinePlugin({
       API_KEY: JSON.stringify(process.env.API_KEY),
       APP_ENV: JSON.stringify(process.env.APP_ENV)
     })
@@ -145,8 +145,8 @@ const config = {
 
 if (isProd) {
   config.plugins.push(
-    new UglifyJSPlugin(),
+      new UglifyJSPlugin(),
   );
-}
+};
 
 module.exports = config;
