@@ -4,14 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" lang="en" content="Mikita Maiseichyk" />
+    <meta name="author" lang="en" content="Mikita Maiseichyk"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
     <title>Weather</title>
 
 </head>
 
 <body>
-    <h1 class="hello">Weather</h1>
-    <h3>Good Work!</h3>
+<div class="app">
+    <header class="header">
+        <button class="header--reload_image"></button>
+
+        <select class="header--select">
+            <option value="EN" class="header--select-option" selected>EN</option>
+            <option value="RU" class="header--select-option">RU</option>
+            <option value="BY" class="header--select-option">BY</option>
+        </select>
+        <button class="header--switch">F&deg;</button>
+        <div class="header--search">
+            <input type="search" name="searchCity" id="searchCity" class="header--search-input"
+                   placeholder="Search city or ZIP">
+            <button class="header--search-button">search</button>
+        </div>
+    </header>
+    <main class="main">
+        <section class="weather_today">
+            <div class="weather_today--town">Starye Darohi, Belarus</div>
+            <div class="weather_today--date">Mon 30 Nov 2019</div>
+            <div class="weather_today--time">17:23</div>
+            <div class="weather_today--temperature">17&deg;</div>
+            <div class="weather_today--icon"></div>
+            <div class="weather_today--recommendation">Облачно, возможно дождь.</div>
+            <div class="weather_today--option">
+                <div class="weather_today--option-feels_like">Feels Like 7C</div>
+                <div class="weather_today--option-wind">wind 2ms</div>
+                <div class="weather_today--option-humidity">Humidity 83%</div>
+            </div>
+        </section>
+        <section class="weather_future">
+            <div class="weather_future--elem">
+                <span class="weather_future--elem-week">Tuesday</span>
+                <span class="weather_future--elem-temperature">7&deg;</span>
+                <img src="./img/weather/weather/rain.png" alt="dau" class="weather_future--elem-icon">
+            </div>
+            <div class="weather_future--elem">
+                <span class="weather_future--elem-week">Wednesday</span>
+                <span class="weather_future--elem-temperature">6&deg;</span>
+                <img src="./img/weather/weather/clear-day.png" alt="day" class="weather_future--elem-icon">
+            </div>
+            <div class="weather_future--elem">
+                <span class="weather_future--elem-week">Thursday</span>
+                <span class="weather_future--elem-temperature">3&deg;</span>
+                <img src="./img/weather/weather/partly-cloudy-day.png" alt="day" class="weather_future--elem-icon">
+            </div>
+        </section>
+        <section class="map">
+            <img src="img/map.jpg" alt="map" class="map--map">
+            <div class="map--cord-text">Your coordinates:</div>
+            <div class="map--cord-lat">Latitude: 53&deg; 28'</div>
+            <div class="map--cord-lon">Longitude: 28&deg; 32'</div>
+        </section>
+    </main>
+</div>
 </body>
 
 </html>
