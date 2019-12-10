@@ -1,20 +1,20 @@
-import {keyGeoLocation} from "../configuration";
+import {optionsGeoLocationNavigator, optionMap} from '../configuration';
+import {createMap} from "./mapBox";
 
-function geoNative() {
-  var options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-  };
+function getGeoLocation() {
 
   function success(pos) {
-    var crd = pos.coords;
-    option.center = [crd.longitude, crd.latitude];
-  };
+    const crd = pos.coords;
+    optionMap.center = [crd.longitude, crd.latitude];
+    createMap(optionMap);
+  }
 
   function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
+
   };
 
-  navigator.geolocation.getCurrentPosition(success, error, options);
+  navigator.geolocation.getCurrentPosition(success, error, optionsGeoLocationNavigator);
 }
+
+export default getGeoLocation;
