@@ -1,4 +1,4 @@
-import {lang} from './configuration';
+import {lang} from '../configuration';
 
 function createHTMLMarkUp() {
 
@@ -110,7 +110,8 @@ function createHTMLMarkUp() {
   //      ########## Map block ############      //
 
   const sectionMap = createSingleHTMLElement('section', 'map');
-  const mapBox = createSingleHTMLElement('div', 'map--map');
+  const mapBox = document.createElement('div');
+  mapBox.id = 'map';
   const textCordinates = createSingleHTMLElement('p', 'map--cord-text');
   const latitude = createSingleHTMLElement('p', 'map--cord-lat');
   const longitude = createSingleHTMLElement('p', 'map--cord-lon');
@@ -126,6 +127,7 @@ function createHTMLMarkUp() {
 
   app.append(header);
   app.append(main);
+  const backGroundImage = createSingleHTMLElement('div', 'photo');
 
   //      ########## Delete after ############      //
 
@@ -137,7 +139,7 @@ function createHTMLMarkUp() {
   textCordinates.textContent = 'Your coordinates:';
   latitude.textContent = `Latitude: 53${String.fromCharCode(176)} 28'`;
   longitude.textContent = `Latitude: 28${String.fromCharCode(176)} 08'`;
-
+  body.insertAdjacentElement('afterbegin', backGroundImage);
   body.insertAdjacentElement('afterbegin', app);
 }
 
