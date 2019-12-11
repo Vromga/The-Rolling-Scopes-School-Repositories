@@ -5,9 +5,9 @@ function createBackground(data) {
     if (value.height_o) return value;
   });
 
-  const divPhoto = document.querySelector('.photo');
+  const body = document.querySelector('body');
   const photo = photoURLArr[getRandomPhoto(photoURLArr.length)];
-  divPhoto.style.background = `url("${photo.url_o}") center center / cover no-repeat fixed`;
+  body.style.background = `url("${photo.url_o}") center center / cover no-repeat fixed`;
 }
 
 export default createBackground;

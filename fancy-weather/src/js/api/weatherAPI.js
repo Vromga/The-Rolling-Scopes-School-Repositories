@@ -1,11 +1,11 @@
-import {keyWeather} from '../configuration';
+import setWeatherData from "../DOM/setWeatherData";
 
 const proxyApi = `https://cors-anywhere.herokuapp.com/`;
-const urlWeather = `https://api.darksky.net/forecast/${keyWeather}/53,28?lang=ru`;
 
-async function darkSkyApi() {
-  const response = await fetch(proxyApi + urlWeather);
-  return await response.json();
+async function darkSkyApi(url) {
+  const response = await fetch(proxyApi + url);
+  const data = await response.json();
+  setWeatherData(data);
 }
 
-export  default darkSkyApi;
+export default darkSkyApi;
