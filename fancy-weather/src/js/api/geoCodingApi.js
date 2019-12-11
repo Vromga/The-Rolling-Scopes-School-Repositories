@@ -2,6 +2,7 @@ import {keyWeather, keyGeoLocation, optionMap} from "../configuration";
 import {createMap} from "./mapBox";
 import darkSkyApi from "./weatherAPI";
 import getDataCountry from "../utilities/getDataCountry";
+import liveCordinates from "../DOM/setLiveCordinates";
 
 let urlWeather;
 
@@ -11,7 +12,8 @@ async function getGeoLocation() {
   const data = await response.json();
   const location = data.loc;
   getDataCountry(location);
-  const locationArr = location.split(',').map(value => +value);
+  const locationArr = location.split(',')//.map(value => +value);
+  liveCordinates(locationArr);
   optionMap.center = [locationArr[1], locationArr[0]];
   createMap(optionMap);
   urlWeather = `https://api.darksky.net/forecast/${keyWeather}/${location}?lang=en`;

@@ -7,7 +7,7 @@ function getTimeZone(dataTime) {
   const optionsDate = {
     weekday: 'short',
     year: '2-digit',
-    month: 'short',
+    month: 'long',
     day: '2-digit',
     hour: 'numeric',
     minute: 'numeric',
