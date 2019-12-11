@@ -270,7 +270,7 @@ body {
   margin-bottom: 2em;
 
 
-  &--elem {
+  &--tomorrow, &--after_tomorrow, &--after_after_tomorrow {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: rgba(0, 0, 0, 0.6);
@@ -279,7 +279,7 @@ body {
     padding: 5px;
     list-style: none;
 
-    &-week {
+    &-day {
       color: #ffffff;
       justify-self: center;
       grid-column: 1/3;
@@ -315,7 +315,7 @@ body {
   padding: 8px;
 
   #map {
-    //object-fit: contain;
+
     width: 100%;
     height: 100%;
     margin-bottom: 20px;
@@ -387,14 +387,14 @@ body {
     }
 
     .weather_future {
-      grid-column: 1/2;
+      grid-column: 1/3;
 
-      &--elem {
-        width: 120px;
-        height: 120px;
+      &--tomorrow, &--after_tomorrow, &--after_after_tomorrow {
+        width: 300px;
+        height: 220px;
         list-style: none;
 
-        &-week {
+        &-day {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -418,6 +418,7 @@ body {
     .map {
       grid-column: 2/3;
       grid-row: 1/2;
+      height: 400px;
     }
 
   }

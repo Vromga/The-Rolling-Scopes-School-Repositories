@@ -10,12 +10,9 @@ createHTMLMarkUp();
 getGeoLocation();
 getImage();
 
-
-
 document.addEventListener('click', (e) => {
   //   console.dir(e.target);
   if (e.target.className === 'header--switch') {
     convertTemperatureToCelsius();
   }
 });
-//${Math.trunc(fahrenheitToCelsius(data.currently.temperature))}${String.fromCharCode(176)} / ${Math.trunc(data.currently.temperature)}${String.fromCharCode(176)}

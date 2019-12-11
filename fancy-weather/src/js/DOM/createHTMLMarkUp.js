@@ -32,17 +32,17 @@ function createHTMLMarkUp() {
             </section>
             <section class="weather_future">
                 <ul class="weather_future--tomorrow">
-                    <li class="weather_future--tomorrow-week ">Пн</li>
+                    <li class="weather_future--tomorrow-day">Пн</li>
                     <li class="weather_future--tomorrow-temperature">-18°</li>
                     <li class="weather_future--tomorrow-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
                 </ul>
                 <ul class="weather_future--after_tomorrow">
-                    <li class="weather_future--after_tomorrow-week">Пн</li>
+                    <li class="weather_future--after_tomorrow-day">Пн</li>
                     <li class="weather_future--after_tomorrow-temperature">-18°</li>
                     <li class="weather_future--after_tomorrow-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
                 </ul>
                 <ul class="weather_future--after_after_tomorrow">
-                    <li class="weather_future--after_after_tomorrow-week">Пн</li>
+                    <li class="weather_future--after_after_tomorrow-day">Пн</li>
                     <li class="weather_future--after_after_tomorrow-temperature">-18°</li>
                     <li class="weather_future--after_after_tomorrow-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
                 </ul>

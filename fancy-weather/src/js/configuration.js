@@ -10,6 +10,9 @@ const optionMap = {
   style: 'mapbox://styles/vromga/ck3x27sr35ddl1cmsxvf1zuf6',
 };
 
+const week = {
+  en: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  ru: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+};
 
-
-export {keyWeather, keyGeoLocation, imageKey, optionMap, keyOpenData};
+export {keyWeather, keyGeoLocation, imageKey, optionMap, keyOpenData, week};

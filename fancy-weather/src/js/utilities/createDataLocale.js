@@ -13,7 +13,7 @@ function createData(data) {
     timeForInsert = time[0].split(':');
   }
 
-  let [hour, minute, second] = timeForInsert;
+  const [hour, minute, second] = timeForInsert;
   (function createWatch(h, m, s) {
     let hour = +h;
     let minute = +m;
