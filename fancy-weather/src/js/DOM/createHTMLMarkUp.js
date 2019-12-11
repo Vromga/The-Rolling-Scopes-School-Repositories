@@ -31,20 +31,20 @@ function createHTMLMarkUp() {
                 </ul>
             </section>
             <section class="weather_future">
-                <ul class="weather_future--elem" data="day1">
-                    <li class="weather_future--elem-week">Пн</li>
-                    <li class="weather_future--elem-temperature">-18°</li>
-                    <li class="weather_future--elem-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
+                <ul class="weather_future--tomorrow">
+                    <li class="weather_future--tomorrow-week ">Пн</li>
+                    <li class="weather_future--tomorrow-temperature">-18°</li>
+                    <li class="weather_future--tomorrow-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
                 </ul>
-                <ul class="weather_future--elem" data="day2">
-                    <li class="weather_future--elem-week">Пн</li>
-                    <li class="weather_future--elem-temperature">-18°</li>
-                    <li class="weather_future--elem-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
+                <ul class="weather_future--after_tomorrow">
+                    <li class="weather_future--after_tomorrow-week">Пн</li>
+                    <li class="weather_future--after_tomorrow-temperature">-18°</li>
+                    <li class="weather_future--after_tomorrow-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
                 </ul>
-                <ul class="weather_future--elem" data="day3">
-                    <li class="weather_future--elem-week">Пн</li>
-                    <li class="weather_future--elem-temperature">-18°</li>
-                    <li class="weather_future--elem-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
+                <ul class="weather_future--after_after_tomorrow">
+                    <li class="weather_future--after_after_tomorrow-week">Пн</li>
+                    <li class="weather_future--after_after_tomorrow-temperature">-18°</li>
+                    <li class="weather_future--after_after_tomorrow-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
                 </ul>
 
             </section>

@@ -2,7 +2,7 @@ import {keyWeather, keyGeoLocation, optionMap} from "../configuration";
 import {createMap} from "./mapBox";
 import darkSkyApi from "./weatherAPI";
 import getDataCountry from "../utilities/getDataCountry";
-import liveCordinates from "../DOM/setLiveCordinates";
+import liveCordinates from "../DOM/setLiveCoordinates";
 
 let urlWeather;
 
