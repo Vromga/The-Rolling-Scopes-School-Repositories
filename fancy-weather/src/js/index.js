@@ -14,6 +14,8 @@ setChoiceLang();
 getGeoLocation();
 getImage();
 
+
+
 document.addEventListener('click', (e) => {
   if (e.target.className === 'header--switch') {
     convertTemperatureToCelsius();

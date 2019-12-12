@@ -19,32 +19,32 @@ function createHTMLMarkUp() {
         </header>
         <main class="main">
             <section class="weather_today">
-                <p class="weather_today--town">Starye Darohi, Belarus</p>
-                <p class="weather_today--date">Mon 30 Nov 2019</p>
-                <p class="weather_today--time">17:23</p>
-                <p class="weather_today--temperature" data="F">17&deg;</p>
+                <p class="weather_today--town"></p>
+                <p class="weather_today--date"></p>
+                <p class="weather_today--time"></p>
+                <p class="weather_today--temperature"></p>
                 <div class="weather_today--icon"></div>
-                <p class="weather_today--recommendation">Облачно, возможно дождь.</p>
+                <p class="weather_today--recommendation"></p>
                 <ul class="weather_today--option">
-                    <li class="weather_today--option-feels_like">Feels Like 7C</li>
-                    <li class="weather_today--option-wind">wind 2ms</li>
-                    <li class="weather_today--option-humidity">Humidity 83%</li>
+                    <li class="weather_today--option-feels_like"></li>
+                    <li class="weather_today--option-wind"></li>
+                    <li class="weather_today--option-humidity"></li>
                 </ul>
             </section>
             <section class="weather_future">
                 <ul class="weather_future--tomorrow">
-                    <li class="weather_future--tomorrow-day">Пн</li>
-                    <li class="weather_future--tomorrow-temperature">-18°</li>
+                    <li class="weather_future--tomorrow-day"></li>
+                    <li class="weather_future--tomorrow-temperature"></li>
                     <li class="weather_future--tomorrow-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
                 </ul>
                 <ul class="weather_future--after_tomorrow">
-                    <li class="weather_future--after_tomorrow-day">Пн</li>
-                    <li class="weather_future--after_tomorrow-temperature">-18°</li>
+                    <li class="weather_future--after_tomorrow-day"></li>
+                    <li class="weather_future--after_tomorrow-temperature"></li>
                     <li class="weather_future--after_tomorrow-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
                 </ul>
                 <ul class="weather_future--after_after_tomorrow">
-                    <li class="weather_future--after_after_tomorrow-day">Пн</li>
-                    <li class="weather_future--after_after_tomorrow-temperature">-18°</li>
+                    <li class="weather_future--after_after_tomorrow-day"></li>
+                    <li class="weather_future--after_after_tomorrow-temperature"></li>
                     <li class="weather_future--after_after_tomorrow-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
                 </ul>
 
@@ -52,8 +52,8 @@ function createHTMLMarkUp() {
             <section class="map">
                 <div id="map" class="mapboxgl-map"></div>
                 <p class="map--cord-text">Your coordinates:</p>
-                <p class="map--cord-lat">Latitude: 53° 28'</p>
-                <p class="map--cord-lon">Latitude: 28° 08'</p>
+                <p class="map--cord-lat"></p>
+                <p class="map--cord-lon"></p>
             </section>
         </main>
   `;
