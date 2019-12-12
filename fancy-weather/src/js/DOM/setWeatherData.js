@@ -1,5 +1,6 @@
 import averageTemperature from "../utilities/averageTemperature";
 import setAttributeButtonTemp from "../utilities/setAttributeButtonTemp";
+import setIcon from "./setIconWeather";
 
 async function setWeatherData(data) {
   const todayTemperature = document.querySelector('.weather_today--temperature');
@@ -17,7 +18,7 @@ async function setWeatherData(data) {
   todaySummary.textContent = weatherToday.currently.summary;
   todayFeelsLike.textContent = `Feels like: ${Math.trunc(weatherToday.currently.apparentTemperature)}${String.fromCharCode(176)}`;
   todayFeelsLike.setAttribute('temperature', `${Math.trunc(weatherToday.currently.apparentTemperature)}`);
-  todayWind.textContent = `Wind: ${Math.trunc(weatherToday.currently.windSpeed)} m/sec`;
+  todayWind.textContent = `Wind: ${Math.trunc(weatherToday.currently.windSpeed)} km/h`;
   todayHumidity.textContent = `Humidity: ${Math.trunc(weatherToday.currently.humidity * 100)}%`;
   tomorrowTemperature.textContent = `${Math.trunc(averageTemperature(weatherToday.daily.data[2].temperatureHigh, weatherToday.daily.data[2].temperatureLow))}${String.fromCharCode(176)}`;
   tomorrowTemperature.setAttribute('temperature', `${Math.trunc(averageTemperature(weatherToday.daily.data[2].temperatureHigh, weatherToday.daily.data[2].temperatureLow))}`);
@@ -25,7 +26,10 @@ async function setWeatherData(data) {
   afterTomorrowTemperature.setAttribute('temperature', `${Math.trunc(averageTemperature(weatherToday.daily.data[3].temperatureHigh, weatherToday.daily.data[3].temperatureLow))}`);
   afterafterTomorrowTemperature.textContent = `${Math.trunc(averageTemperature(weatherToday.daily.data[4].temperatureHigh, weatherToday.daily.data[5].temperatureLow))}${String.fromCharCode(176)}`;
   afterafterTomorrowTemperature.setAttribute('temperature',`${Math.trunc(averageTemperature(weatherToday.daily.data[4].temperatureHigh, weatherToday.daily.data[5].temperatureLow))}`);
-
+  setIcon(weatherToday.currently.icon, document.querySelector('#weatherToday'));
+  setIcon(weatherToday.daily.data[2].icon, document.querySelector('#weatherToday'));
+  setIcon(weatherToday.daily.data[3].icon, document.querySelector('#weatherToday'));
+  setIcon(weatherToday.daily.data[4].icon, document.querySelector('#weatherToday'));
   setAttributeButtonTemp();
 }
 

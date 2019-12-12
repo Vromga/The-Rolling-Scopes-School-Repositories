@@ -1,4 +1,8 @@
 function createHTMLMarkUp() {
+  const head = document.querySelector('head');
+  const script = document.createElement('SCRIPT');
+  script.src = "https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js";
+  head.appendChild(script);
 
   const body = document.querySelector('body');
   const app = document.createElement('div');
@@ -23,7 +27,7 @@ function createHTMLMarkUp() {
                 <p class="weather_today--date"></p>
                 <p class="weather_today--time"></p>
                 <p class="weather_today--temperature"></p>
-                <div class="weather_today--icon"></div>
+                <canvas id="weatherToday" width="128" height="128" class="weather_today--icon">></canvas>
                 <p class="weather_today--recommendation"></p>
                 <ul class="weather_today--option">
                     <li class="weather_today--option-feels_like"></li>
@@ -35,17 +39,17 @@ function createHTMLMarkUp() {
                 <ul class="weather_future--tomorrow">
                     <li class="weather_future--tomorrow-day"></li>
                     <li class="weather_future--tomorrow-temperature"></li>
-                    <li class="weather_future--tomorrow-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
+                    <li class="weather_future--tomorrow-icon"><canvas id="weatherTomorrow" width="128" height="128"></canvas></li>
                 </ul>
                 <ul class="weather_future--after_tomorrow">
                     <li class="weather_future--after_tomorrow-day"></li>
                     <li class="weather_future--after_tomorrow-temperature"></li>
-                    <li class="weather_future--after_tomorrow-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
+                    <li class="weather_future--after_tomorrow-icon"><canvas id="weatherAfterTomorrow" width="128" height="128"></canvas></li>
                 </ul>
                 <ul class="weather_future--after_after_tomorrow">
                     <li class="weather_future--after_after_tomorrow-day"></li>
                     <li class="weather_future--after_after_tomorrow-temperature"></li>
-                    <li class="weather_future--after_after_tomorrow-icon" style="background-image: url(&quot;./img/rain.png&quot;);"></li>
+                    <li class="weather_future--after_after_tomorrow-icon"><canvas id="weatherAfterAfterTomorrow" width="128" height="128"></canvas></li>
                 </ul>
 
             </section>
