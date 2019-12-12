@@ -6,10 +6,11 @@ import convertTemperatureToCelsius from "./utilities/convertTemperatureToCelsius
 import getGeoLocation from "./api/geoCodingApi";
 import getLanguage from "./utilities/getLanguage";
 import getLocalStorage from "./utilities/getLocalStorage";
+import setChoiceLang from "./utilities/setChoiceLang";
 
 getLocalStorage();
 createHTMLMarkUp();
-
+setChoiceLang();
 getGeoLocation();
 getImage();
 

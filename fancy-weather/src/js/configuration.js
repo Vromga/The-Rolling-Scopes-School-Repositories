@@ -3,8 +3,12 @@ const keyGeoLocation = '1db8194a2703a0';
 const imageKey = 'f258bef5c6ebd9401bba43395eb2fd21';
 const keyOpenData = '65467207ccbd4bf1a8d0f1e6c215bbbf';
 
+const lang = [
+  'EN', 'RU', 'BY'
+];
+
 const userOptions ={
-  lang: 'en',
+  lang: 'EN',
   temperatureScale: 'F'
 };
 
@@ -20,4 +24,4 @@ const week = {
   ru: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
 };
 
-export {keyWeather, keyGeoLocation, imageKey, optionMap, keyOpenData, week, userOptions};
+export {keyWeather, keyGeoLocation, imageKey, optionMap, keyOpenData, week, userOptions, lang};
