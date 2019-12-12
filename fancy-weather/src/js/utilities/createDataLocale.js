@@ -3,7 +3,7 @@ function createData(data) {
   const dataArray = data.split(',');
   const dateDay = document.querySelector('.weather_today--date');
   const dateTime = document.querySelector('.weather_today--time');
-  const date = dataArray.slice(0, -1).join(', ').toUpperCase();
+  const date = dataArray.slice(0, -1).join(', ');
   const time = dataArray[dataArray.length - 1].trim().split(' ');
   let timeForInsert;
   if (time.length > 1) {

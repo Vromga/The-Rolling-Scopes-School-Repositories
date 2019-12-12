@@ -6,7 +6,7 @@ function createHTMLMarkUp() {
   <header class="header">
             <button class="header--reload_image"></button>
             <select class="header--select">
-                <option value="EN" class="header--select-option" selected>EN</option>
+                <option value="EN" class="header--select-option">EN</option>
                 <option value="RU" class="header--select-option">RU</option>
                 <option value="BY" class="header--select-option">BY</option>
             </select>
