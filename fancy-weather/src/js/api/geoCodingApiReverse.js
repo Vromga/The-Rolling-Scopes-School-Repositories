@@ -10,14 +10,13 @@ const geoLocationURL = `https://ipinfo.io/json?token=${keyGeoLocation}`;
 
 async function getGeoLocation() {
   let location;
-  if (localStorage.getItem('coord')){
-    location = localStorage.getItem('coord')
+  if (sessionStorage.getItem('coord')){
+    location = sessionStorage.getItem('coord')
   }else {
     const response = await fetch(geoLocationURL);
     const data = await response.json();
     location = data.loc;
   }
-  console.log(location);
   getDataCountry(location);
   const locationArr = location.split(',');
   liveCordinates(locationArr);

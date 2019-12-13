@@ -1,11 +1,11 @@
 import {imageKey} from "../configuration";
 import createBackground from "../DOM/bgImage";
 
-async function getImage() {
-  const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${imageKey}&tags=weather%2C+nature%2C+summer%2C+rain%2C+night&extras=url_o&format=json&nojsoncallback=1`;
+async function getImage(url) {
 
   try {
-    const response = await fetch(url);
+    const urlReady = await url;
+    const response = await fetch(urlReady);
     const data = await response.json();
     createBackground(data);
   } catch (e) {

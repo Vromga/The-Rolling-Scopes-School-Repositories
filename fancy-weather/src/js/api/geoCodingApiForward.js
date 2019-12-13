@@ -16,7 +16,7 @@ async function geoCoding() {
   arrCord.push(lat + ""); // переводим в строку, что бы не ломалась логика liveCordinates.
   arrCord.push(lon + "");
   const ls = arrCord.join(',');
-  localStorage.setItem('coord', ls);
+  sessionStorage.setItem('coord', ls);
   location.reload();
   // getDataCountry(`${lat},${lon}`);
 

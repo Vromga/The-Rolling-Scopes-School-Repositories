@@ -13,7 +13,7 @@ getLocalStorage();
 createHTMLMarkUp();
 setChoiceLang();
 getGeoLocation();
-getImage();
+//getImage();
 
 
 document.addEventListener('click', (e) => {
