@@ -1,3 +1,5 @@
+const Skycons = require('../../../node_modules/skycons/skycons')(window);
+
 function setIcon(icon, iconID) {
   const skycons = new Skycons({color: 'white'});
   const currentIcon = icon.replace(/-/g, "_").toUpperCase();

@@ -287,6 +287,13 @@ body {
       font-size: 0.8em;
     }
 
+    &-summary{
+      color: #ffffff;
+      justify-self: center;
+      grid-column: 1/3;
+      font-size: 0.4em;
+    }
+
     &-temperature {
       color: #ffffff;
       grid-column: 1/2;

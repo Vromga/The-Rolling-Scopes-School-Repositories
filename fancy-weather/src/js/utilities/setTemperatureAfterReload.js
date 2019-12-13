@@ -1,5 +1,6 @@
 import setButtonTemperatureAfterReload from "../DOM/setButtonTemperatureAfterReload";
 import fahrenheitToCelsius from "./fahrenheitToCelsius";
+import translateUI from "./translateUI";
 
 function setTemperatureAfterReload(){
 
@@ -11,7 +12,7 @@ function setTemperatureAfterReload(){
   const tempAfterAfterTomorrow = document.querySelector('.weather_future--after_after_tomorrow-temperature');
 
   tempNow.textContent = `${fahrenheitToCelsius(tempNow.getAttribute('temperature'))}${String.fromCharCode(176)}`;
-  tempApparent.textContent = `Feels like:  ${fahrenheitToCelsius(tempApparent.getAttribute('temperature'))}${String.fromCharCode(176)}`;
+  tempApparent.textContent = `${translateUI()[0]}   ${fahrenheitToCelsius(tempApparent.getAttribute('temperature'))}${String.fromCharCode(176)}`;
   tempTomorrow.textContent = `${fahrenheitToCelsius(tempTomorrow.getAttribute('temperature'))}${String.fromCharCode(176)}`;
   tempAfterTomorrow.textContent = `${fahrenheitToCelsius(tempAfterTomorrow.getAttribute('temperature'))}${String.fromCharCode(176)}`;
   tempAfterAfterTomorrow.textContent = `${fahrenheitToCelsius(tempAfterAfterTomorrow.getAttribute('temperature'))}${String.fromCharCode(176)}`;

@@ -8,12 +8,16 @@ function createData(data) {
   let timeForInsert;
   if (time.length > 1) {
     timeForInsert = time[0].split(':');
-    if (time[1] === 'PM') timeForInsert[0] = +timeForInsert[0] + 12;
+    if (time[1] === 'PM') {
+      timeForInsert[0] = +timeForInsert[0] + 12
+    } else {
+      timeForInsert[0] = +timeForInsert[0];
+    }
   } else {
     timeForInsert = time[0].split(':');
   }
 
-  const [hour, minute, second] = timeForInsert;
+  const [hourStart, minuteStart, secondStart] = timeForInsert;
   (function createWatch(h, m, s) {
     let hour = +h;
     let minute = +m;
@@ -42,9 +46,10 @@ function createData(data) {
       second += 1;
       setTimeout(scope, 1000);
     }
+
     scope();
 
-  })(hour, minute, second);
+  })(hourStart, minuteStart, secondStart);
 
   dateDay.textContent = `${date}`;
 

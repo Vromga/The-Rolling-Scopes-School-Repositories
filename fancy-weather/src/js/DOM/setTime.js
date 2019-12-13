@@ -1,5 +1,6 @@
 import createData from "../utilities/createDataLocale";
 import getDayInFuture from "../utilities/getDayInFuture";
+import {userOptions} from "../configuration";
 
 function getTimeZone(dataTime) {
 
@@ -7,7 +8,7 @@ function getTimeZone(dataTime) {
   const offset = dataTime.timezone;
   const optionsDate = {
     weekday: 'short',
-    year: '2-digit',
+    year: 'numeric',
     month: 'long',
     day: '2-digit',
     hour: 'numeric',
@@ -16,7 +17,7 @@ function getTimeZone(dataTime) {
     timeZone: `${offset}`,
   };
 
-  const formatterDate = new Intl.DateTimeFormat('en', optionsDate);
+  const formatterDate = new Intl.DateTimeFormat(`${userOptions.lang}`, optionsDate);
   const time = new Date(todayDate * 1000);
   getDayInFuture(time.getDay());
   const dateLocale = formatterDate.format(time);

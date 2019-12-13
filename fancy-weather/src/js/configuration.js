@@ -6,7 +6,7 @@ const keyOpenData = '65467207ccbd4bf1a8d0f1e6c215bbbf';
 
 const userOptions ={
   lang: 'EN',
-  temperatureScale: 'F'
+  temperatureScale: 'F',
 };
 
 const optionMap = {
@@ -17,8 +17,15 @@ const optionMap = {
 };
 
 const week = {
-  en: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-  ru: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+  EN: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  RU: ['Пнд', 'Втр', 'Срд', 'Чтв', 'Птн', 'Сбт', 'Вск'],
+  BE: ['Пнд', 'Аўт', 'Сер', 'Чцв', 'Пят', 'Суб', 'Няд']
 };
 
-export {keyWeather, keyGeoLocation, imageKey, optionMap, keyOpenData, week, userOptions};
+const UI = {
+  EN: ['Real fell:', 'Wind:', 'Humidity:', 'Your coordinates:', 'Search city', 'Search'],
+  RU: ['Ощущается как:', 'Ветер:', 'Влажность:', 'Ваши координаты:', 'Искать город', 'Искать'],
+  BE: ['Адчуваецца як:', 'Вецер:', 'Вільготнасць:', 'Вашы каардынаты:', 'Пошук горада', 'Пошук']
+};
+
+export {keyWeather, keyGeoLocation, imageKey, optionMap, keyOpenData, week, userOptions, UI};
