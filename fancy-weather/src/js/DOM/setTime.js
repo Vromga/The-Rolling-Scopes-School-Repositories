@@ -19,6 +19,7 @@ function getTimeZone(dataTime) {
 
   const formatterDate = new Intl.DateTimeFormat(`${userOptions.lang}`, optionsDate);
   const time = new Date(todayDate * 1000);
+
   getDayInFuture(time.getDay());
   const dateLocale = formatterDate.format(time);
   createData(dateLocale);

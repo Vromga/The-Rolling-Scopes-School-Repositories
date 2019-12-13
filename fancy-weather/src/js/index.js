@@ -7,6 +7,7 @@ import getGeoLocation from "./api/geoCodingApiReverse";
 import getLanguage from "./utilities/getLanguage";
 import getLocalStorage from "./utilities/getLocalStorage";
 import setChoiceLang from "./utilities/setChoiceLang";
+import geoCoding from "./api/geoCodingApiForward";
 
 getLocalStorage();
 createHTMLMarkUp();
@@ -15,13 +16,17 @@ getGeoLocation();
 getImage();
 
 
-
 document.addEventListener('click', (e) => {
   if (e.target.className === 'header--switch') {
     convertTemperatureToCelsius();
   }
 });
 
-document.addEventListener('change',()=>{
-  getLanguage();
+document.addEventListener('change',(e)=>{
+  if(e.target.id === 'searchCity'){
+    geoCoding();
+  }
+  if (e.target.id === 'select-lang'){
+    getLanguage();
+  }
 });

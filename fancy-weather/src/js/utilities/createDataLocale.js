@@ -18,12 +18,12 @@ function createData(data) {
   }
 
   const [hourStart, minuteStart, secondStart] = timeForInsert;
-  (function createWatch(h, m, s) {
+
+  function createWatch(h, m, s) {
     let hour = +h;
     let minute = +m;
     let second = +s;
-
-    function scope() {
+    let timerID = setTimeout(function scope() {
       let tempHour = 0;
       let tempMinute = 0;
       let tempSecond = 0;
@@ -44,15 +44,17 @@ function createData(data) {
         minute += 1;
       }
       second += 1;
-      setTimeout(scope, 1000);
-    }
+      timerID = setTimeout(scope, 1000);
+    }, 1000);
 
-    scope();
 
-  })(hourStart, minuteStart, secondStart);
+  }
+
+  createWatch(hourStart, minuteStart, secondStart);
 
   dateDay.textContent = `${date}`;
 
 }
 
 export default createData;
+

@@ -7,7 +7,7 @@ function createHTMLMarkUp() {
   app.innerHTML = `
   <header class="header">
             <button class="header--reload_image"></button>
-            <select class="header--select">            
+            <select class="header--select" id="select-lang">            
                 <option value="EN" class="header--select-option">EN</option>
                 <option value="RU" class="header--select-option">RU</option>
                 <option value="BE" class="header--select-option">BЕ</option>

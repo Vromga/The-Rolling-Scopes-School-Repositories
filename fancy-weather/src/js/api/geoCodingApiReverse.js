@@ -1,4 +1,4 @@
-import {keyWeather, keyGeoLocation, optionMap, userOptions} from "../configuration";
+import {keyGeoLocation, keyWeather, optionMap, userOptions} from "../configuration";
 import {createMap} from "./mapBox";
 import darkSkyApi from "./weatherAPI";
 import getDataCountry from "../utilities/getDataCountry";
@@ -7,12 +7,19 @@ import liveCordinates from "../DOM/setLiveCoordinates";
 let urlWeather;
 
 const geoLocationURL = `https://ipinfo.io/json?token=${keyGeoLocation}`;
+
 async function getGeoLocation() {
-  const response = await fetch(geoLocationURL);
-  const data = await response.json();
-  const location = data.loc;
+  let location;
+  if (localStorage.getItem('coord')){
+    location = localStorage.getItem('coord')
+  }else {
+    const response = await fetch(geoLocationURL);
+    const data = await response.json();
+    location = data.loc;
+  }
+  console.log(location);
   getDataCountry(location);
-  const locationArr = location.split(',')//.map(value => +value);
+  const locationArr = location.split(',');
   liveCordinates(locationArr);
   optionMap.center = [locationArr[1], locationArr[0]];
   createMap(optionMap);

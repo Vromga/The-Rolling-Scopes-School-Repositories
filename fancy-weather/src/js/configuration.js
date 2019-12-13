@@ -4,7 +4,7 @@ const imageKey = 'f258bef5c6ebd9401bba43395eb2fd21';
 const keyOpenData = '65467207ccbd4bf1a8d0f1e6c215bbbf';
 
 
-const userOptions ={
+const userOptions = {
   lang: 'EN',
   temperatureScale: 'F',
 };
@@ -12,7 +12,7 @@ const userOptions ={
 const optionMap = {
   container: 'map',
   center: [-79.4512, 43.6568],
-  zoom: 13,
+  zoom: 10,
   style: 'mapbox://styles/vromga/ck3x27sr35ddl1cmsxvf1zuf6',
 };
 
