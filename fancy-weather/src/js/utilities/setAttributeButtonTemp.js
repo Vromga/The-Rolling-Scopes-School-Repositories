@@ -1,4 +1,3 @@
-import {userOptions} from "../configuration";
 import setTemperatureAfterReload from "./setTemperatureAfterReload";
 
 function setAttributeButtonTemp (){
@@ -7,7 +6,7 @@ function setAttributeButtonTemp (){
   }
   const buttonTemp = document.querySelector('.header--switch');
 
-  buttonTemp.setAttribute('data', `${userOptions.temperatureScale}`);
+  buttonTemp.setAttribute('data', `${localStorage.getItem('temperatureScale')}`);
   setTemperatureAfterReload();
 }
 

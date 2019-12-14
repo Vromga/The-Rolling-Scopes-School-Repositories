@@ -15,7 +15,6 @@ async function createURLFlickr(data) {
     hours -= 24;
   }
 
-  console.log(hours);
   if (hours >= 21 || hours <= 3) {
     timeNow = `night`;
   } else if (hours >= 4 && hours <= 8) {
@@ -38,7 +37,6 @@ async function createURLFlickr(data) {
     monthNow = `autumn`;
   }
 
-  console.log(timeNow, monthNow, weatherNow);
   const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${imageKey}&tags=weather%2C+${timeNow}%2C+${monthNow}%2C+${weatherNow}&extras=url_o&format=json&nojsoncallback=1`;
   getImage(url);
 }

@@ -120,8 +120,32 @@ body {
     }
   }
 
+  &--homeland {
+    width: 40px;
+    color: #ffffff;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 1px #aaa inset, 0 0 0 #aaa;
+    background: rgba(0, 0, 0, 0.6) url("../img/homeland.png") no-repeat 50% 50%;
+    background-size: 10px;
+    grid-column: 1/2;
+    justify-self: center;
+
+    &:hover {
+      cursor: pointer;
+      animation: boxShadow 1.5s linear infinite;
+      transform: scale(1.01);
+    }
+
+    &:active {
+      cursor: pointer;
+      box-shadow: 0 0 20px 0 #cbca1d;
+      transform: scale(0.95);
+    }
+  }
+
   &--search {
-    grid-column: 1/4;
+    grid-column: 2/4;
     display: flex;
     justify-content: flex-end;
 
@@ -133,7 +157,7 @@ body {
       margin: 0;
       color: #ffffff;
       background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 5px 0 0 5px;
+      border-radius: 0;
       box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 0.71);
       padding: 0 0 0 10px;
 
@@ -176,7 +200,31 @@ body {
         transform: scale(0.95);
       }
     }
+
+    &-button_voice {
+      width: 80px;
+      color: #ffffff;
+      border: 1px solid black;
+      border-radius: 5px 0 0 5px;
+      background: rgba(0, 0, 0, 0.6) url("../img/microphone.png") no-repeat 50% 50%;
+      background-size: 10px;
+      box-shadow: 0 0 3px 1px #aaa inset, 0 0 0 #aaa;
+
+      &:hover {
+        cursor: pointer;
+        animation: boxShadow 1.5s linear infinite;
+        transform: scale(1.01);
+      }
+
+      &:active {
+        cursor: pointer;
+        box-shadow: 0 0 20px 0 #cbca1d;
+        transform: scale(0.95);
+      }
+
+    }
   }
+
 }
 
 .main {
@@ -287,7 +335,7 @@ body {
       font-size: 0.8em;
     }
 
-    &-summary{
+    &-summary {
       color: #ffffff;
       justify-self: center;
       grid-column: 1/3;

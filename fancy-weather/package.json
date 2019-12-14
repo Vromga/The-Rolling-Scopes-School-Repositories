@@ -1,26 +1,25 @@
 {
-  "name": "fancy-weather",
-  "version": "1.0.0",
-  "description": "weather",
+  "name": "webpack-boilerplate",
+  "version": "1.0.1",
+  "description": "WebPack: HTML, CSS, SCSS, JS, Img, Fonts",
   "main": "",
   "browserslist": [
     "> 0.25%, not dead"
   ],
   "scripts": {
-    "dev": "webpack-dev-server --history-api-fallback --inline --progress --open",
+    "dev": "webpack-dev-server --history-api-fallback --inline --open",
     "build": "npm run clear -s && webpack --progress",
     "lint": "eslint ./**/*.js",
     "clear": "del-cli dist"
   },
-  "author": "Vromga",
+  "author": "Netizen",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rolling-scopes-school/vromga-RS2019Q3.git"
+    "url": "git+https://github.com/Net-zen/webpack-boilerplate.git"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
-    "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.6.0",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
@@ -49,5 +48,8 @@
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "core-js": "^3.4.7",
+    "regenerator-runtime": "^0.13.3"
+  }
 }

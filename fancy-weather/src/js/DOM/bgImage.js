@@ -1,7 +1,8 @@
 import getRandomPhoto from "../utilities/getRandomPhoto";
+
 function createBackground(data) {
   const photosArr = data.photos.photo;
-  let photoURLArr = photosArr.filter(value =>{
+  const photoURLArr = photosArr.filter(value => {
     if (value.height_o) return value;
   });
 

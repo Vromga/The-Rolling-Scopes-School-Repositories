@@ -13,9 +13,11 @@ function createHTMLMarkUp() {
                 <option value="BE" class="header--select-option">BЕ</option>
             </select>
             <button class="header--switch" data='F'>F&deg;</button>
+            <button class="header--homeland"></button>
             <div class="header--search">
+                <button class="header--search-button_voice"></button>
                 <input type="search" name="searchCity" id="searchCity" class="header--search-input" placeholder="${translateUI()[4]}">
-                <button class="header--search-button">${translateUI()[5]}</button>
+                <button class="header--search-button">&#128270; ${translateUI()[5]}</button>
             </div>
         </header>
         <main class="main">
@@ -59,6 +61,7 @@ function createHTMLMarkUp() {
                 <p class="map--cord-lat"></p>
                 <p class="map--cord-lon"></p>
             </section>
+            //<div class = "loader"></div>
         </main>
   `;
 

@@ -1,4 +1,3 @@
-import {imageKey} from "../configuration";
 import createBackground from "../DOM/bgImage";
 
 async function getImage(url) {

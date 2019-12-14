@@ -1,8 +1,10 @@
-import {userOptions} from "../configuration";
-
 function getLocalStorage() {
-  userOptions.lang = localStorage.getItem('lang');
-  userOptions.temperatureScale = localStorage.getItem('temperatureScale');
+  if (localStorage.getItem('lang') && localStorage.getItem('temperatureScale')) {
+    return;
+  } else {
+    localStorage.setItem('lang', 'EN');
+    localStorage.setItem('temperatureScale', 'C');
+  }
 }
 
 export default getLocalStorage;
