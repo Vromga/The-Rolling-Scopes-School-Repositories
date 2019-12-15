@@ -1,4 +1,5 @@
 import getRandomPhoto from "../utilities/getRandomPhoto";
+import loader from "../utilities/loader";
 
 function createBackground(data) {
   const photosArr = data.photos.photo;
@@ -9,6 +10,7 @@ function createBackground(data) {
   const body = document.querySelector('body');
   const photo = photoURLArr[getRandomPhoto(photoURLArr.length)];
   body.style.background = `url("${photo.url_o}") center center / cover no-repeat fixed`;
+  loader();
 }
 
 export default createBackground;

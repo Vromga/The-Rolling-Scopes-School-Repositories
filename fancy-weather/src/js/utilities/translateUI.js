@@ -1,11 +1,11 @@
-import {userOptions, UI} from "../configuration";
+import {UI} from "../configuration";
 
 function translateUI() {
   if (localStorage.getItem('lang') === 'EN'){
     return UI.EN;
-  }else if (localStorage.getItem('lang') === 'RU'){
+  }if (localStorage.getItem('lang') === 'RU'){
     return UI.RU;
-  }else if (localStorage.getItem('lang') === 'BE'){
+  }if (localStorage.getItem('lang') === 'BE'){
     return UI.BE;
   }
 }

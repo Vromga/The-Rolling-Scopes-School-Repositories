@@ -1,6 +1,6 @@
 import fahrenheitToCelsius from "./fahrenheitToCelsius";
 import setLocalStorage from "./setLocalStorage";
-
+import translateUI from "./translateUI";
 
 function convertTemperatureToCelsius() {
   const tempNow = document.querySelector('.weather_today--temperature');
@@ -15,7 +15,7 @@ function convertTemperatureToCelsius() {
     buttonSwitch.textContent = `C${String.fromCharCode(176)}`;
     buttonSwitch.setAttribute('data', 'C');
     tempNow.textContent = `${fahrenheitToCelsius(tempNow.getAttribute('temperature'))}${String.fromCharCode(176)}`;
-    tempApparent.textContent = `Feels like: ${fahrenheitToCelsius(tempApparent.getAttribute('temperature'))}${String.fromCharCode(176)}`;
+    tempApparent.textContent = `${translateUI()[0]} ${fahrenheitToCelsius(tempApparent.getAttribute('temperature'))}${String.fromCharCode(176)}`;
     tempTomorrow.textContent = `${fahrenheitToCelsius(tempTomorrow.getAttribute('temperature'))}${String.fromCharCode(176)}`
     tempAfterTomorrow.textContent = `${fahrenheitToCelsius(tempAfterTomorrow.getAttribute('temperature'))}${String.fromCharCode(176)}`
     tempAfterAfterTomorrow.textContent = `${fahrenheitToCelsius(tempAfterAfterTomorrow.getAttribute('temperature'))}${String.fromCharCode(176)}`
@@ -25,7 +25,7 @@ function convertTemperatureToCelsius() {
     buttonSwitch.textContent = `F${String.fromCharCode(176)}`;
     buttonSwitch.setAttribute('data', 'F');
     tempNow.textContent = `${tempNow.getAttribute('temperature')}${String.fromCharCode(176)}`;
-    tempApparent.textContent = `Feels like: ${tempApparent.getAttribute('temperature')}${String.fromCharCode(176)}`;
+    tempApparent.textContent = `${translateUI()[0]} ${tempApparent.getAttribute('temperature')}${String.fromCharCode(176)}`;
     tempTomorrow.textContent = `${tempTomorrow.getAttribute('temperature')}${String.fromCharCode(176)}`;
     tempAfterTomorrow.textContent = `${tempAfterTomorrow.getAttribute('temperature')}${String.fromCharCode(176)}`;
     tempAfterAfterTomorrow.textContent = `${tempAfterAfterTomorrow.getAttribute('temperature')}${String.fromCharCode(176)}`;

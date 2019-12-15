@@ -8,9 +8,11 @@ import getLocalStorage from "./utilities/getLocalStorage";
 import setChoiceLang from "./utilities/setChoiceLang";
 import geoCoding from "./api/geoCodingApiForward";
 import speechRecognition from "./api/speechRecognition";
+import loader from "./utilities/loader";
 
 getLocalStorage();
 createHTMLMarkUp();
+loader();
 setChoiceLang();
 getGeoLocation();
 
@@ -20,14 +22,17 @@ document.addEventListener('click', (e) => {
     convertTemperatureToCelsius();
   }
   if (e.target.className === 'header--reload_image') {
-    location.reload();
+    window.location.reload();
   }
   if (e.target.className === 'header--homeland') {
     sessionStorage.removeItem('coord');
-    location.reload();
+    window.location.reload();
   }
   if (e.target.className === 'header--search-button_voice') {
     speechRecognition();
+  }
+  if (e.target.className === 'alertMessage--wrap-reload') {
+    window.location.reload();
   }
 });
 
@@ -41,5 +46,5 @@ document.addEventListener('change', (e) => {
 });
 
 window.addEventListener('load', () => {
-  //   console.log('Work');
+
 });

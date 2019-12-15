@@ -16,5 +16,8 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+		'eslint no-undef-init': 0,
+		'eslint new-cap': ["error", { "newIsCap": false }],
+
     }
 };

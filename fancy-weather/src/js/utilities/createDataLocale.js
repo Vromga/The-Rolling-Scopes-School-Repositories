@@ -1,6 +1,6 @@
 import {week, mouthBE} from "../configuration";
 
-function createData(data, dateBE) {
+function createData(data, dateBE, offset) {
 
   const dataArray = data.split(',');
   const dateDay = document.querySelector('.weather_today--date');
@@ -58,14 +58,10 @@ function createData(data, dateBE) {
   const day = dateBE.getUTCDay();
   const mouth = dateBE.getUTCMonth();
   const year = dateBE.getUTCFullYear();
-  const dateMouth = dateBE.getUTCDay();
-  const hoursBE = dateBE.getHours();
-  // if(offset < 0){
-  //
-  // }
-  console.log(hoursBE);
+  const dateMouth = dateBE.getUTCDate();
+
   if (localStorage.getItem('lang') === 'BE') {
-    dateDay.textContent = `${week.BE[day]}, ${dateMouth} ${mouthBE[mouth]} ${year}`;
+    dateDay.textContent = `${week.BeSort[day]}, ${dateMouth} ${mouthBE[mouth]} ${year}`;
   }else{
     dateDay.textContent = `${date}`;
   }
