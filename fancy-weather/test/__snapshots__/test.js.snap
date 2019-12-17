@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`setSnapshot 1`] = `"900"`;
+
+exports[`setSnapshot 2`] = `36`;

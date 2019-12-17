@@ -1,5 +1,8 @@
 {
-  "name": "webpack-boilerplate",
+  "name": "fancy-weather",
+  "jest": {
+    "verbose": true
+  },
   "version": "1.0.1",
   "description": "WebPack: HTML, CSS, SCSS, JS, Img, Fonts",
   "main": "",
@@ -10,9 +13,10 @@
     "dev": "webpack-dev-server --history-api-fallback --inline --open",
     "build": "npm run clear -s && webpack --progress",
     "lint": "eslint ./**/*.js",
-    "clear": "del-cli dist"
+    "clear": "del-cli dist",
+    "test": "jest"
   },
-  "author": "Netizen",
+  "author": "Vromga",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -21,6 +25,7 @@
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
+    "@babel/preset-typescript": "^7.7.4",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "copy-webpack-plugin": "^5.0.5",
@@ -37,6 +42,7 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^6.0.0",
+    "jest": "^24.9.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
     "postcss-loader": "^3.0.0",
@@ -49,6 +55,7 @@
     "webpack-dev-server": "^3.8.2"
   },
   "dependencies": {
+    "babel-jest": "^24.9.0",
     "core-js": "^3.4.7",
     "regenerator-runtime": "^0.13.3"
   }
