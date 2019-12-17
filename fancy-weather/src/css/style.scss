@@ -530,10 +530,10 @@ body {
   height: 100%;
   width: 100%;
   z-index: 10;
-  background-color: rgba(203, 193, 114, 0.95);
+  background: rgba(0, 0, 0, 1) url("../img/17yW.gif") no-repeat 50% 50%;
 }
 
-.alertMessage {
+.alertMessage, .mistakeCity {
   left: 0;
   right: 0;
   top: 0;

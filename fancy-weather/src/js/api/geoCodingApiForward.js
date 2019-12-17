@@ -1,5 +1,6 @@
 import {keyOpenData} from "../configuration";
-import alertMessage from "../DOM/alert";
+//   import alertMessage from "../DOM/alert";
+import inputMistakeCity from "../DOM/inputMistakeCity";
 
 async function geoCoding() {
   try {
@@ -16,7 +17,7 @@ async function geoCoding() {
     sessionStorage.setItem('coord', ls);
     window.location.reload();
   } catch (e) {
-    alertMessage(e);
+    inputMistakeCity(e);
   }
 }
 

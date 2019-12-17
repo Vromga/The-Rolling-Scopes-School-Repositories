@@ -23,7 +23,7 @@ async function setWeatherData(data) {
     const afterTomorrowSummary = document.querySelector('.weather_future--after_tomorrow-summary');
     const afterAfterTomorrowSummary = document.querySelector('.weather_future--after_after_tomorrow-summary');
     const weather = await data;
-    console.log(weather);
+
     todayTemperature.textContent = `${Math.trunc(weather.currently.temperature)}${String.fromCharCode(176)}`;
     todayTemperature.setAttribute('temperature', `${Math.trunc(weather.currently.temperature)}`);
     todaySummary.textContent = weather.currently.summary;

@@ -1,6 +1,6 @@
 import {week, mouthBE} from "../configuration";
 
-function createData(data, dateBE, offset) {
+function createData(data, dateBE) {
 
   const dataArray = data.split(',');
   const dateDay = document.querySelector('.weather_today--date');

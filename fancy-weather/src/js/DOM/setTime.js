@@ -20,7 +20,7 @@ function getTimeZone(dataTime) {
   const time = new Date(todayDate * 1000);
   getDayInFuture(time.getDay());
   const dateLocale = formatterDate.format(time);
-  createData(dateLocale, time, offset);
+  createData(dateLocale, time);
 }
 
 

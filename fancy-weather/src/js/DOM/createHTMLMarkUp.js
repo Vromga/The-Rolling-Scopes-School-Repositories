@@ -71,10 +71,18 @@ function createHTMLMarkUp() {
   const blockScreen = `
             <div class="loader"></div>
             <div class="alertMessage">
-            <div class="alertMessage--wrap">
-            <div class="alertMessage--wrap-warning">&#9888;</div>
-            <p class="alertMessage--wrap-text_error">${translateUI()[6]}</p>
-            <button class="alertMessage--wrap-reload">&#128472; ${translateUI()[7]}</button>    
+                <div class="alertMessage--wrap">
+                    <div class="alertMessage--wrap-warning">&#9888;</div>
+                    <p class="alertMessage--wrap-text_error">${translateUI()[6]}</p>
+                    <button class="alertMessage--wrap-reload">&#128472; ${translateUI()[7]}</button>    
+                </div>
+            </div>
+                <div class="mistakeCity">
+                <div class="alertMessage--wrap">
+                    <div class="alertMessage--wrap-warning">&#9888;</div>
+                    <p class="alertMessage--wrap-text_error">${translateUI()[20]}</p>
+                    <button class="alertMessage--wrap-reload">&#128472; ${translateUI()[7]}</button>    
+                </div>
             </div>`;
   body.insertAdjacentHTML('afterbegin', blockScreen);
   body.insertAdjacentElement('afterbegin', app);
