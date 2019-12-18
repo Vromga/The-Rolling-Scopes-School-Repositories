@@ -8,7 +8,7 @@ async function getDataCountry(data) {
     const url = `https://api.opencagedata.com/geocode/v1/json?q=${data}&key=${keyOpenData}&language=${localStorage.getItem('lang').toLowerCase()}`;
     const response = await fetch(url);
     const locationData = await response.json();
-    setCityCountry(locationData);
+    await setCityCountry(locationData);
   }catch (e) {
     alertMessage(e);
   }

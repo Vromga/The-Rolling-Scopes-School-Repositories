@@ -16,5 +16,12 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
-    }
+		'no-unused-vars': [0],
+		"no-unused-expression": 'off',
+		"array-callback-return": "off",
+		"consistent-return": "off",
+		"prefer-destructuring": "off",
+		"no-param-reassign": "off",
+
+	}
 };

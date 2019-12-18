@@ -1,5 +1,4 @@
 import {keyOpenData} from "../configuration";
-//   import alertMessage from "../DOM/alert";
 import inputMistakeCity from "../DOM/inputMistakeCity";
 
 async function geoCoding() {
@@ -11,7 +10,7 @@ async function geoCoding() {
     const coordinatesCity = locationData.features[0].geometry.coordinates;
     const [lon, lat] = coordinatesCity;
     const arrCord = [];
-    arrCord.push(lat.toString()); // переводим в строку, что бы не ломалась логика liveCordinates.
+    arrCord.push(lat.toString());
     arrCord.push(lon.toString());
     const ls = arrCord.join(',');
     sessionStorage.setItem('coord', ls);

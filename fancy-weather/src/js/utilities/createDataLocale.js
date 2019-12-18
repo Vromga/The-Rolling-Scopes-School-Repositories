@@ -25,13 +25,25 @@ function createData(data, dateBE) {
     let hour = +h;
     let minute = +m;
     let second = +s;
-    let timerID = setTimeout(function scope() {
+    setTimeout(function scope() {
       let tempHour = 0;
       let tempMinute = 0;
       let tempSecond = 0;
-      hour < 10 ? tempHour = `0${hour}` : tempHour = hour;
-      minute < 10 ? tempMinute = `0${minute}` : tempMinute = minute;
-      second < 10 ? tempSecond = `0${second}` : tempSecond = second;
+      if (hour < 10) {
+        tempHour = `0${hour}`;
+      } else {
+        tempHour = hour;
+      }
+      if (minute < 10) {
+        tempMinute = `0${minute}`;
+      } else {
+        tempMinute = minute;
+      }
+      if (second < 10) {
+        tempSecond = `0${second}`;
+      } else {
+        tempSecond = second;
+      }
       dateTime.textContent = `${tempHour}:${tempMinute}:${tempSecond}`;
 
       if (hour > 23) {
@@ -46,7 +58,7 @@ function createData(data, dateBE) {
         minute += 1;
       }
       second += 1;
-      timerID = setTimeout(scope, 1000);
+      setTimeout(scope, 1000);
     }, 1000);
 
 
