@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+//   const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const ENV = process.env.npm_lifecycle_event;
@@ -158,12 +158,12 @@ const config = {
     stats: 'errors-only',
     clientLogLevel: 'none'
   }
-}
-
-if (isProd) {
-  config.plugins.push(
-    new UglifyJSPlugin(),
-  );
 };
+
+// if (isProd) {
+// //   config.plugins.push(
+// //     new UglifyJSPlugin(),
+// //   );
+// // }
 
 module.exports = config;
