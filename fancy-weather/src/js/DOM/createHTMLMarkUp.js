@@ -27,6 +27,7 @@ function createHTMLMarkUp() {
                 <p class="weather_today--time"></p>
                 <p class="weather_today--temperature"></p>
                 <canvas id="weatherToday" width="100%" height="100%" class="weather_today--icon"></canvas>
+                <p class="weather_today--temperature_all_day"></p>
                 <p class="weather_today--recommendation"></p>
                 <p class="weather_today--all_day"></p>
                 <ul class="weather_today--option">
@@ -39,6 +40,7 @@ function createHTMLMarkUp() {
                 </ul>
             </section>
             <section class="weather_future">
+                <h3 class="weather_future--all_week"></h3>
                 <ul class="weather_future--tomorrow">
                     <li class="weather_future--tomorrow-day"></li>                   
                     <li class="weather_future--tomorrow-temperature"></li>

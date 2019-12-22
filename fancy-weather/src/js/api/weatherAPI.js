@@ -10,9 +10,8 @@ async function darkSkyApi(url) {
     let data;
     try {
       const response = await fetch(proxyApi + url);
-       data = await response.json();
-    }
-    catch (e) {
+      data = await response.json();
+    } catch (e) {
       alertMessage(e);
     }
     setWeatherData(data);

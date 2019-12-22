@@ -2,7 +2,6 @@ import createBackground from "../DOM/bgImage";
 import alertMessage from "../DOM/alert";
 
 async function getImage(url) {
-
   try {
     let data;
     try {

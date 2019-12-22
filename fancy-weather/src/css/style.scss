@@ -276,6 +276,7 @@ body {
     color: #ffffff;
     text-shadow: 0 0 10px #000000;
     animation: bigLetter 8s linear infinite;
+    grid-row: 3/5;
   }
 
   &--icon {
@@ -285,6 +286,15 @@ body {
     background-size: cover;
     margin: 13px 0 0 14px;
   }
+
+  &--temperature_all_day {
+    grid-column: 2/4;
+    color: #ffffff;
+    text-shadow: 0 0 10px #000000;
+    font-size: 2rem;
+    justify-self: start;
+  }
+
 
   &--recommendation, &--option, &--all_day {
     grid-column: 1/4;
@@ -318,6 +328,18 @@ body {
   justify-content: center;
   margin-bottom: 0.5em;
 
+  &--all_week {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 1), 0 0 10px 0 rgba(255, 255, 255, .71);
+    padding: 10px;
+    list-style: none;
+    margin: 5px 0;
+    width: 96%;
+    color: #ffffff;
+    font-size: 0.8em;
+    font-weight: normal;
+  }
 
   &--tomorrow, &--after_tomorrow, &--after_after_tomorrow {
     display: grid;
@@ -479,7 +501,7 @@ body {
           font-size: 2em;
         }
 
-        &--option-* {
+        &--option- * {
           font-size: 1em;
           margin: 0 10px 0 0;
         }
@@ -489,6 +511,12 @@ body {
       .weather_future {
         grid-template-columns: repeat(3, 1fr);
         grid-column: 1/3;
+
+        &--all_week {
+          grid-column: 1/4;
+          width: auto;
+          font-size: 1.1em;
+        }
 
         &--tomorrow, &--after_tomorrow, &--after_after_tomorrow {
           width: 300px;
@@ -563,7 +591,8 @@ body {
       margin-bottom: 1em;
       width: 60%;
     }
-    &-reload{
+
+    &-reload {
       height: 35px;
       padding: 4px;
       margin: 0 0 20px;
@@ -582,9 +611,9 @@ body {
 }
 
 @media(max-width: 960px) {
-  .alertMessage{
-    &--wrap{
-      &-text_error{
+  .alertMessage {
+    &--wrap {
+      &-text_error {
         font-size: 1em;
       }
     }

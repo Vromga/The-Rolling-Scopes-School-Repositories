@@ -15,9 +15,14 @@ async function getGeoLocation() {
     if (sessionStorage.getItem('coord')) {
       location = sessionStorage.getItem('coord')
     } else {
-      const response = await fetch(geoLocationURL);
-      const data = await response.json();
-      location = data.loc;
+      try {
+        const response = await fetch(geoLocationURL);
+        const data = await response.json();
+        location = data.loc;
+      }catch (e) {
+        alertMessage(e);
+      }
+
     }
     getDataCountry(location);
     const locationArr = location.split(',');
