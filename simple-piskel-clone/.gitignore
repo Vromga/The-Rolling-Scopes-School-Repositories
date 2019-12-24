@@ -66,3 +66,5 @@ typings/
 ./dist
 
 .idea
+../.idea
+../fancy-weather/.idea
