@@ -25,7 +25,9 @@ function setDMode() {
 
 const config = {
 	target: "web",
-	entry: {index: './src/app.js'},    // ./src/js/app.js
+	entry: {
+		index: './src/js/app.js',
+		},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js'
@@ -148,7 +150,7 @@ const config = {
 			minify: {
 				html5: true
 			},
-			favicon: `./src/favicon.ico`,
+			favicon: `./src/assets/favicon.ico`,
 		}),
 		new CopyWebpackPlugin([
 			// {from: './src/static', to: './'},
