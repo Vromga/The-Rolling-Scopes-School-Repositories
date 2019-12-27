@@ -58,7 +58,8 @@ body {
     border: orange 2px solid;
     background-color: #ffcb3c;
     color: #000000;
-    border-radius: 5px;
+    border-radius: 3px;
+    padding: 5px;
   }
 
   &--sign_in {
@@ -66,9 +67,10 @@ body {
     border: orange 2px solid;
     background-color: #ffcb3c;
     color: #000000;
-    border-radius: 5px;
+    border-radius: 3px;
     justify-self: start;
     margin-left: 5px;
+    padding: 5px;
   }
 }
 
@@ -164,9 +166,6 @@ body {
         border: 0;
       }
 
-      &::-moz-color-swatch {
-        border: 0;
-      }
     }
 
     #secondary {
@@ -194,9 +193,6 @@ body {
         border: 0;
       }
 
-      &::-moz-color-swatch {
-        border: 0;
-      }
     }
 
   }
