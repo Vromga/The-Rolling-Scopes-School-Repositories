@@ -45,6 +45,7 @@
     "jest": "^24.9.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
+    "normalize.css": "^8.0.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.0",
     "skycons": "^1.0.0",

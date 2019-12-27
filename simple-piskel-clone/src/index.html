@@ -16,68 +16,78 @@
 </header>
 <main class="main">
     <section class="main--tools">
-        <button class="main--tools-1px">1px</button>
-        <button class="main--tools-2px">2px</button>
-        <button class="main--tools-3px">3px</button>
-        <button class="main--tools-4px">4px</button>
-        <button class="main--tools-pen">pen</button>
-        <input type="color" class="main--tools-color_primary">
-        <input type="color" class="main--tools-color_secondary">
-        <button class="main--tools-paint_bucket">Paint bucket</button>
-        <button class="main--tools-eraser">Eraser</button>
-        <button class="main--tools-stroke">Stroke</button>
+        <div class="main--tools-sizes pick_size" title="Pen size from 1px to 4px">
+            <label class="pick_size--label">
+                <input type="radio" name="size" value="1" checked class="pick_size--radio">
+                <span class="pick_size--span"></span>
+            </label>
+            <label class="pick_size--label">
+                <input type="radio" name="size" value="2" class="pick_size--radio">
+                <span class="pick_size--span"></span>
+            </label>
+            <label class="pick_size--label">
+                <input type="radio" name="size" value="3" class="pick_size--radio">
+                <span class="pick_size--span"></span>
+            </label>
+            <label>
+                <input type="radio" name="size" value="4" class="pick_size--radio">
+                <span class="pick_size--span"></span>
+            </label>
+        </div>
+        <button class="main--tools-pen"></button>
+        <button class="main--tools-paint_bucket"></button>
+        <button class="main--tools-eraser"></button>
+        <button class="main--tools-stroke"></button>
+        <div class="main--tools-colors color">
+            <input type="color" id="primary" value="#05fe08"><input type="color" id="secondary" value="#eeeede">
+        </div>
     </section>
     <section class="main--frame">
-        <ul class="frame--lists">
-            <li class="frame--lists-list frame">
+        <ul class="main--frame-lists frame_container">
+            <li class="frame_container--list frame" draggable="true">
                 <div class="frame--preview">
-                    <canvas class="frame--preview-canvas" style="width: 128px; height: 128px;"></canvas>
+                    <canvas class="frame--preview-canvas"></canvas>
                     <span class="frame--preview-number">1</span>
-                    <button class="frame--preview">delete</button>
-                    <button class="frame--preview">move</button>
-                    <button class="frame--preview">copy</button>
+                    <button class="frame--preview-del"></button>
+                    <button class="frame--preview-move"></button>
+                    <button class="frame--preview-copy"></button>
                 </div>
             </li>
-            <li class="frame--lists-list frame">
+            <li class="frame_container--list frame" draggable="true">
                 <div class="frame--preview">
-                    <canvas class="frame--preview-canvas" style="width: 128px; height: 128px;"></canvas>
-                    <span class="frame--preview-number">2</span>
-                    <button class="frame--preview">delete</button>
-                    <button class="frame--preview">move</button>
-                    <button class="frame--preview">copy</button>
+                    <canvas class="frame--preview-canvas"></canvas>
+                    <span class="frame--preview-number">1</span>
+                    <button class="frame--preview-del"></button>
+                    <button class="frame--preview-move"></button>
+                    <button class="frame--preview-copy"></button>
                 </div>
             </li>
-            <button class="frame--lists-add_frame">+ add frame</button>
         </ul>
+        <button class="main--frame-add">+ add frame</button>
     </section>
     <section class="main--draw_container">
-        <canvas class="main--draw_container-canvas" style="width: 128px; height: 128px;"></canvas>
+        <canvas class="main--draw_container-canvas"></canvas>
     </section>
     <section class="main--preview">
-        <canvas class="main--preview-canvas" style="width: 128px; height: 128px;"></canvas>
-        <button class="main--preview-button">full screen</button>
+        <div class="main--preview-layer layer">
+            <canvas class="layer--canvas"></canvas>
+            <button class="layer--button"></button>
+        </div>
         <div class="main--preview-change_fps fps_block">
             <p class="fps_block--fps">5</p>
             <label for="fps" class="fps_block--label">fps</label>
             <input type="range" min="0" max="24" id="fps" step="1" class="fps_block--input">
         </div>
     </section>
-    <section class="main--layers">
-        <div class="main--layers-container container">
-            <button class="container--button">+</button>
-            <button class="container--button">up</button>
-            <button class="container--button">down</button>
-            <button class="container--button">del</button>
-        </div>
-        <div class="main--layers-layer layer_list">
-            <div class="layer_list--layer">"Layer"<span class="layer_list--layer">1</span></div>
+    <section class="main--setting">
+            <button class="main--setting-save"></button>
+        <div class="main--setting-resize setting">
+            <p class="setting--title">Change size canvas</p>
+            <button class="setting--resize" data="32">32px</button>
+            <button class="setting--resize" data="64">64px</button>
+            <button class="setting--resize" data="128">128px</button>
         </div>
     </section>
-    <aside class="main--setting">
-        <div class="main--setting-save">save</div>
-        <div class="main--setting-save">resize</div>
-        <div class="main--setting-save">open</div>
-    </aside>
 </main>
 </body>
 </html>

@@ -22,6 +22,7 @@ module.exports = {
 		"consistent-return": "off",
 		"prefer-destructuring": "off",
 		"no-param-reassign": "off",
+		"import/no-extraneous-dependencies": "off",
 
 	}
 };

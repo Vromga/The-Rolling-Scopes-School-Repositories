@@ -1,3 +1,531 @@
-* {
-  border: 1px dashed rgba(154, 205, 50, 0.26);
+@mixin centerAndWhite {
+  color: white;
+  align-self: center;
+  justify-self: center;
 }
+
+@mixin button {
+  width: 47px;
+  height: 47px;
+  background: #444444 url("../assets/icons.png") no-repeat;
+  border: 3px solid #686868;
+}
+
+@mixin border {
+  background-color: #2D2D2D;
+  border-bottom: 1px solid #1a1a1a;
+  box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.4);
+  padding: 5px;
+}
+
+* {
+  font-family: monospace;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  image-rendering: pixelated;
+}
+
+body {
+  background: #1D1D1D;
+  margin: 0;
+  padding: 10px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 20% 45% 10% 25%;
+  margin-bottom: 10px;
+  @include border();
+
+  &--title {
+    @include centerAndWhite();
+    margin: 0;
+
+  }
+
+  &--name_project {
+    @include centerAndWhite();
+    margin: 0;
+    font-size: 1.2em;
+  }
+
+  &--create_sprite {
+    @include centerAndWhite();
+    border: orange 2px solid;
+    background-color: #ffcb3c;
+    color: #000000;
+    border-radius: 5px;
+  }
+
+  &--sign_in {
+    @include centerAndWhite();
+    border: orange 2px solid;
+    background-color: #ffcb3c;
+    color: #000000;
+    border-radius: 5px;
+    justify-self: start;
+    margin-left: 5px;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 110px 130px 1fr 300px;
+  grid-gap: 15px;
+  justify-items: flex-end;
+  justify-content: flex-end;
+  @include border();
+  overflow-x: hidden;
+
+
+  &--tools {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 260px;
+    @include border();
+
+
+    &-pen {
+      @include button();
+      background-position: -184px -95px;
+      transition: .3s;
+
+      &:hover {
+        border-color: gold;
+      }
+    }
+
+    &-paint_bucket {
+      @include button();
+      background-position: -230px -93px;
+      transition: .3s;
+
+      &:hover {
+        border-color: gold;
+      }
+    }
+
+    &-eraser {
+      @include button();
+      background-position: -49px -230px;
+      transition: .3s;
+
+      &:hover {
+        border-color: gold;
+      }
+    }
+
+    &-stroke {
+      @include button();
+      background-position: -49px -138px;
+      transition: .3s;
+
+      &:hover {
+        border-color: gold;
+      }
+    }
+
+    &-colors {
+      grid-column: 1/3;
+
+      &.color {
+        width: 100%;
+        height: 100px;
+        position: relative;
+      }
+    }
+
+    #primary {
+      width: 46px;
+      height: 46px;
+      border: 5px solid #444444;
+      outline: none;
+      margin: 1px 0 0 5px;
+      padding: 0;
+      transition: .3s;
+      z-index: 2;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+
+      &:hover {
+        border-color: gold;
+      }
+
+      &::-webkit-color-swatch-wrapper {
+        padding: 0;
+      }
+
+      &::-webkit-color-swatch {
+        border: 0;
+      }
+
+      &::-moz-color-swatch {
+        border: 0;
+      }
+    }
+
+    #secondary {
+      width: 46px;
+      height: 46px;
+      border: 5px solid #444444;
+      outline: none;
+      margin: 1px;
+      padding: 0;
+      transition: .3s;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      z-index: 1;
+
+      &:hover {
+        border-color: gold;
+      }
+
+      &::-webkit-color-swatch-wrapper {
+        padding: 0;
+      }
+
+      &::-webkit-color-swatch {
+        border: 0;
+      }
+
+      &::-moz-color-swatch {
+        border: 0;
+      }
+    }
+
+  }
+
+  .pick_size {
+    display: flex;
+    grid-column: 1/3;
+
+    &--label {
+
+    }
+
+    &--radio {
+      display: none;
+    }
+
+    &--span {
+      position: relative;
+      display: block;
+      width: 22px;
+      height: 22px;
+      margin: 1px;
+      background-color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      line-height: 17px;
+      cursor: pointer;
+    }
+
+    input[name="size"]:checked + span {
+      background-color: #ffd700;
+      outline: 2px solid #ffd700;
+      outline-offset: -3px;
+    }
+
+    input[value="1"] + span {
+      border: 8px solid #1d1d1d;
+      outline: 2px solid #888;
+      outline-offset: -3px;
+    }
+
+    input[value="2"] + span {
+      border: 7px solid #1d1d1d;
+      outline: 2px solid #888;
+      outline-offset: -3px;
+    }
+
+    input[value="3"] + span {
+      border: 6px solid #1d1d1d;
+      outline: 2px solid #888;
+      outline-offset: -3px;
+    }
+
+    input[value="4"] + span {
+      border: 5px solid #1d1d1d;
+      outline: 2px solid #888;
+      outline-offset: -3px;
+    }
+  }
+
+  &--frame {
+    grid-column: 2/3;
+    grid-row: 1/4;
+    width: 100%;
+    height: 90vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include border();
+
+    &-lists {
+      list-style: none;
+
+      & .frame_container {
+        &--list {
+          width: 102px;
+          height: 102px;
+          margin-bottom: 5px;
+
+          & .frame {
+            &--preview {
+              width: 100px;
+              height: 100px;
+              position: relative;
+
+
+              &-canvas {
+                width: 100%;
+                height: 100%;
+                background-image: url('../assets/bg.png');
+              }
+
+              &-number {
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: 1px solid #ffd700;
+                border-radius: 2px;
+                width: 30px;
+                height: 30px;
+                background: #ffd700;
+                color: black;
+                font-size: 1.3em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+
+              &-del {
+                position: absolute;
+                top: 0;
+                right: 0;
+                opacity: 0;
+                background: hsla(0, 0%, 39.2%, .8) url(../assets/icons.png) no-repeat -275px -106px;
+                width: 30px;
+                height: 30px;
+                transition: .3s;
+                border: 0;
+                cursor: pointer;
+              }
+
+              &-move {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                opacity: 0;
+                background: hsla(0, 0%, 39.2%, .8) url(../assets/icons.png) no-repeat -275px -48px;
+                width: 30px;
+                height: 30px;
+                transition: .3s;
+                cursor: grab;
+                border: 0;
+              }
+
+              &-copy {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                opacity: 0;
+                background: hsla(0, 0%, 39.2%, .8) url(../assets/icons.png) no-repeat -275px -77px;
+                width: 30px;
+                height: 30px;
+                transition: .3s;
+                cursor: copy;
+                border: 0;
+              }
+
+              &:hover .frame--preview-del {
+                opacity: 1;
+              }
+
+              &:hover .frame--preview-move {
+                opacity: 1;
+              }
+
+              &:hover .frame--preview-copy {
+                opacity: 1;
+              }
+
+            }
+          }
+        }
+      }
+    }
+
+    &-add {
+      width: 102px;
+      height: 50px;
+      margin: 5px 0;
+      background-color: #222222;
+      border: 3px solid #888888;
+      border-radius: 2px;
+      outline: none;
+      transition: .3s;
+      cursor: pointer;
+      color: #888888;
+
+      &:hover {
+        border-color: gold;
+        color: gold;
+      }
+    }
+  }
+
+
+  &--draw_container {
+    grid-column: 3/4;
+    grid-row: 1/4;
+    height: 90vh;
+    @include border();
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 640px;
+    min-height: 640px;
+    background-color: #A0A0A0;
+    margin: 2px;
+
+    &-canvas {
+      position: absolute;
+      image-rendering: pixelated;
+      width: 640px;
+      height: 640px;
+      background-image: url('../assets/bg.png');
+      background-color: rgba(255, 255, 255, .1);
+      cursor: crosshair;
+    }
+  }
+
+  &--preview {
+    @include border();
+    width: 210px;
+    height: 280px;
+
+    &-layer {
+      width: 200px;
+      background-image: url(../assets/bg.png);
+      position: relative;
+
+      & .layer {
+        &--canvas {
+          width: 100%;
+          max-width: 100vh;
+          height: 200px;
+          position: relative;
+          display: block;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 200px;
+            background-image: url(../assets/bg.png);
+            z-index: 99;
+            border-color: gold;
+          }
+        }
+
+        &--button {
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 2;
+          width: 40px;
+          height: 40px;
+          border: none;
+          border-radius: 4px;
+          background: rgba(100, 100, 100, 0.7) url(../assets/icons.png) no-repeat -140px -185px;
+          opacity: 0;
+          transition: .3s;
+          cursor: pointer;
+        }
+      }
+
+      &:hover .layer--button {
+        opacity: 1;
+      }
+    }
+
+    &-change_fps {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      border: 1px solid darkgrey;
+      color: #A0A0A0;
+
+      & .fps_block {
+        &--fps {
+          margin-right: 3px;
+        }
+
+        &--label {
+          margin-right: 10px;
+        }
+      }
+
+    }
+  }
+
+  &--setting {
+    @include border();
+    grid-column: 4/5;
+    grid-row: 2/3;
+    width: 210px;
+    height: auto;
+
+    &-save {
+      width: 40px;
+      height: 40px;
+      background: rgba(100, 100, 100, 0.7) url(../assets/icons.png) no-repeat -232px -3px;
+      border: 0;
+
+      &:hover{
+        background-color: rgba(255, 186, 0, 0.60);
+      }
+    }
+
+    &-resize {
+
+      & .setting {
+        &--title {
+          color: #A0A0A0;
+          margin: 10px 0;
+        }
+
+        &--resize {
+          width: 44px;
+          height: 44px;
+          background: rgba(100, 100, 100, 0.7);
+          border: 0;
+          color: #A0A0A0;
+          padding: 2px;
+
+          &:hover {
+            color: gold;
+            border: 3px solid gold;
+          }
+        }
+      }
+    }
+  }
+}
+
