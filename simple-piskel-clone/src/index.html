@@ -34,10 +34,10 @@
                 <span class="pick_size--span"></span>
             </label>
         </div>
-        <button class="main--tools-pen active_element"></button>
-        <button class="main--tools-paint_bucket"></button>
-        <button class="main--tools-eraser"></button>
-        <button class="main--tools-stroke"></button>
+        <button class="main--tools-pen tools active_element" data="tools"></button>
+        <button class="main--tools-paint_bucket tools" data="tools"></button>
+        <button class="main--tools-eraser tools" data="tools"></button>
+        <button class="main--tools-stroke tools" data="tools"></button>
         <div class="main--tools-colors color">
             <input type="color" id="primary" value="#05fe08"><input type="color" id="secondary" value="#eeeede">
         </div>
@@ -45,7 +45,7 @@
     <section class="main--frame">
         <ul class="main--frame-lists frame_container">
             <li class="frame_container--list frame" draggable="true">
-                <div class="frame--preview">
+                <div class="frame--preview active_element">
                     <canvas class="frame--preview-canvas"></canvas>
                     <span class="frame--preview-number">1</span>
                     <button class="frame--preview-del"></button>
