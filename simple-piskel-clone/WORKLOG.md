@@ -6,6 +6,6 @@
 | 26 dec 2019 | 26 dec 2019 | 2h | base html markup|
 | 26 dec 2019 | 26 dec 2019 | 2h | base css style |
 | 27 dec 2019 | 28 dec 2019 | 5h | complete css style |
-| 28 dec 2019 | -- dec 2019 |  |  |
+| 28 dec 2019 | 28 dec 2019 | 30min | add logic change size canvas |
 
 
