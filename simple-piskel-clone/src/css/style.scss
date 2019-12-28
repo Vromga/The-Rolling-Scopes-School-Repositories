@@ -400,8 +400,8 @@ body {
     &-canvas {
       position: absolute;
       image-rendering: pixelated;
-      width: 640px;
-      height: 640px;
+      width: 512px;
+      height: 512px;
       background-image: url('../assets/bg.png');
       background-color: rgba(255, 255, 255, .1);
       cursor: crosshair;
