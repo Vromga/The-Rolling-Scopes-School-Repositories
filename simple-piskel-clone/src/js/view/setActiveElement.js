@@ -8,7 +8,6 @@ function setActiveElement(e){
     [...tools].forEach((v)=>v.classList.remove('active_element'));
     e.target.classList.add('active_element');
   }
-
 }
 
 export default setActiveElement;

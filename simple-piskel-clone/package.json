@@ -12,9 +12,10 @@
   "scripts": {
     "dev": "webpack-dev-server --history-api-fallback --inline --open",
     "build": "npm run clear -s && webpack --progress",
-    "lint": "eslint ./**/*.js",
+    "lint": "eslint ./**/*.js --fix",
     "clear": "del-cli dist",
-    "test": "jest"
+    "test": "jest",
+    "coverage:full": "jest --coverage --coverage-reporters=lcov"
   },
   "author": "Vromga",
   "license": "ISC",

@@ -23,6 +23,8 @@ module.exports = {
 		"prefer-destructuring": "off",
 		"no-param-reassign": "off",
 		"import/no-extraneous-dependencies": "off",
+		"import/no-mutable-exports": "off",
+		"no-constant-condition": "off",
 
 	}
 };
