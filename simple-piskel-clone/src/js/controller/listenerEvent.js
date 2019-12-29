@@ -1,8 +1,8 @@
 import changeSizeCanvas from "../model/changeSizeCanvas";
 import setClassActiveElement from "../view/setActiveElement";
-import startDraw from "../model/pencilLogic/startDraw";
-import draw from "../model/pencilLogic/draw";
-import finishDraw from "../model/pencilLogic/finishDraw";
+import startDraw from "../model/pencilAndEraserLogic/startDraw";
+import draw from "../model/pencilAndEraserLogic/draw";
+import finishDraw from "../model/pencilAndEraserLogic/finishDraw";
 
 function listenerEvent() {
   document.addEventListener('click', (e) => {
@@ -23,6 +23,9 @@ function listenerEvent() {
   document.addEventListener('mouseup', () => {
     finishDraw();
   });
+  document.addEventListener('contextmenu', (e)=>{
+    e.preventDefault();
+  })
 }
 
 export default listenerEvent;

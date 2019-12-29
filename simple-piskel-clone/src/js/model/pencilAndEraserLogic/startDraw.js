@@ -3,7 +3,7 @@ import {cordPixel, realSizeCanvas, tools} from "../../configuration";
 const canvas = document.querySelector('.main--draw_container-canvas');
 
 function startDraw(e) {
-  if (tools.pencil === true && e.target.className === 'main--draw_container-canvas') {
+  if (tools.pencil === true || tools.eraser === true && e.target.className === 'main--draw_container-canvas') {
     localStorage.setItem('isDraw', 'true');
     const virtualPixel = localStorage.getItem('virtualPixel');
     cordPixel.x0 = Math.floor(e.offsetX / (realSizeCanvas / canvas.width) / virtualPixel) * virtualPixel;

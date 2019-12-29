@@ -7,8 +7,9 @@ const canvasSize = {
 
 const tools = {
   fillBucket: false,
-  chooseColor: false,
+  stroke: false,
   pencil: true,
+  eraser: false,
 
 };
 
