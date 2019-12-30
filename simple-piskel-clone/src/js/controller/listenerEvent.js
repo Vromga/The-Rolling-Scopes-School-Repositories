@@ -5,6 +5,7 @@ import draw from "../model/pencilAndEraserLogic/draw";
 import finishDraw from "../model/pencilAndEraserLogic/finishDraw";
 import chooseTools from "./chooseTools";
 import saveColor from "../model/saveApp/saveColor";
+import setOnePixel from "../model/pencilAndEraserLogic/setOnePixel";
 
 function listenerEvent() {
   document.addEventListener('click', (e) => {
@@ -15,6 +16,8 @@ function listenerEvent() {
       setClassActiveElement(e);
     } else if (e.target.type === 'radio') {
       localStorage.setItem('virtualPixel', `${e.target.value}`);
+    } else if (e.target.className === 'main--draw_container-canvas') {
+      setOnePixel(e);
     }
   });
   document.addEventListener('mousedown', (e) => {
