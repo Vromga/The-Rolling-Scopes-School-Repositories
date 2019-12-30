@@ -8,6 +8,7 @@ import saveColor from "../model/saveApp/saveColor";
 import setOnePixel from "../model/pencilAndEraserLogic/setOnePixel";
 import {tools} from "../configuration";
 import bucket from "../model/bucketLogic/bucket";
+import setFrame from "../model/setFrame/setFrame";
 
 function listenerEvent() {
   document.addEventListener('click', (e) => {
@@ -21,10 +22,12 @@ function listenerEvent() {
     } else if (e.target.className === 'main--draw_container-canvas') {
       if (tools.pencil || tools.eraser) {
         setOnePixel(e);
-      } else if(tools.fillBucket){
+      } else if (tools.fillBucket) {
         bucket(e);
       }
-        }
+    } else if (e.target.className === 'frame--preview-canvas') {
+      setClassActiveElement(e);
+    }
   });
   document.addEventListener('mousedown', (e) => {
     startDraw(e)
@@ -34,6 +37,7 @@ function listenerEvent() {
   });
   document.addEventListener('mouseup', () => {
     finishDraw();
+    setFrame();
   });
   document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
