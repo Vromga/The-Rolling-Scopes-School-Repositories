@@ -12,3 +12,4 @@
 | 28 dec 2019 | 28 dec 2019 | 2h | add logic pen |
 | 28 dec 2019 | 28 dec 2019 | 3h | add change size pen |
 | 28 dec 2019 | 28 dec 2019 | 10min | add save size pen |
+| 29 dec 2019 | 29 dec 2019 | 3h | add load app |

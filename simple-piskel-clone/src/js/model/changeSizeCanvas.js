@@ -1,6 +1,6 @@
-import removeAttributeData from "../utilits/removeAttributeData";
 import setSizeCanvasAttribute from "../utilits/setSizeCanvasAttribute";
 import setActiveElement from "../view/setActiveElement";
+import saveStateApp from "./saveApp/saveStateApp";
 
 
 function changeSizeCanvas(e) {
@@ -9,24 +9,23 @@ function changeSizeCanvas(e) {
   const frameCanvas = document.querySelectorAll('.frame--preview-canvas');
 
   if (e.target.getAttribute('data') === '32') {
-      removeAttributeData(mainCanvas);
-      setSizeCanvasAttribute(mainCanvas, e.target.getAttribute('data'), false);
-      setSizeCanvasAttribute(layerCanvas, e.target.getAttribute('data'), false);
-      setSizeCanvasAttribute(frameCanvas, e.target.getAttribute('data'), true);
-      setActiveElement(e);
-  }else if(e.target.getAttribute('data') === '64'){
-    removeAttributeData(mainCanvas);
     setSizeCanvasAttribute(mainCanvas, e.target.getAttribute('data'), false);
     setSizeCanvasAttribute(layerCanvas, e.target.getAttribute('data'), false);
     setSizeCanvasAttribute(frameCanvas, e.target.getAttribute('data'), true);
     setActiveElement(e);
-  }else if (e.target.getAttribute('data') === '128'){
-    removeAttributeData(mainCanvas);
+    saveStateApp('sizeCanvas', `${e.target.getAttribute('data')}`);
+  } else if (e.target.getAttribute('data') === '64') {
     setSizeCanvasAttribute(mainCanvas, e.target.getAttribute('data'), false);
     setSizeCanvasAttribute(layerCanvas, e.target.getAttribute('data'), false);
     setSizeCanvasAttribute(frameCanvas, e.target.getAttribute('data'), true);
     setActiveElement(e);
-
+    saveStateApp('sizeCanvas', `${e.target.getAttribute('data')}`);
+  } else if (e.target.getAttribute('data') === '128') {
+    setSizeCanvasAttribute(mainCanvas, e.target.getAttribute('data'), false);
+    setSizeCanvasAttribute(layerCanvas, e.target.getAttribute('data'), false);
+    setSizeCanvasAttribute(frameCanvas, e.target.getAttribute('data'), true);
+    setActiveElement(e);
+    saveStateApp('sizeCanvas', `${e.target.getAttribute('data')}`);
   }
 }
 

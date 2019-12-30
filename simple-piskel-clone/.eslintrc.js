@@ -25,6 +25,8 @@ module.exports = {
 		"import/no-extraneous-dependencies": "off",
 		"import/no-mutable-exports": "off",
 		"no-constant-condition": "off",
-
+		"no-restricted-syntax": "off",
+		"no-unused-expressions": "off",
+		
 	}
 };
