@@ -1,6 +1,17 @@
+import countFrame from "./countFrame";
 
 function addNewFrame() {
-  document.querySelector('.main--frame-lists').append(document.querySelector('.frame_container--list').cloneNode(true));
+  const newFrame = `<li class="frame_container--list frame" draggable="true">
+                <div class="frame--preview">
+                    <canvas class="frame--preview-canvas" width="${localStorage.getItem('sizeCanvas')}" height="${localStorage.getItem('sizeCanvas')}"></canvas>
+                    <span class="frame--preview-number">1</span>
+                    <button class="frame--preview-del"></button>
+                    <button class="frame--preview-move"></button>
+                    <button class="frame--preview-copy"></button>
+                </div>
+            </li>`;
+  document.querySelector('.main--frame-lists').insertAdjacentHTML('beforeend', newFrame);
+  countFrame();
 }
 
 export default addNewFrame;

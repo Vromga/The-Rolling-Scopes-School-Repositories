@@ -1,3 +1,5 @@
+import countFrame from "./countFrame";
+
 function copyFrame(e){
   const node = e.parentNode.parentNode;
   const copyNode = node.cloneNode(true);
@@ -10,6 +12,7 @@ function copyFrame(e){
     ctx.drawImage(img, 0, 0);
   };
   node.after(copyNode);
+  countFrame();
 }
 
 export default copyFrame;
