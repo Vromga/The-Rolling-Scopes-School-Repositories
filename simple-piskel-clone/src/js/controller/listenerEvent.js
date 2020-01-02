@@ -9,6 +9,8 @@ import setOnePixel from "../model/pencilAndEraserLogic/setOnePixel";
 import {tools} from "../configuration";
 import bucket from "../model/bucketLogic/bucket";
 import setFrame from "../model/setFrame/setFrame";
+import animationFrame from "../model/animation/animationFrame";
+import addNewFrame from "../model/editingFrame/addNewFrame";
 
 function listenerEvent() {
   document.addEventListener('click', (e) => {
@@ -27,6 +29,10 @@ function listenerEvent() {
       }
     } else if (e.target.className === 'frame--preview-canvas') {
       setClassActiveElement(e);
+    } else if (e.target.className === 'main--frame-add') {
+      addNewFrame();
+    } else if (e.target.classNama === 'frame--preview-copy') {
+
     }
   });
   document.addEventListener('mousedown', (e) => {
@@ -35,9 +41,13 @@ function listenerEvent() {
   document.addEventListener('mousemove', (e) => {
     draw(e)
   });
-  document.addEventListener('mouseup', () => {
+  document.addEventListener('mouseup', (e) => {
     finishDraw();
     setFrame();
+    if (e.target.className === 'main--draw_container-canvas') {
+      animationFrame();
+    }
+
   });
   document.addEventListener('contextmenu', (e) => {
     e.preventDefault();

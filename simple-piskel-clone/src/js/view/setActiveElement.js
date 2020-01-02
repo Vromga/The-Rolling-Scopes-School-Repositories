@@ -4,6 +4,7 @@ import loadCanvasSize from "../model/loadApp/loadCanvasSize";
 import loadSizePen from "../model/loadApp/loadSizePen";
 import loadColor from "../model/loadApp/loadColor";
 import setFrame from "../model/setFrame/setFrame";
+import setEditableImage from "../model/setFrame/setEditableImage";
 
 function setActiveElement(e) {
   if (e) {
@@ -22,6 +23,7 @@ function setActiveElement(e) {
       [...frame].forEach((v) => v.classList.remove('active_element'));
       e.target.parentElement.classList.add('active_element');
       e.target.setAttribute('data-active', 'active');
+      setEditableImage(e);
     }
   } else {
     loadImageCanvas();
