@@ -1,0 +1,26 @@
+import getFrameForAnimation from "./getFrameForAnimation";
+
+const tempArr = [
+  `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABIklEQVRYR+2WwRLDIAhE9f8/2o6dIUMQ2MXWtofmmBh5LIvYR2ujffHpPwUwaeYz+uckuSlQBaiu99JaAGb2z5eECkcBmFK8HWAGleyRChKcARXpvT2XLtCLMggWVJISCFva4wBaKU+tFECXRDtY1x6pJEGjddsAIiUCQOsggFXBZp+ZkPFTCcC2XSarBdsuQebidFNzkL0EoCF0G4V9TQa/ymsdzhzDXodEJyM06u7ssyaLDHkMQB+xbDfYZJcuqKqBBhIzU9wrGfoxMqabYTLaXQWYrNgpiBJJAbJyMJ2CgrttGA2dqjeiQVY2IZOFB4fKeLukoOx2INh/6DasbMgaFHrAq1d22sl6xqClEkQg+n0l6DJ7kAdOfqc9cAriD/AATk/t4ewYw+AAAAAASUVORK5CYII=`,
+  `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACAUlEQVRYR82XW3bDMAhE7Z15Z3F3lp25R1Qoo9GAafLR5i9+SJdhQHi/tu3a/vC3/yuARtN+1z5Lsp/PVKPrPOT9yntDgcrDvIsBf73gEMTXu4NbANoLdpFU8M1xYVSMN2z/o80xkBBApaJdiwD8nm/6NsD2OCz6SAVf2KN30IoCas3VAx3AIhKpQAADLRh0wAq//OyBiyQAk/y0Medbgj0OMy2maQCY+fqik5tBhSxaVQFmNk8pAIcAbCROAwMoaPWMWtevTQqED1K9o1G9DyAMlllUFQ66b+fzYvmWfCIAeqTXOpbcUEDkW+1TAxD5Q7UkQGvp0KK5L4xqKingABA9N6Xxv0du/aEDSHO7er8BWJwuZG7+QF+EoB3wNgVDKipRiwoA/GByM1bkN7imAMoV9XRuQpO8CKJ6CR1Mk2e8E0qHwotZfXsAUSPD7rcEGAFM8kK5ZZOJlL+XcJSSpRGxm3FRdWbgtUr+QwVU2ZgK7ddOMXA3q5BFp+Sf9vKhVDUKBIgOK4ZRTSmtCARgFXw847kvm3bUiVkCiA4iPxEzKStDiWpI47R1GVUZjXvBoLpsjr7pL2dz4vJhcgdhaRITM4/ofCRHaZNfRlHTQTWWSujzoZoLVHlOymbNJcovzwyY46y1L1XzzrfhnULsKQZCiI8/TqsVEKn8MUCWvsq9bxa7S0Q9RjGFAAAAAElFTkSuQmCC`,
+  `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACJklEQVRYR81XQXKEMAyDn/VnZX/Gz+gkGxtZkR3aHlpOzG7iCFmWnf3atmv7w2f/VwAamvZce6RkP86So+v4kP8/2ecMPFnMp3TArxscArF4K3ATgLah/0gs2OEYuFxXxMAPSQFYKiwtT3VqwCtwJYDtM+azBQwgXudmLD0BlTHpjFoVuAYAQJoGLFzTQNsH78gECxvF/mZqqJwFk9HfWWl7BNgQfKwJ6xtI2/c6h96ON63taYGDmulrkX7FEJeyaQE/xtO6AsBUWd4sQAWA0yHZVABQHCwyPNC/DNI30d8CVKJuALbjvNhAlMr58A5uVASDdgFWOrFqWgF4lGcU23BHNDSZygpAow3znAnT1D0dlnhF8JQVANWUgnmAVaPr8bvriEFlACoRBnuGgFKcNGUEYwLtTCLsXgBtGenHmmanM0F6hxzqD6k0UAhADSRes+haMCcEcxn260Y2umDZPxhA5X7TcIIzgIkVnRQAoOMFP6gASOTFAXJIGT8q+rFyLN29GQXzwQ4HhsN2WnXLSSOGVKUMhedKB3NRlVH1+bQUE/fs2iwnHxOjlR51zDDhcDclO1b27RXLY1RF+STc1cGjipTgbwYgP9lMp5jK8j01MGpeLsJbjWPSEW0UaZadEX3CRI2tOknbPRXDGM13hCejWmhMdJHpFbYCwPXsyk9uRerCgcDVjKHOcAYyAHKT+MLVuvSG9NvL6U+udKFsfwvgO8yptV/yBg1EJVTS8AAAAABJRU5ErkJggg==`
+];
+
+let count = 0;
+
+function animationFrame() {
+
+  const animationResult = document.querySelector('.layer--canvas');
+  const ctx = animationResult.getContext('2d');
+  const img = new Image();
+  img.src = getFrameForAnimation()[count];
+  img.onload = () => {
+    ctx.drawImage(img, 0, 0);
+  };
+  if (count <= tempArr.length - 2) {
+    count += 1;
+  } else count = 0;
+
+}
+
+export default animationFrame;

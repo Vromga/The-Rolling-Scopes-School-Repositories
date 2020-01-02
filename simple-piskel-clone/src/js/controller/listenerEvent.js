@@ -11,6 +11,7 @@ import bucket from "../model/bucketLogic/bucket";
 import setFrame from "../model/setFrame/setFrame";
 import animationFrame from "../model/animation/animationFrame";
 import addNewFrame from "../model/editingFrame/addNewFrame";
+import copyFrame from "../model/editingFrame/copyFrame";
 
 function listenerEvent() {
   document.addEventListener('click', (e) => {
@@ -31,8 +32,8 @@ function listenerEvent() {
       setClassActiveElement(e);
     } else if (e.target.className === 'main--frame-add') {
       addNewFrame();
-    } else if (e.target.classNama === 'frame--preview-copy') {
-
+    } else if (e.target.className === 'frame--preview-copy') {
+      copyFrame(e.target);
     }
   });
   document.addEventListener('mousedown', (e) => {
