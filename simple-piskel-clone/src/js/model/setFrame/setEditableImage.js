@@ -1,7 +1,8 @@
+import clearMainCanvas from "../../utilits/clearMainCanvas";
+
 function setEditableImage(e) {
-  const canvas = document.querySelector('.main--draw_container-canvas');
-  const ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  clearMainCanvas();
+  const ctx = document.querySelector('.main--draw_container-canvas').canvas.getContext('2d');
   const img = new Image();
   img.src = e.target.toDataURL();
   img.onload = () => {
