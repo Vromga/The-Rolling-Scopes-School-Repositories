@@ -12,6 +12,7 @@ import setFrame from "../model/setFrame/setFrame";
 import animationFrame from "../model/animation/animationFrame";
 import addNewFrame from "../model/editingFrame/addNewFrame";
 import copyFrame from "../model/editingFrame/copyFrame";
+import deleteFrame from "../model/editingFrame/deleteFrame";
 
 function listenerEvent() {
   document.addEventListener('click', (e) => {
@@ -34,6 +35,8 @@ function listenerEvent() {
       addNewFrame();
     } else if (e.target.className === 'frame--preview-copy') {
       copyFrame(e.target);
+    } else if (e.target.className === 'frame--preview-del'){
+      deleteFrame(e.target);
     }
   });
   document.addEventListener('mousedown', (e) => {
