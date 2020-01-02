@@ -1,6 +1,7 @@
 import countFrame from "./countFrame";
 import updateFrameArr from "../../utilits/updateFrameArr";
 import setClassAndAttributeActiveElement from "../../utilits/setClassAndAttributeActiveElement";
+import {noIMG} from "../../configuration";
 
 function copyFrame(e){
   const node = e.target.parentNode.parentNode;
@@ -8,7 +9,7 @@ function copyFrame(e){
   const dataURL = node.firstElementChild.firstElementChild.toDataURL();
   const ctx = copyNode.firstElementChild.firstElementChild.getContext('2d');
   const img = new Image();
-  img.src = dataURL;
+  img.src = dataURL || noIMG;
   img.onload = () => {
     ctx.drawImage(img, 0, 0);
     updateFrameArr();

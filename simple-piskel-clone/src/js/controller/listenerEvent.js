@@ -50,7 +50,7 @@ function listenerEvent() {
     finishDraw();
     if (e.target.className === 'main--draw_container-canvas') {
       setFrame();
-      animationFrame();
+      //   animationFrame();
     }
 
   });

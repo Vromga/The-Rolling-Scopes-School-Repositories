@@ -1,5 +1,5 @@
 import addNewFrame from "../editingFrame/addNewFrame";
-import {frame} from "../../configuration";
+import {frame, noIMG} from "../../configuration";
 
 function loadFrames() {
 
@@ -9,7 +9,7 @@ function loadFrames() {
     document.querySelector('.frame--preview-canvas').setAttribute('data-active', 'active');
   }
 
-  const JSONFrame = JSON.parse(localStorage.getItem('frame'));
+  const JSONFrame = JSON.parse(localStorage.getItem('frame')) || [];
   JSONFrame.forEach((v)=>{
     frame.push(v);
   });
@@ -18,7 +18,7 @@ function loadFrames() {
   [...framePreview].forEach((v, i) => {
     const ctx = v.getContext('2d');
     const img = new Image();
-    img.src = frame[i];
+    img.src = frame[i] || noIMG;
     img.onload = () => {
       ctx.drawImage(img, 0, 0);
     };

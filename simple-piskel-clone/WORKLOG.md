@@ -13,3 +13,4 @@
 | 28 dec 2019 | 28 dec 2019 | 3h | add change size pen |
 | 28 dec 2019 | 28 dec 2019 | 10min | add save size pen |
 | 29 dec 2019 | 29 dec 2019 | 3h | add load app |
+| 02 jan 2020 | 02 jan 2019 | 8h | fix bugs in frame and tools |

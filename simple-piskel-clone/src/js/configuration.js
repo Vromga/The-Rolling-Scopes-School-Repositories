@@ -24,4 +24,6 @@ const realSizeCanvas = '512';
 
 const frame = [];
 
-export {canvasSize, tools, cordPixel, realSizeCanvas, frame};
+const noIMG = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAALUlEQVRYR+3QQREAAAABQfqXFsNnFTizzXk99+MAAQIECBAgQIAAAQIECBAgMBo/ACHo7lH9AAAAAElFTkSuQmCC';
+
+export {canvasSize, tools, cordPixel, realSizeCanvas, frame, noIMG};
