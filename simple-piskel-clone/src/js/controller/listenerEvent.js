@@ -13,6 +13,7 @@ import animationFrame from "../model/animation/animationFrame";
 import addNewFrame from "../model/editingFrame/addNewFrame";
 import copyFrame from "../model/editingFrame/copyFrame";
 import deleteFrame from "../model/editingFrame/deleteFrame";
+import saveFrame from "../model/saveApp/saveFrame";
 
 function listenerEvent() {
   document.addEventListener('click', (e) => {
@@ -47,8 +48,8 @@ function listenerEvent() {
   });
   document.addEventListener('mouseup', (e) => {
     finishDraw();
-    setFrame();
     if (e.target.className === 'main--draw_container-canvas') {
+      setFrame();
       animationFrame();
     }
 
@@ -58,6 +59,7 @@ function listenerEvent() {
   });
   window.addEventListener('unload', () => {
     saveColor();
+    saveFrame();
   })
 }
 

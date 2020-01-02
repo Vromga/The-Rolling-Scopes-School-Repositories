@@ -1,3 +1,5 @@
+import {frame as frameArr} from '../../configuration'
+
 function setFrame() {
   const frame = document.querySelectorAll('.frame--preview-canvas');
 
@@ -10,7 +12,13 @@ function setFrame() {
       img.onload = () => {
         ctx.drawImage(img, 0, 0);
       };
-      localStorage.setItem(`frame${i}`, `${dataURL}`);
+
+      if (frameArr[i]) {
+        frameArr[i] = dataURL;
+      } else {
+        frameArr.push(`${dataURL}`);
+      }
+
     }
   });
 }

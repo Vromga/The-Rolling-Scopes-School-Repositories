@@ -22,6 +22,6 @@ const cordPixel = {
 
 const realSizeCanvas = '512';
 
+const frame = [];
 
-
-export {canvasSize, tools, cordPixel, realSizeCanvas};
+export {canvasSize, tools, cordPixel, realSizeCanvas, frame};

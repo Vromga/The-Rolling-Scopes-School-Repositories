@@ -1,4 +1,5 @@
 import countFrame from "./countFrame";
+import setClassAndAttributeActiveElement from "../../utilits/setClassAndAttributeActiveElement";
 
 function addNewFrame() {
   const newFrame = `<li class="frame_container--list frame" draggable="true">
@@ -12,6 +13,7 @@ function addNewFrame() {
             </li>`;
   document.querySelector('.main--frame-lists').insertAdjacentHTML('beforeend', newFrame);
   countFrame();
+  setClassAndAttributeActiveElement(null, false);
 }
 
 export default addNewFrame;
