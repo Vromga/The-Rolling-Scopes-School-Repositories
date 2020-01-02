@@ -35,7 +35,7 @@ function listenerEvent() {
     } else if (e.target.className === 'main--frame-add') {
       addNewFrame();
     } else if (e.target.className === 'frame--preview-copy') {
-      copyFrame(e.target);
+      copyFrame(e);
     } else if (e.target.className === 'frame--preview-del'){
       deleteFrame(e.target);
     }
@@ -60,7 +60,7 @@ function listenerEvent() {
   window.addEventListener('unload', () => {
     saveColor();
     saveFrame();
-  })
+  });
 }
 
 export default listenerEvent;

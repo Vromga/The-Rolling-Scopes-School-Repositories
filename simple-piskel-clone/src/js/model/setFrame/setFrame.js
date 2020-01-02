@@ -18,7 +18,6 @@ function setFrame() {
       } else {
         frameArr.push(`${dataURL}`);
       }
-
     }
   });
 }
