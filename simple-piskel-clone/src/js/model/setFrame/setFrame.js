@@ -10,9 +10,10 @@ function setFrame() {
       const img = new Image();
       img.src = dataURL;
       img.onload = () => {
+        ctx.clearRect(0, 0, v.width, v.height);
         ctx.drawImage(img, 0, 0);
+        localStorage.setItem('canvasImage', `${v.toDataURL()}`);
       };
-
       if (frameArr[i]) {
         frameArr[i] = dataURL;
       } else {

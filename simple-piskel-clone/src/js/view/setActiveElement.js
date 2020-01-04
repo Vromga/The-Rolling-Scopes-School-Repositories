@@ -6,6 +6,7 @@ import loadColor from "../model/loadApp/loadColor";
 import setEditableImage from "../model/setFrame/setEditableImage";
 import loadFrames from "../model/loadApp/loadFrames";
 import setClassAndAttributeActiveElement from "../utilits/setClassAndAttributeActiveElement";
+import loadFPS from "../model/loadApp/loadFPS";
 
 function setActiveElement(e) {
   if (e) {
@@ -28,7 +29,7 @@ function setActiveElement(e) {
     loadSizePen();
     loadColor();
     loadFrames();
-
+    loadFPS();
   }
 }
 

@@ -6,7 +6,7 @@ import finishDraw from "../model/tools/pencilAndEraserLogic/finishDraw";
 import chooseTools from "./chooseTools";
 import saveColor from "../model/saveApp/saveColor";
 import setOnePixel from "../model/tools/pencilAndEraserLogic/setOnePixel";
-import {DOM_ELEMENTS, tools} from "../configuration";
+import {frame, tools} from "../configuration";
 import bucket from "../model/tools/bucketLogic/bucket";
 import setFrame from "../model/setFrame/setFrame";
 import addNewFrame from "../model/editingFrame/addNewFrame";
@@ -18,7 +18,9 @@ import dragAndDrop from "../model/dragAndDrop/dragAndDrop";
 import startDrawStroke from "../model/tools/stroke/startDrawStroke";
 import finishDrawStroke from "../model/tools/stroke/finishDrawStroke";
 import drawStroke from "../model/tools/stroke/drawStroke";
-import updateCanvasAfterStoke from "../utilits/updateCanvasAfterStoke";
+import animationFrame from "../model/animation/animationFrame";
+import setFPS from "../view/setFPS";
+import saveFPS from "../model/saveApp/saveFPS";
 
 function listenerEvent() {
   document.addEventListener('click', (e) => {
@@ -71,7 +73,7 @@ function listenerEvent() {
     }
     if (e.target.className === 'main--draw_container-canvas') {
       setFrame();
-      //   animationFrame();
+      animationFrame();
     }
   });
   document.addEventListener('contextmenu', (e) => {
@@ -80,10 +82,17 @@ function listenerEvent() {
   window.addEventListener('unload', () => {
     saveColor();
     saveFrame();
+    saveFPS();
   });
 
   document.addEventListener('dragstart', () => {
     return false
+  })
+
+  document.addEventListener('change', ()=>{
+    setFPS();
+    animationFrame();
+    console.log(frame);
   })
 }
 
