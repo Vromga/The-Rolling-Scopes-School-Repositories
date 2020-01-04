@@ -6,7 +6,7 @@ import finishDraw from "../model/tools/pencilAndEraserLogic/finishDraw";
 import chooseTools from "./chooseTools";
 import saveColor from "../model/saveApp/saveColor";
 import setOnePixel from "../model/tools/pencilAndEraserLogic/setOnePixel";
-import {tools} from "../configuration";
+import { tools } from "../configuration";
 import bucket from "../model/tools/bucketLogic/bucket";
 import setFrame from "../model/setFrame/setFrame";
 import addNewFrame from "../model/editingFrame/addNewFrame";
@@ -21,6 +21,7 @@ import drawStroke from "../model/tools/stroke/drawStroke";
 import animationFrame from "../model/animation/animationFrame";
 import setFPS from "../view/setFPS";
 import saveFPS from "../model/saveApp/saveFPS";
+import getFullScreenMode from "./getFullScreenMode";
 
 function listenerEvent() {
   document.addEventListener('click', (e) => {
@@ -46,6 +47,9 @@ function listenerEvent() {
     } else if (e.target.className === 'frame--preview-del') {
       deleteFrame(e.target);
     }
+    if (e.target.className === 'layer--button') {
+      getFullScreenMode();
+    }
   });
   document.addEventListener('mousedown', (e) => {
     if (e.target.className === 'main--draw_container-canvas') {
@@ -68,7 +72,7 @@ function listenerEvent() {
   });
   document.addEventListener('mouseup', (e) => {
     finishDraw();
-    if(tools.stroke){
+    if (tools.stroke) {
       finishDrawStroke();
     }
     if (e.target.className === 'main--draw_container-canvas') {
@@ -89,10 +93,10 @@ function listenerEvent() {
     return false
   });
 
-  document.addEventListener('change', ()=>{
+  document.addEventListener('change', () => {
     setFPS();
     animationFrame();
-  });
+  })
 }
 
 export default listenerEvent;
