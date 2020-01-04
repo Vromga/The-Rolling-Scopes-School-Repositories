@@ -1,7 +1,8 @@
 {
   "name": "fancy-weather",
   "jest": {
-    "verbose": true
+    "verbose": true,
+    "collectCoverageFrom" : ["src/**/*.js"]
   },
   "version": "1.0.1",
   "description": "WebPack: HTML, CSS, SCSS, JS, Img, Fonts",

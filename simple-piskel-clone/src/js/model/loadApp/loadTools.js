@@ -6,10 +6,10 @@ function loadTools() {
   const toolsJSON = JSON.parse(localStorage.getItem('tools')) || tools;
   resetToolsState();
   if(!toolsJSON) return;
-  tools.fillBucket = toolsJSON.fillBucket || false;
-  tools.eraser = toolsJSON.eraser || false;
-  tools.pencil = toolsJSON.pencil || true;
-  tools.stroke = toolsJSON.stroke || false;
+  tools.fillBucket = toolsJSON.fillBucket;
+  tools.eraser = toolsJSON.eraser;
+  tools.pencil = toolsJSON.pencil;
+  tools.stroke = toolsJSON.stroke;
   toggleActiveClass();
 }
 

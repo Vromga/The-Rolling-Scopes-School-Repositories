@@ -326,7 +326,7 @@ body {
                 width: 30px;
                 height: 30px;
                 transition: .3s;
-                cursor: grab;
+                cursor: move;
                 border: 0;
               }
 
@@ -531,6 +531,12 @@ body {
   border: 3px solid gold;
   animation: rainbow 30s infinite;
 }
+
+.over{
+  opacity: 0.4;
+}
+
+
 
 @keyframes rainbow {
   0% {

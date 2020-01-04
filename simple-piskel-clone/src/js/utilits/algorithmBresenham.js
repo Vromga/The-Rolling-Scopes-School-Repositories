@@ -1,4 +1,4 @@
-import setPixel from "../model/pencilAndEraserLogic/setPixel";
+import setPixel from "../model/tools/pencilAndEraserLogic/setPixel";
 
 function algorithmBresenham(x0, y0, x1, y1, e) {
   const dx = Math.abs(x1 - x0);

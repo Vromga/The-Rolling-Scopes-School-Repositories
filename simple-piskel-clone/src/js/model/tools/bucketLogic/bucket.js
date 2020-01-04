@@ -1,4 +1,4 @@
-import getColorPicker from "../../controller/getColorPicker";
+import getColorPicker from "../../../controller/getColorPicker";
 
 const LEFT_MOUSE_BUTTON = 1;
 const RIGHT_MOUSE_BUTTON = 3;

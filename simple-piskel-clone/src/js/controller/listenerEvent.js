@@ -1,19 +1,24 @@
 import changeSizeCanvas from "../model/changeSizeCanvas";
 import setClassActiveElement from "../view/setActiveElement";
-import startDraw from "../model/pencilAndEraserLogic/startDraw";
-import draw from "../model/pencilAndEraserLogic/draw";
-import finishDraw from "../model/pencilAndEraserLogic/finishDraw";
+import startDraw from "../model/tools/pencilAndEraserLogic/startDraw";
+import draw from "../model/tools/pencilAndEraserLogic/draw";
+import finishDraw from "../model/tools/pencilAndEraserLogic/finishDraw";
 import chooseTools from "./chooseTools";
 import saveColor from "../model/saveApp/saveColor";
-import setOnePixel from "../model/pencilAndEraserLogic/setOnePixel";
-import {tools} from "../configuration";
-import bucket from "../model/bucketLogic/bucket";
+import setOnePixel from "../model/tools/pencilAndEraserLogic/setOnePixel";
+import {DOM_ELEMENTS, tools} from "../configuration";
+import bucket from "../model/tools/bucketLogic/bucket";
 import setFrame from "../model/setFrame/setFrame";
-import animationFrame from "../model/animation/animationFrame";
 import addNewFrame from "../model/editingFrame/addNewFrame";
 import copyFrame from "../model/editingFrame/copyFrame";
 import deleteFrame from "../model/editingFrame/deleteFrame";
 import saveFrame from "../model/saveApp/saveFrame";
+import saveStateApp from "../model/saveApp/saveStateApp";
+import dragAndDrop from "../model/dragAndDrop/dragAndDrop";
+import startDrawStroke from "../model/tools/stroke/startDrawStroke";
+import finishDrawStroke from "../model/tools/stroke/finishDrawStroke";
+import drawStroke from "../model/tools/stroke/drawStroke";
+import updateCanvasAfterStoke from "../utilits/updateCanvasAfterStoke";
 
 function listenerEvent() {
   document.addEventListener('click', (e) => {
@@ -36,23 +41,38 @@ function listenerEvent() {
       addNewFrame();
     } else if (e.target.className === 'frame--preview-copy') {
       copyFrame(e);
-    } else if (e.target.className === 'frame--preview-del'){
+    } else if (e.target.className === 'frame--preview-del') {
       deleteFrame(e.target);
     }
   });
   document.addEventListener('mousedown', (e) => {
-    startDraw(e)
+    if (e.target.className === 'main--draw_container-canvas') {
+      startDraw(e);
+      startDrawStroke(e);
+    }
+
+    if (document.elementFromPoint(e.clientX, e.clientY).closest('.frame')) {
+      dragAndDrop(e);
+    }
   });
   document.addEventListener('mousemove', (e) => {
-    draw(e)
+    if (e.target.className === 'main--draw_container-canvas') {
+      if (tools.pencil || tools.eraser) {
+        draw(e);
+      } else if (tools.stroke) {
+        drawStroke(e);
+      }
+    } else saveStateApp('isDraw', 'false');
   });
   document.addEventListener('mouseup', (e) => {
     finishDraw();
+    if(tools.stroke){
+      finishDrawStroke();
+    }
     if (e.target.className === 'main--draw_container-canvas') {
       setFrame();
       //   animationFrame();
     }
-
   });
   document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
@@ -61,6 +81,10 @@ function listenerEvent() {
     saveColor();
     saveFrame();
   });
+
+  document.addEventListener('dragstart', () => {
+    return false
+  })
 }
 
 export default listenerEvent;
