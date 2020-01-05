@@ -26,7 +26,7 @@ function setDMode() {
 const config = {
 	target: "web",
 	entry: {
-		index: './src/js/app.js',
+		index: './src/app/js/app.js',
 		},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -143,14 +143,24 @@ const config = {
 			filename: 'style.css',
 		}),
 		new HtmlWebPackPlugin({
-			template: './src/index.html',
+			template: './src/app/piskel.html',
+			filename: './piskelApp.html',
+			title: 'Simple piskel clone',
+			hash: true,
+			minify: {
+				html5: true
+			},
+			favicon: `./src/app/assets/favicon.ico`,
+		}),
+		new HtmlWebPackPlugin({
+			template: './src/landing/index.html',
 			filename: './index.html',
 			title: 'Simple piskel clone',
 			hash: true,
 			minify: {
 				html5: true
 			},
-			favicon: `./src/assets/favicon.ico`,
+			favicon: `./src/app/assets/favicon.ico`,
 		}),
 		new CopyWebpackPlugin([
 			// {from: './src/static', to: './'},

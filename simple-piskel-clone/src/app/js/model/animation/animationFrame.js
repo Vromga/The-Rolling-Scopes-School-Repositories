@@ -1,4 +1,4 @@
-import { DOM_ELEMENTS, frame, noIMG } from "../../configuration";
+import {DOM_ELEMENTS, frame, noIMG} from "../../configuration";
 import getFPS from "../../controller/getFPS";
 
 let count = 0;

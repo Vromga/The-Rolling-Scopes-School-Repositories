@@ -6,7 +6,7 @@ import finishDraw from "../model/tools/pencilAndEraserLogic/finishDraw";
 import chooseTools from "./chooseTools";
 import saveColor from "../model/saveApp/saveColor";
 import setOnePixel from "../model/tools/pencilAndEraserLogic/setOnePixel";
-import { tools } from "../configuration";
+import {tools} from "../configuration";
 import bucket from "../model/tools/bucketLogic/bucket";
 import setFrame from "../model/setFrame/setFrame";
 import addNewFrame from "../model/editingFrame/addNewFrame";
