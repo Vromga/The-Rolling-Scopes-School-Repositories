@@ -11,7 +11,7 @@
 <header class="header">
     <h1 class="header--title">Piskel clone</h1>
     <p class="header--name_project">new piskel</p>
-    <button class="header--create_sprite">Create Sprite</button>
+    <a href="./index.html" class="header--create_sprite">Landing</a>
     <button class="header--sign_in">sign in</button>
 </header>
 <main class="main">
@@ -48,7 +48,10 @@
         <button class="main--frame-add">+ add frame</button>
     </section>
     <section class="main--draw_container">
-        <canvas class="main--draw_container-canvas" width="32" height="32"></canvas>
+        <div class="main--draw_container-wrap">
+            <canvas class="main--draw_container-canvas" width="32" height="32"></canvas>
+            <canvas class="main--draw_container-canvas_temp" width="32" height="32"></canvas>
+        </div>
     </section>
     <section class="main--preview">
         <div class="main--preview-layer layer">
@@ -62,7 +65,7 @@
         </div>
     </section>
     <section class="main--setting">
-            <button class="main--setting-save"></button>
+        <button class="main--setting-save"></button>
         <div class="main--setting-resize setting">
             <p class="setting--title">Change size canvas</p>
             <button class="resize" data="32">32px</button>

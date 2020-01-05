@@ -71,10 +71,12 @@ function listenerEvent() {
     } else saveStateApp('isDraw', 'false');
   });
   document.addEventListener('mouseup', (e) => {
+  	if(tools.pencil || tools.eraser){
     finishDraw();
-    if (tools.stroke) {
-      finishDrawStroke();
-    }
+	}
+  	if(tools.stroke){
+  		finishDrawStroke();
+	}
     if (e.target.className === 'main--draw_container-canvas') {
       setFrame();
       animationFrame();
