@@ -8,6 +8,7 @@ function toggleActiveClass() {
     tools.stroke && elem.classList.contains('main--tools-stroke') && elem.classList.add('active_element');
     tools.pencil && elem.classList.contains('main--tools-pen') && elem.classList.add('active_element');
     tools.eraser && elem.classList.contains('main--tools-eraser') && elem.classList.add('active_element');
+    tools.colorPicker && elem.classList.contains('main--tools-color_picker') && elem.classList.add('active_element');
   });
 }
 

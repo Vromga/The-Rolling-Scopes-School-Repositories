@@ -101,7 +101,7 @@ body {
   &--tools {
     display: grid;
     grid-template-columns: 50% 50%;
-    height: 260px;
+    height: 300px;
     @include border();
 
 
@@ -117,7 +117,7 @@ body {
 
     &-paint_bucket {
       @include button();
-      background-position: -230px -93px;
+      background-position: -231px -142px; //-230px -93px;
       transition: .3s;
 
       &:hover {
@@ -138,6 +138,16 @@ body {
     &-stroke {
       @include button();
       background-position: -49px -138px;
+      transition: .3s;
+
+      &:hover {
+        border-color: gold;
+      }
+    }
+
+    &-color_picker {
+      @include button();
+      background-position: -276px -4px;
       transition: .3s;
 
       &:hover {

@@ -10,6 +10,7 @@ function loadTools() {
   tools.eraser = toolsJSON.eraser;
   tools.pencil = toolsJSON.pencil;
   tools.stroke = toolsJSON.stroke;
+  tools.colorPicker = toolsJSON.colorPicker;
   toggleActiveClass();
 }
 

@@ -22,6 +22,7 @@ import animationFrame from "../model/animation/animationFrame";
 import setFPS from "../view/setFPS";
 import saveFPS from "../model/saveApp/saveFPS";
 import getFullScreenMode from "./getFullScreenMode";
+import colorPicker from "../model/tools/colorPicker/colorPicker";
 
 function listenerEvent() {
   document.addEventListener('click', (e) => {
@@ -37,7 +38,9 @@ function listenerEvent() {
         setOnePixel(e);
       } else if (tools.fillBucket) {
         bucket(e);
-      }
+      } else if (tools.colorPicker){
+		  colorPicker(e);
+	  }
     } else if (e.target.className === 'frame--preview-canvas') {
       setClassActiveElement(e);
     } else if (e.target.className === 'main--frame-add') {

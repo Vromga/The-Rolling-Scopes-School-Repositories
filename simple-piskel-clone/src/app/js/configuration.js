@@ -10,6 +10,7 @@ const tools = {
 	stroke: false,
 	pencil: true,
 	eraser: false,
+	colorPicker: false,
 
 };
 
