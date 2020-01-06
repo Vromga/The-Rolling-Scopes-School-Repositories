@@ -57,9 +57,9 @@ function listenerEvent() {
       startDrawStroke(e);
     }
 
-    if (document.elementFromPoint(e.clientX, e.clientY).closest('.frame')) {
-      dragAndDrop(e);
-    }
+    // if (document.elementFromPoint(e.clientX, e.clientY).closest('.frame')) {
+    //   dragAndDrop(e);
+    // }
   });
   document.addEventListener('mousemove', (e) => {
     if (e.target.className === 'main--draw_container-canvas') {

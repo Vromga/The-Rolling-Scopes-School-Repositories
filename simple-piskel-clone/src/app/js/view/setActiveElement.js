@@ -7,6 +7,7 @@ import setEditableImage from "../model/setFrame/setEditableImage";
 import loadFrames from "../model/loadApp/loadFrames";
 import setClassAndAttributeActiveElement from "../utilits/setClassAndAttributeActiveElement";
 import loadFPS from "../model/loadApp/loadFPS";
+import animationFrame from "../model/animation/animationFrame";
 
 function setActiveElement(e) {
   if (e) {
@@ -30,6 +31,7 @@ function setActiveElement(e) {
     loadColor();
     loadFrames();
     loadFPS();
+    animationFrame();
   }
 }
 

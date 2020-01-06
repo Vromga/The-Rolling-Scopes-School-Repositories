@@ -5,8 +5,8 @@ function startDrawStroke(e) {
     localStorage.setItem('isDraw', 'true');
     DOM_ELEMENTS.tempCanvas.style.zIndex = styleZIndex.zIndexStartDrawStroke;
     const virtualPixel = localStorage.getItem('virtualPixel');
-    cordPixel.x0 = Math.floor(e.offsetX / (realSizeCanvas / DOM_ELEMENTS.mainCanvas.width) / virtualPixel) * virtualPixel;
-    cordPixel.y0 = Math.floor(e.offsetY / (realSizeCanvas / DOM_ELEMENTS.mainCanvas.height) / virtualPixel) * virtualPixel;
+    cordPixel.x0 = Math.floor(e.offsetX / (realSizeCanvas / DOM_ELEMENTS.tempCanvas.width) / virtualPixel) * virtualPixel;
+    cordPixel.y0 = Math.floor(e.offsetY / (realSizeCanvas / DOM_ELEMENTS.tempCanvas.height) / virtualPixel) * virtualPixel;
   }
 }
 

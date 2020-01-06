@@ -1,7 +1,7 @@
+import {DOM_ELEMENTS} from "../configuration";
+
 function clearMainCanvas() {
-  const canvas = document.querySelector('.main--draw_container-canvas');
-  const ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  DOM_ELEMENTS.mainCanvas.getContext('2d').clearRect(0, 0, DOM_ELEMENTS.mainCanvas.width, DOM_ELEMENTS.mainCanvas.height);
 }
 
 export default clearMainCanvas;

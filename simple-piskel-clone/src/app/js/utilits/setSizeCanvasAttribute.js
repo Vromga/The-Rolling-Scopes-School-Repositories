@@ -1,7 +1,7 @@
 import {canvasSize} from "../configuration";
 
 function setSizeCanvasAttribute(elem, attr, collection) {
-  if (collection) {
+  if (collection === true) {
     elem.forEach((v) => {
       v.setAttribute('width', `${canvasSize[attr]}`);
       v.setAttribute('height', `${canvasSize[attr]}`);

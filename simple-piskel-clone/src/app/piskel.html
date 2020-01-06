@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
     <meta name="author" lang="en" content="Mikita Maiseichyk">
     <meta charset="UTF-8">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="712855077278-7pk23c1hnfe4srvvav7ddhho3c318par.apps.googleusercontent.com">
     <title>Simple piskel clone</title>
 </head>
 <body>
@@ -12,7 +15,9 @@
     <h1 class="header--title">Piskel clone</h1>
     <p class="header--name_project">new piskel</p>
     <a href="./index.html" class="header--create_sprite">Landing</a>
-    <button class="header--sign_in">sign in</button>
+<!--    <button class="header&#45;&#45;sign_in">sign in</button>-->
+<!--    <div class="g-signin2" data-onsuccess="onSignIn"></div>-->
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 </header>
 <main class="main">
     <section class="main--tools">

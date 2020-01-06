@@ -1,15 +1,14 @@
 import setSizeCanvasAttribute from "../../utilits/setSizeCanvasAttribute";
+import {DOM_ELEMENTS} from "../../configuration";
 
 function loadCanvasSize() {
   const sizeCanvas = localStorage.getItem('sizeCanvas');
   const resize = document.querySelectorAll('.resize');
-  const mainCanvas = document.querySelector('.main--draw_container-canvas');
-  const layerCanvas = document.querySelector('.layer--canvas');
-  const frameCanvas = document.querySelectorAll('.frame--preview-canvas');
 
-  setSizeCanvasAttribute(mainCanvas, sizeCanvas, false);
-  setSizeCanvasAttribute(layerCanvas, sizeCanvas, false);
-  setSizeCanvasAttribute(frameCanvas, sizeCanvas, true);
+  setSizeCanvasAttribute(DOM_ELEMENTS.mainCanvas, sizeCanvas, false);
+  setSizeCanvasAttribute(DOM_ELEMENTS.animateCanvas, sizeCanvas, false);
+  setSizeCanvasAttribute(DOM_ELEMENTS.tempCanvas, sizeCanvas, false);
+  setSizeCanvasAttribute(DOM_ELEMENTS.frameCanvas, sizeCanvas, true);
 
   [...resize].forEach((v) => {
       if (v.getAttribute('data') === sizeCanvas) v.classList.add('active_element');
