@@ -22,6 +22,8 @@ import setFPS from "../view/setFPS";
 import saveFPS from "../model/saveApp/saveFPS";
 import getFullScreenMode from "./getFullScreenMode";
 import colorPicker from "../model/tools/colorPicker/colorPicker";
+import showSaveForm from "../model/saveInFile/showSaveForm";
+import hideSaveForm from "../model/saveInFile/hideSaveForm";
 
 function listenerEvent() {
 	document.addEventListener('click', (e) => {
@@ -53,6 +55,14 @@ function listenerEvent() {
 		}
 		if (e.target.className === 'layer--button') {
 			getFullScreenMode();
+		}
+		if (e.target.className === 'main--setting-save') {
+			showSaveForm();
+		}
+		if (e.target.className === 'save--wrap-button gif' ||
+			e.target.className === 'save--wrap-button apng' ||
+			e.target.className === 'save--wrap-button chancel') {
+			hideSaveForm();
 		}
 	});
 	document.addEventListener('mousedown', (e) => {
@@ -87,8 +97,8 @@ function listenerEvent() {
 		}
 	});
 	document.addEventListener('contextmenu', (e) => {
-		if(e.target.className === 'main--draw_container-canvas'){
-		e.preventDefault();
+		if (e.target.className === 'main--draw_container-canvas') {
+			e.preventDefault();
 		}
 	});
 	window.addEventListener('unload', () => {
