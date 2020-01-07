@@ -24,6 +24,7 @@ import getFullScreenMode from "./getFullScreenMode";
 import colorPicker from "../model/tools/colorPicker/colorPicker";
 import showSaveForm from "../model/saveInFile/showSaveForm";
 import hideSaveForm from "../model/saveInFile/hideSaveForm";
+import saveAPNG from "../model/saveInFile/saveAPNG";
 
 function listenerEvent() {
 	document.addEventListener('click', (e) => {
@@ -59,8 +60,12 @@ function listenerEvent() {
 		if (e.target.className === 'main--setting-save') {
 			showSaveForm();
 		}
+		if(e.target.className === 'save--wrap-button apng'){
+			saveAPNG();
+			hideSaveForm();
+		}
+
 		if (e.target.className === 'save--wrap-button gif' ||
-			e.target.className === 'save--wrap-button apng' ||
 			e.target.className === 'save--wrap-button chancel') {
 			hideSaveForm();
 		}

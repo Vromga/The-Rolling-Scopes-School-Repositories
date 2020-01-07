@@ -150,7 +150,7 @@ const config = {
 			minify: {
 				html5: true
 			},
-			favicon: `./src/app/assets/favicon.ico`,
+			favicon: `./src/app/assets/img/favicon.ico`,
 		}),
 		new HtmlWebPackPlugin({
 			template: './src/landing/index.html',
@@ -160,7 +160,7 @@ const config = {
 			minify: {
 				html5: true
 			},
-			favicon: `./src/app/assets/favicon.ico`,
+			favicon: `./src/app/assets/img/favicon.ico`,
 		}),
 		new CopyWebpackPlugin([
 			// {from: './src/static', to: './'},

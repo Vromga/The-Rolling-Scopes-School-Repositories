@@ -2,7 +2,9 @@
   "name": "fancy-weather",
   "jest": {
     "verbose": true,
-    "collectCoverageFrom" : ["src/**/*.js"]
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
   },
   "version": "1.0.1",
   "description": "WebPack: HTML, CSS, SCSS, JS, Img, Fonts",
@@ -35,6 +37,7 @@
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
     "del-cli": "^3.0.0",
+    "downloadjs": "^1.4.7",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.5.0",
@@ -53,6 +56,7 @@
     "skycons": "^1.0.0",
     "style-loader": "^1.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
+    "upng-js": "^2.1.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
