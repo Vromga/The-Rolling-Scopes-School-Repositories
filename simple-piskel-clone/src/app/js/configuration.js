@@ -6,7 +6,7 @@ const canvasSize = {
 };
 
 const tools = {
-	fillBucket: false,
+	fillAllPixels: false,
 	stroke: false,
 	pencil: true,
 	eraser: false,
@@ -21,15 +21,8 @@ const cordPixel = {
 	y1: 0,
 };
 
-const styleZIndex ={
-	zIndexStartDrawStroke: 10,
-	zIndexFinishDrawStroke: 0,
-
-};
-
 const DOM_ELEMENTS = {
 	mainCanvas: document.querySelector('.main--draw_container-canvas'),
-	tempCanvas: document.querySelector('.main--draw_container-canvas_temp'),
 	frameCanvas: document.querySelectorAll('.frame--preview-canvas'),
 	animateCanvas: document.querySelector('.layer--canvas'),
 
@@ -41,4 +34,6 @@ const frame = [];
 
 const noIMG = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAALUlEQVRYR+3QQREAAAABQfqXFsNnFTizzXk99+MAAQIECBAgQIAAAQIECBAgMBo/ACHo7lH9AAAAAElFTkSuQmCC';
 
-export {canvasSize, tools, cordPixel, realSizeCanvas, frame, noIMG, DOM_ELEMENTS, styleZIndex};
+const imgForStroke = {};
+
+export {canvasSize, tools, cordPixel, realSizeCanvas, frame, noIMG, DOM_ELEMENTS, imgForStroke};

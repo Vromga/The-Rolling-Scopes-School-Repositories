@@ -7,7 +7,6 @@ function loadCanvasSize() {
 
   setSizeCanvasAttribute(DOM_ELEMENTS.mainCanvas, sizeCanvas, false);
   setSizeCanvasAttribute(DOM_ELEMENTS.animateCanvas, sizeCanvas, false);
-  setSizeCanvasAttribute(DOM_ELEMENTS.tempCanvas, sizeCanvas, false);
   setSizeCanvasAttribute(DOM_ELEMENTS.frameCanvas, sizeCanvas, true);
 
   [...resize].forEach((v) => {

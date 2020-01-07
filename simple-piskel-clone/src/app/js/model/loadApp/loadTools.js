@@ -6,7 +6,7 @@ function loadTools() {
   const toolsJSON = JSON.parse(localStorage.getItem('tools')) || tools;
   resetToolsState();
   if(!toolsJSON) return;
-  tools.fillBucket = toolsJSON.fillBucket;
+  tools.fillAllPixels = toolsJSON.fillAllPixels;
   tools.eraser = toolsJSON.eraser;
   tools.pencil = toolsJSON.pencil;
   tools.stroke = toolsJSON.stroke;

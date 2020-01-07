@@ -6,7 +6,7 @@ import saveStateApp from "../model/saveApp/saveStateApp";
 function chooseTools(e) {
   resetToolsState();
   if (e.target.classList.contains('main--tools-pen')) tools.pencil = true;
-  if (e.target.classList.contains('main--tools-paint_bucket')) tools.fillBucket = true;
+  if (e.target.classList.contains('main--tools-paint_bucket')) tools.fillAllPixels = true;
   if (e.target.classList.contains('main--tools-eraser')) tools.eraser = true;
   if (e.target.classList.contains('main--tools-stroke')) tools.stroke = true;
   if (e.target.classList.contains('main--tools-color_picker')) tools.colorPicker = true;
