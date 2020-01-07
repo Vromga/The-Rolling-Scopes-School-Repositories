@@ -27,7 +27,7 @@ const config = {
 	target: "web",
 	entry: {
 		index: './src/app/js/app.js',
-		},
+	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js'
@@ -163,7 +163,11 @@ const config = {
 			favicon: `./src/app/assets/img/favicon.ico`,
 		}),
 		new CopyWebpackPlugin([
-			// {from: './src/static', to: './'},
+			{
+				from: './src/app/assets/library/gif.worker.js',
+				to: './gif.worker.js',
+				toType: 'file',
+			},
 			// {from: './src/img', to: './img/'},
 		]),
 	],
