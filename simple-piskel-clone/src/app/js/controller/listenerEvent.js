@@ -26,7 +26,6 @@ import showSaveForm from "../model/saveInFile/showSaveForm";
 import hideSaveForm from "../model/saveInFile/hideSaveForm";
 import saveAPNG from "../model/saveInFile/saveAPNG";
 import getGif from "../model/saveInFile/saveGIF";
-import keyboardHotKey from "../model/keybord/keyboardHotKey";
 import chooseToolsKeyboard from "./chooseToolsKeyboard";
 import choosePixelSizeKeyBoard from "./choosePixelSize";
 
@@ -82,10 +81,6 @@ function listenerEvent() {
 			startDraw(e);
 			startDrawStroke(e);
 		}
-
-		// if (document.elementFromPoint(e.clientX, e.clientY).closest('.frame')) {
-		//   dragAndDrop(e);
-		// }
 	});
 	document.addEventListener('mousemove', (e) => {
 		if (e.target.className === 'main--draw_container-canvas') {
@@ -128,16 +123,24 @@ function listenerEvent() {
 		animationFrame();
 	});
 
-	document.addEventListener('keyup', (e)=>{
-		//   keyboardHotKey(e);
-		if (e.code === 'KeyP' || e.code === 'KeyA' || e.code === 'KeyE' || e.code === 'KeyL' || e.code === 'KeyO'){
-		chooseToolsKeyboard(e);
-		setClassActiveElement(e);
+	document.addEventListener('keyup', (e) => {
+		if (e.code === 'KeyP' || e.code === 'KeyA' || e.code === 'KeyE' || e.code === 'KeyL' || e.code === 'KeyO') {
+			chooseToolsKeyboard(e);
+			setClassActiveElement(e);
 		}
-		if(e.code === 'BracketRight' || e.code === 'BracketLeft'){
+		if (e.code === 'BracketRight' || e.code === 'BracketLeft') {
 			choosePixelSizeKeyBoard(e);
 		}
-	})
+		if (e.code === 'KeyN') {
+			addNewFrame();
+		}
+	});
+	document.addEventListener('keydown', (e) => {
+		if (e.code === 'KeyS' && e.shiftKey) {
+			e.preventDefault();
+			showSaveForm();
+		}
+	});
 }
 
 export default listenerEvent;
