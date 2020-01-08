@@ -28,6 +28,8 @@ import saveAPNG from "../model/saveInFile/saveAPNG";
 import getGif from "../model/saveInFile/saveGIF";
 import chooseToolsKeyboard from "./chooseToolsKeyboard";
 import choosePixelSizeKeyBoard from "./choosePixelSize";
+import createWindowHotKey from "../view/modal/keyboardWindow";
+import changeHotKey from "../model/keybord/changeHotKey";
 
 function listenerEvent() {
 	document.addEventListener('click', (e) => {
@@ -74,6 +76,14 @@ function listenerEvent() {
 
 		if (e.target.className === 'save--wrap-button chancel') {
 			hideSaveForm();
+		}
+
+		if(e.target.className === 'header--set_hot_key'){
+			createWindowHotKey()
+		}
+
+		if (e.target.className === 'keyboard_shortcut--wrap-save'){
+			changeHotKey();
 		}
 	});
 	document.addEventListener('mousedown', (e) => {
