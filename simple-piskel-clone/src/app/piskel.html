@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
     <meta name="author" lang="en" content="Mikita Maiseichyk">
     <meta charset="UTF-8">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="712855077278-7pk23c1hnfe4srvvav7ddhho3c318par.apps.googleusercontent.com">
+<!--    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>-->
+<!--    <script type="text/javascript">-->
+<!--        VK.init({apiId: 7273340});-->
+<!--    </script>-->
     <title>Simple piskel clone</title>
 </head>
 <body>
@@ -15,15 +16,12 @@
     <h1 class="header--title">Piskel clone</h1>
     <p class="header--name_project">new piskel</p>
     <a href="./index.html" class="header--create_sprite">Landing</a>
-<!--    <button class="header&#45;&#45;sign_in">sign in</button>-->
-<!--    <div class="g-signin2" data-onsuccess="onSignIn"></div>-->
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 </header>
 <main class="main">
     <section class="main--tools">
         <div class="main--tools-sizes pick_size" title="Pen size from 1px to 4px">
             <label class="pick_size--label">
-                <input type="radio" name="size" value="1" checked class="pick_size--radio">
+                <input type="radio" name="size" value="1" class="pick_size--radio">
                 <span class="pick_size--span"></span>
             </label>
             <label class="pick_size--label">
@@ -34,7 +32,7 @@
                 <input type="radio" name="size" value="3" class="pick_size--radio">
                 <span class="pick_size--span"></span>
             </label>
-            <label>
+            <label class="pick_size--label">
                 <input type="radio" name="size" value="4" class="pick_size--radio">
                 <span class="pick_size--span"></span>
             </label>
@@ -77,6 +75,15 @@
             <button class="resize" data="128">128px</button>
         </div>
     </section>
+    <!-- VK Widget -->
+<!--    <section class="main&#45;&#45;authorization">-->
+<!--        <div id="vk_auth" class="vk_auth"></div>-->
+<!--        <script type="text/javascript">-->
+<!--            document.addEventListener("DOMContentLoaded", function () {-->
+<!--                VK.Widgets.Auth("vk_auth", {"authUrl":"/dev/Login"});-->
+<!--            });-->
+<!--        </script>-->
+<!--    </section>-->
 </main>
 <aside class="save">
     <div class="save--wrap">

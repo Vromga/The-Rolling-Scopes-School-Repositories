@@ -13,5 +13,16 @@
 | 28 dec 2019 | 28 dec 2019 | 3h | add change size pen |
 | 28 dec 2019 | 28 dec 2019 | 10min | add save size pen |
 | 29 dec 2019 | 29 dec 2019 | 3h | add load app |
-| 02 jan 2020 | 02 jan 2019 | 8h | fix bugs in frame and tools |
-| 03 jan 2020 |  |  |
+| 02 jan 2020 | 02 jan 2020 | 8h | fix bugs in frame and tools |
+| 03 jan 2020 | 03 jan 2020 | 5h | study animation |
+| 04 jan 2020 | 04 jan 2020 | 3h | try make animation and stroke tools |
+| 04 jan 2020 | 04 jan 2020 | 4h | try make drag and drop |
+| 05 jan 2020 | 05 jan 2020 | 1h | add fullScreen |
+| 05 jan 2020 | 05 jan 2020 | 3h | add landing and change structure project |
+| 06 jan 2020 | 06 jan 2020 | 2h | add color picker tool |
+| 07 jan 2020 | 07 jan 2020 | 3h | refactor stroke tool |
+| 07 jan 2020 | 07 jan 2020 | 30min | add save form |
+| 07 jan 2020 | 07 jan 2020 | 2h | add save apng |
+| 07 jan 2020 | 07 jan 2020 | 1h | add save gif |
+| 08 jan 2020 | 08 jan 2020 | 3h | add keyboard hotkey |
+

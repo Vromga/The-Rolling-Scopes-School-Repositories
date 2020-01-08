@@ -25,6 +25,7 @@ const DOM_ELEMENTS = {
 	mainCanvas: document.querySelector('.main--draw_container-canvas'),
 	frameCanvas: document.querySelectorAll('.frame--preview-canvas'),
 	animateCanvas: document.querySelector('.layer--canvas'),
+	pixelSize: document.querySelectorAll('.pick_size--radio'),
 
 };
 

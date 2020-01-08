@@ -28,6 +28,7 @@ module.exports = {
 		"no-restricted-syntax": "off",
 		"no-unused-expressions": "off",
 		"no-bitwise": "off",
+		"no-useless-return": "off",
 
 	}
 };

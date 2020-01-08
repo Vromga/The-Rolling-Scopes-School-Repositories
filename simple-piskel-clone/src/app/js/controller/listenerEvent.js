@@ -26,6 +26,9 @@ import showSaveForm from "../model/saveInFile/showSaveForm";
 import hideSaveForm from "../model/saveInFile/hideSaveForm";
 import saveAPNG from "../model/saveInFile/saveAPNG";
 import getGif from "../model/saveInFile/saveGIF";
+import keyboardHotKey from "../model/keybord/keyboardHotKey";
+import chooseToolsKeyboard from "./chooseToolsKeyboard";
+import choosePixelSizeKeyBoard from "./choosePixelSize";
 
 function listenerEvent() {
 	document.addEventListener('click', (e) => {
@@ -123,6 +126,17 @@ function listenerEvent() {
 	document.addEventListener('change', () => {
 		setFPS();
 		animationFrame();
+	});
+
+	document.addEventListener('keyup', (e)=>{
+		//   keyboardHotKey(e);
+		if (e.code === 'KeyP' || e.code === 'KeyA' || e.code === 'KeyE' || e.code === 'KeyL' || e.code === 'KeyO'){
+		chooseToolsKeyboard(e);
+		setClassActiveElement(e);
+		}
+		if(e.code === 'BracketRight' || e.code === 'BracketLeft'){
+			choosePixelSizeKeyBoard(e);
+		}
 	})
 }
 

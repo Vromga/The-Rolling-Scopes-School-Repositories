@@ -175,7 +175,7 @@ const config = {
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
 		compress: true,
-		port: 7050,
+		port: 80,
 		overlay: true,
 		stats: 'errors-only',
 		clientLogLevel: 'none'
