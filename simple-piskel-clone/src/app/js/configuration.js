@@ -29,6 +29,20 @@ const DOM_ELEMENTS = {
 
 };
 
+const elementForHotKey = {};
+
+const key = {
+	pencil: 'KeyP',
+	fillAllPixels: 'KeyA',
+	eraser: 'KeyE',
+	stroke: 'KeyL',
+	colorPicker: 'KeyO',
+	increase: 'BracketRight',
+	decrease: 'BracketLeft',
+	newFrame: 'KeyN',
+
+};
+
 const realSizeCanvas = '512';
 
 const frame = [];
@@ -37,4 +51,4 @@ const noIMG = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr
 
 const imgForStroke = {};
 
-export {canvasSize, tools, cordPixel, realSizeCanvas, frame, noIMG, DOM_ELEMENTS, imgForStroke};
+export {canvasSize, tools, cordPixel, realSizeCanvas, frame, noIMG, DOM_ELEMENTS, imgForStroke, key, elementForHotKey};

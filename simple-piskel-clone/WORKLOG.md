@@ -25,4 +25,7 @@
 | 07 jan 2020 | 07 jan 2020 | 2h | add save apng |
 | 07 jan 2020 | 07 jan 2020 | 1h | add save gif |
 | 08 jan 2020 | 08 jan 2020 | 3h | add keyboard hotkey |
+| 08 jan 2020 | 08 jan 2020 | 5h | add change keyboard key |
+
+total: 60h 35min
 

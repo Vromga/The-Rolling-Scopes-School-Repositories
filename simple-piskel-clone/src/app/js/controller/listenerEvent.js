@@ -6,7 +6,7 @@ import finishDraw from "../model/tools/pencilAndEraserLogic/finishDraw";
 import chooseTools from "./chooseTools";
 import saveColor from "../model/saveApp/saveColor";
 import setOnePixel from "../model/tools/pencilAndEraserLogic/setOnePixel";
-import {tools} from "../configuration";
+import {key, tools} from "../configuration";
 import fillAllPixels from "../model/tools/bucketLogic/fillAllPixels";
 import setFrame from "../model/setFrame/setFrame";
 import addNewFrame from "../model/editingFrame/addNewFrame";
@@ -29,6 +29,8 @@ import getGif from "../model/saveInFile/saveGIF";
 import chooseToolsKeyboard from "./chooseToolsKeyboard";
 import choosePixelSizeKeyBoard from "./choosePixelSize";
 import createWindowHotKey from "../view/modal/keyboardWindow";
+import removeKeyWindow from "../model/keybord/removeKeyWindow";
+import chooseElementHotKey from "../model/keybord/chooseElementHotKey";
 import changeHotKey from "../model/keybord/changeHotKey";
 
 function listenerEvent() {
@@ -78,12 +80,16 @@ function listenerEvent() {
 			hideSaveForm();
 		}
 
-		if(e.target.className === 'header--set_hot_key'){
+		if (e.target.className === 'header--set_hot_key') {
 			createWindowHotKey()
 		}
 
-		if (e.target.className === 'keyboard_shortcut--wrap-save'){
-			changeHotKey();
+		if (e.target.className === 'keyboard_shortcut--wrap-save') {
+			removeKeyWindow();
+		}
+
+		if (e.target.className === 'keyName') {
+			chooseElementHotKey(e);
 		}
 	});
 	document.addEventListener('mousedown', (e) => {
@@ -134,14 +140,19 @@ function listenerEvent() {
 	});
 
 	document.addEventListener('keyup', (e) => {
-		if (e.code === 'KeyP' || e.code === 'KeyA' || e.code === 'KeyE' || e.code === 'KeyL' || e.code === 'KeyO') {
+		if (e.code === `${key.pencil}`
+			|| e.code === `${key.fillAllPixels}`
+			|| e.code === `${key.eraser}`
+			|| e.code === `${key.stroke}`
+			|| e.code === `${key.colorPicker}`) {
 			chooseToolsKeyboard(e);
 			setClassActiveElement(e);
 		}
-		if (e.code === 'BracketRight' || e.code === 'BracketLeft') {
+		if (e.code === `${key.increase}`
+			|| e.code === `${key.decrease}`) {
 			choosePixelSizeKeyBoard(e);
 		}
-		if (e.code === 'KeyN') {
+		if (e.code === `${key.newFrame}`) {
 			addNewFrame();
 		}
 	});
@@ -149,6 +160,9 @@ function listenerEvent() {
 		if (e.code === 'KeyS' && e.shiftKey) {
 			e.preventDefault();
 			showSaveForm();
+		}
+		if(document.querySelector('.keyboard_shortcut')){
+			changeHotKey(e)
 		}
 	});
 }

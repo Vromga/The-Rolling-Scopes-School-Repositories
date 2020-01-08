@@ -29,6 +29,8 @@ module.exports = {
 		"no-unused-expressions": "off",
 		"no-bitwise": "off",
 		"no-useless-return": "off",
+		"no-console": "off",
+		"no-alert": "off",
 
 	}
 };

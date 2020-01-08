@@ -8,6 +8,7 @@ import loadFrames from "../model/loadApp/loadFrames";
 import setClassAndAttributeActiveElement from "../utilits/setClassAndAttributeActiveElement";
 import loadFPS from "../model/loadApp/loadFPS";
 import animationFrame from "../model/animation/animationFrame";
+import loadHotKey from "../model/loadApp/loadHotKey";
 
 function setActiveElement(e) {
   if (e) {
@@ -25,6 +26,7 @@ function setActiveElement(e) {
     }
   } else {
     loadImageCanvas();
+    loadHotKey();
     loadTools();
     loadCanvasSize();
     loadSizePen();

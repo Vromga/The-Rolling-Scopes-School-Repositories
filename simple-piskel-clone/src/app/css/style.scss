@@ -751,18 +751,21 @@ body {
 
   &--wrap {
     height: 250px;
-    width: 400px;
+    width: 450px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     @include border();
     padding: 10px;
+    align-items: center;
 
     &-text {
       color: white;
 
       .keyName {
         color: gold;
-
+        cursor: pointer;
+        border: 2px solid gold;
+        padding: 5px;
       }
     }
 
@@ -770,13 +773,13 @@ body {
       @include centerAndWhite();
       border: orange 2px solid;
       background-color: #ffcb3c;
-      color: #000000;
+      color: #061c97;
       border-radius: 3px;
-      justify-self: start;
       margin-left: 5px;
       padding: 5px;
       transition: all .3s;
       grid-column: 1/2;
+      justify-self: center;
 
       &:hover {
         text-shadow: 0 0 2px #ffaeb5;
