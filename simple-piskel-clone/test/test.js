@@ -1,7 +1,8 @@
-import {tools} from "../src/app/js/configuration";
+import {tools, DOM_ELEMENTS} from "../src/app/js/configuration";
 import resetToolsState from "../src/app/js/utilits/resetToolsState";
 import rgbToHex from "../src/app/js/utilits/rgbToHEX";
 import setSizeCanvasAttribute from "../src/app/js/utilits/setSizeCanvasAttribute";
+import removeCheckedPixel from "../src/app/js/utilits/removeCheckedPixel";
 
 
 it('tools is object', function () {
@@ -58,3 +59,20 @@ it('check size canvas', function () {
 
 
 });
+
+it('remove attr checkout', () => {
+	removeCheckedPixel();
+	let isChecked = false;
+	[...DOM_ELEMENTS.pixelSize].forEach(v => {
+		console.log(v.getAttribute('checked'));
+		if (v.getAttribute('checked'))  isChecked = true;
+	});
+	expect(isChecked).toBeFalsy();
+});
+
+it('toggleActiveClass', ()=>{
+
+})
+
+
+

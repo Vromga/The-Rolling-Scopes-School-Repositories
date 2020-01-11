@@ -3,7 +3,7 @@ import setClassAndAttributeActiveElement from "../../utilits/setClassAndAttribut
 import clearMainCanvas from "../../utilits/clearMainCanvas";
 
 function addNewFrame() {
-  const newFrame = `<li class="frame_container--list frame" draggable="true">
+  const newFrame = `<li class="frame_container--list frame">
                 <div class="frame--preview">
                     <canvas class="frame--preview-canvas" width="${localStorage.getItem('sizeCanvas')}" height="${localStorage.getItem('sizeCanvas')}"></canvas>
                     <span class="frame--preview-number">1</span>

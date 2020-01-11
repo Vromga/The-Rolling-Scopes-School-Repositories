@@ -49,6 +49,30 @@ const frame = [];
 
 const noIMG = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAALUlEQVRYR+3QQREAAAABQfqXFsNnFTizzXk99+MAAQIECBAgQIAAAQIECBAgMBo/ACHo7lH9AAAAAElFTkSuQmCC';
 
+const dragHelper = {
+	zIndexBeforeMove: 30,
+	zIndexAfterMove: 1,
+	drag: false,
+	copyDraggableElement: null,
+	emptyElement: null,
+	dragImage: null,
+	ulContainer: null,
+	draggableElement: null,
+
+};
+
 const imgForStroke = {};
 
-export {canvasSize, tools, cordPixel, realSizeCanvas, frame, noIMG, DOM_ELEMENTS, imgForStroke, key, elementForHotKey};
+export {
+	canvasSize,
+	tools,
+	cordPixel,
+	realSizeCanvas,
+	frame,
+	noIMG,
+	DOM_ELEMENTS,
+	imgForStroke,
+	key,
+	elementForHotKey,
+	dragHelper
+};
