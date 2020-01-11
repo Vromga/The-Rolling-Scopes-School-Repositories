@@ -56,7 +56,6 @@ const dragHelper = {
 	copyDraggableElement: null,
 	emptyElement: null,
 	dragImage: null,
-	ulContainer: null,
 	draggableElement: null,
 
 };

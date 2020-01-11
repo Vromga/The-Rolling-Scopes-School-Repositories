@@ -4,8 +4,6 @@ import createEmptyElementForDrag from "./createElementForDrag";
 
 function startDrag(e) {
 	const sizeCanvas = localStorage.getItem('sizeCanvas');
-	// dragHelper.ulContainer = document.querySelector('.frame_container');
-	// dragHelper.ulContainer.style.height = `${dragHelper.ulContainer.clientHeight}px`;
 	dragHelper.draggableElement = e.target.closest('.frame');
 	dragHelper.draggableElement.classList.remove('droppable');
 	dragHelper.dragImage = dragHelper.draggableElement.children[0].children[0].getContext('2d').getImageData(0, 0, `${sizeCanvas}`, `${sizeCanvas}`);
